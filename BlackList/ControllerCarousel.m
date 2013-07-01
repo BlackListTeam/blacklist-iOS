@@ -1,20 +1,20 @@
 //
-//  SecondViewController.m
+//  ControllerCarousel.m
 //  BlackList
 //
-//  Created by Alberto on 20/06/13.
+//  Created by Albert on 01/07/13.
 //  Copyright (c) 2013 AndreuRM. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "ControllerCarousel.h"
 
-@interface SecondViewController ()
+@interface ControllerCarousel ()
 
 @property (nonatomic, retain) NSMutableArray *items;
 
 @end
 
-@implementation SecondViewController
+@implementation ControllerCarousel
 
 @synthesize carousel;
 @synthesize items;
@@ -108,4 +108,3 @@
 }
 
 @end
-
