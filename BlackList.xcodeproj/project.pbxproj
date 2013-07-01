@@ -147,10 +147,8 @@
 		A8CF88D2177365180051DA64 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88D1177365180051DA64 /* Default@2x.png */; };
 		A8CF88D4177365190051DA64 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88D3177365190051DA64 /* Default-568h@2x.png */; };
 		A8CF88D7177365190051DA64 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88D5177365190051DA64 /* MainStoryboard.storyboard */; };
-		A8CF88DA177365190051DA64 /* introEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CF88D9177365190051DA64 /* introEventController.m */; };
 		A8CF88DC177365190051DA64 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88DB177365190051DA64 /* first.png */; };
 		A8CF88DE177365190051DA64 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88DD177365190051DA64 /* first@2x.png */; };
-		A8CF88E1177365190051DA64 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CF88E0177365190051DA64 /* SecondViewController.m */; };
 		A8CF88E3177365190051DA64 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88E2177365190051DA64 /* second.png */; };
 		A8CF88E5177365190051DA64 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88E4177365190051DA64 /* second@2x.png */; };
 /* End PBXBuildFile section */
@@ -313,12 +311,8 @@
 		A8CF88CF177365180051DA64 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A8CF88D1177365180051DA64 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A8CF88D3177365190051DA64 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A8CF88D8177365190051DA64 /* introEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = introEventController.h; sourceTree = "<group>"; };
-		A8CF88D9177365190051DA64 /* introEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = introEventController.m; sourceTree = "<group>"; };
 		A8CF88DB177365190051DA64 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		A8CF88DD177365190051DA64 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		A8CF88DF177365190051DA64 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		A8CF88E0177365190051DA64 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		A8CF88E2177365190051DA64 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		A8CF88E4177365190051DA64 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -692,8 +686,6 @@
 				A89FFA221778B62600391A44 /* Images */,
 				A8CF88CC177365180051DA64 /* AppDelegate.h */,
 				A8CF88CD177365180051DA64 /* AppDelegate.m */,
-				A8CF88D8177365190051DA64 /* introEventController.h */,
-				A8CF88D9177365190051DA64 /* introEventController.m */,
 				A8CF88D5177365190051DA64 /* MainStoryboard.storyboard */,
 				A8CF88DB177365190051DA64 /* first.png */,
 				A8CF88DD177365190051DA64 /* first@2x.png */,
@@ -908,8 +900,6 @@
 			files = (
 				A8CF88CA177365180051DA64 /* main.m in Sources */,
 				A8CF88CE177365180051DA64 /* AppDelegate.m in Sources */,
-				A8CF88DA177365190051DA64 /* introEventController.m in Sources */,
-				A8CF88E1177365190051DA64 /* SecondViewController.m in Sources */,
 				A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */,
 				45339ECC1781D14D0044F0F1 /* SBJsonParser.m in Sources */,
 				45339ECD1781D14D0044F0F1 /* SBJsonStreamParser.m in Sources */,
