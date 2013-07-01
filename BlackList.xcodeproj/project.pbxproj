@@ -303,34 +303,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		45339EB61781D11F0044F0F1 /* SBJson */ = {
-			isa = PBXGroup;
-			children = (
-				45339EB71781D14D0044F0F1 /* SBJson.h */,
-				45339EB81781D14D0044F0F1 /* SBJsonParser.h */,
-				45339EB91781D14D0044F0F1 /* SBJsonParser.m */,
-				45339EBA1781D14D0044F0F1 /* SBJsonStreamParser.h */,
-				45339EBB1781D14D0044F0F1 /* SBJsonStreamParser.m */,
-				45339EBC1781D14D0044F0F1 /* SBJsonStreamParserAccumulator.h */,
-				45339EBD1781D14D0044F0F1 /* SBJsonStreamParserAccumulator.m */,
-				45339EBE1781D14D0044F0F1 /* SBJsonStreamParserAdapter.h */,
-				45339EBF1781D14D0044F0F1 /* SBJsonStreamParserAdapter.m */,
-				45339EC01781D14D0044F0F1 /* SBJsonStreamParserState.h */,
-				45339EC11781D14D0044F0F1 /* SBJsonStreamParserState.m */,
-				45339EC21781D14D0044F0F1 /* SBJsonStreamTokeniser.h */,
-				45339EC31781D14D0044F0F1 /* SBJsonStreamTokeniser.m */,
-				45339EC41781D14D0044F0F1 /* SBJsonStreamWriter.h */,
-				45339EC51781D14D0044F0F1 /* SBJsonStreamWriter.m */,
-				45339EC61781D14D0044F0F1 /* SBJsonStreamWriterAccumulator.h */,
-				45339EC71781D14D0044F0F1 /* SBJsonStreamWriterAccumulator.m */,
-				45339EC81781D14D0044F0F1 /* SBJsonStreamWriterState.h */,
-				45339EC91781D14D0044F0F1 /* SBJsonStreamWriterState.m */,
-				45339ECA1781D14D0044F0F1 /* SBJsonWriter.h */,
-				45339ECB1781D14D0044F0F1 /* SBJsonWriter.m */,
-			);
-			name = SBJson;
-			sourceTree = "<group>";
-		};
 		A89D25A6177EDF4600F10202 /* iCarousel */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,12 +329,8 @@
 		A89D25B0177EE46C00F10202 /* Controlador */ = {
 			isa = PBXGroup;
 			children = (
-				45339ED61781D2100044F0F1 /* promoterCodeViewController.h */,
-				45339ED71781D2100044F0F1 /* promoterCodeViewController.m */,
-				45339ED91781D69D0044F0F1 /* jsonParser.h */,
-				45339EDA1781D69D0044F0F1 /* jsonParser.m */,
-				45339EDC1781DA8E0044F0F1 /* webServiceCaller.h */,
-				45339EDD1781DA8E0044F0F1 /* webServiceCaller.m */,
+				A89689841781D197001682B0 /* ControllerCarousel.h */,
+				A89689851781D197001682B0 /* ControllerCarousel.m */,
 			);
 			name = Controlador;
 			sourceTree = "<group>";
@@ -651,7 +619,6 @@
 		A8CF88C3177365180051DA64 /* BlackList */ = {
 			isa = PBXGroup;
 			children = (
-				45339EB61781D11F0044F0F1 /* SBJson */,
 				A89D25B0177EE46C00F10202 /* Controlador */,
 				A89D25AF177EE46700F10202 /* Vista */,
 				A89D25AE177EE46000F10202 /* Model */,
