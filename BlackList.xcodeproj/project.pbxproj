@@ -18,6 +18,8 @@
 		45339ED41781D14D0044F0F1 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 45339EC91781D14D0044F0F1 /* SBJsonStreamWriterState.m */; };
 		45339ED51781D14D0044F0F1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45339ECB1781D14D0044F0F1 /* SBJsonWriter.m */; };
 		45339ED81781D2100044F0F1 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45339ED71781D2100044F0F1 /* promoterCodeViewController.m */; };
+		45339EDB1781D69D0044F0F1 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 45339EDA1781D69D0044F0F1 /* jsonParser.m */; };
+		45339EDE1781DA8E0044F0F1 /* webServiceCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 45339EDD1781DA8E0044F0F1 /* webServiceCaller.m */; };
 		A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D25A8177EDF4600F10202 /* iCarousel.m */; };
 		A89D25AB177EDFEF00F10202 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89D25AA177EDFEF00F10202 /* QuartzCore.framework */; };
 		A89D25AD177EE1EB00F10202 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A89D25AC177EE1EB00F10202 /* page.png */; };
@@ -177,6 +179,10 @@
 		45339ECB1781D14D0044F0F1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		45339ED61781D2100044F0F1 /* promoterCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = promoterCodeViewController.h; sourceTree = "<group>"; };
 		45339ED71781D2100044F0F1 /* promoterCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = promoterCodeViewController.m; sourceTree = "<group>"; };
+		45339ED91781D69D0044F0F1 /* jsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonParser.h; sourceTree = "<group>"; };
+		45339EDA1781D69D0044F0F1 /* jsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jsonParser.m; sourceTree = "<group>"; };
+		45339EDC1781DA8E0044F0F1 /* webServiceCaller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webServiceCaller.h; sourceTree = "<group>"; };
+		45339EDD1781DA8E0044F0F1 /* webServiceCaller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webServiceCaller.m; sourceTree = "<group>"; };
 		A89D25A7177EDF4600F10202 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		A89D25A8177EDF4600F10202 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A89D25AA177EDFEF00F10202 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -386,10 +392,12 @@
 		A89D25B0177EE46C00F10202 /* Controlador */ = {
 			isa = PBXGroup;
 			children = (
-				A8CF88DF177365190051DA64 /* SecondViewController.h */,
-				A8CF88E0177365190051DA64 /* SecondViewController.m */,
 				45339ED61781D2100044F0F1 /* promoterCodeViewController.h */,
 				45339ED71781D2100044F0F1 /* promoterCodeViewController.m */,
+				45339ED91781D69D0044F0F1 /* jsonParser.h */,
+				45339EDA1781D69D0044F0F1 /* jsonParser.m */,
+				45339EDC1781DA8E0044F0F1 /* webServiceCaller.h */,
+				45339EDD1781DA8E0044F0F1 /* webServiceCaller.m */,
 			);
 			name = Controlador;
 			sourceTree = "<group>";
@@ -912,6 +920,8 @@
 				45339ED41781D14D0044F0F1 /* SBJsonStreamWriterState.m in Sources */,
 				45339ED51781D14D0044F0F1 /* SBJsonWriter.m in Sources */,
 				45339ED81781D2100044F0F1 /* promoterCodeViewController.m in Sources */,
+				45339EDB1781D69D0044F0F1 /* jsonParser.m in Sources */,
+				45339EDE1781DA8E0044F0F1 /* webServiceCaller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+               
     }
     return self;
 }
@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +34,38 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+    if([jsonParser parseValidatePromoterCode:webData]){
+        NSLog(@"OK");
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Código de promotor incorrecto"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cerrar"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (IBAction)onClickOk:(UIButton *)sender {
+    webData = [NSMutableData data];
+	[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
+}
 @end

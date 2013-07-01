@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "webServiceCaller.h"
+#import "jsonParser.h"
+
+
 
 @interface promoterCodeViewController : UIViewController
 
+<NSURLConnectionDelegate>
+{
+    @private NSMutableData *webData;
+    IBOutlet UITextField *promoterCode;
+}
+
+- (IBAction)onClickOk:(UIButton *)sender;
 @end
