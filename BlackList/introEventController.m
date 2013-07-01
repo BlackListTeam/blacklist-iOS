@@ -1,20 +1,20 @@
 //
-//  SecondViewController.m
+//  introEventController.m
 //  BlackList
 //
 //  Created by Albert on 20/06/13.
 //  Copyright (c) 2013 AndreuRM. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "introEventController.h"
 
-@interface SecondViewController ()
+@interface introEventController ()
 
 @property (nonatomic, retain) NSMutableArray *items;
 
 @end
 
-@implementation SecondViewController
+@implementation introEventController
 
 @synthesize carousel;
 @synthesize items;
@@ -108,4 +108,3 @@
 }
 
 @end
-

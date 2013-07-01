@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  BlackList
 //
 //  Created by Albert on 20/06/13.
@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 
-@interface SecondViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
+@interface introEventController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
-
 
 @end
