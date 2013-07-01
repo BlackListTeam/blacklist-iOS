@@ -52,7 +52,7 @@
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    if([jsonParser parseValidatePromoterCode:webData]){
+    if(![jsonParser parseValidatePromoterCode:webData]){
         NSLog(@"OK");
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"

@@ -87,7 +87,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onClickOk:" destination="q9G-a6-sUu" eventType="touchUpInside" id="0Sm-nX-dey"/>
+                                    <action selector="onClickOk:" destination="q9G-a6-sUu" eventType="touchUpInside" id="57p-KM-ft1"/>
                                     <segue destination="6D7-sP-65w" kind="modal" id="vld-BF-GWa"/>
                                 </connections>
                             </button>
@@ -112,7 +112,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="promoterCode" destination="l4E-fm-tB5" id="VoJ-4l-MtT"/>
+                        <outlet property="promoterCode" destination="l4E-fm-tB5" id="Z0b-nK-c28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwm-i8-RiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1368,6 +1368,31 @@
         <image name="sitio.png" width="89" height="26"/>
         <image name="sitioS.png" width="96" height="26"/>
     </resources>
+    <classes>
+        <class className="ControllerCarousel" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ControllerCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="promoterCodeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/promoterCodeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onClickOk:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="promoterCode" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
