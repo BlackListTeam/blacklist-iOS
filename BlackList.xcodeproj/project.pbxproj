@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A89689861781D197001682B0 /* ControllerCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89689851781D197001682B0 /* ControllerCarousel.m */; };
-		A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D25A8177EDF4600F10202 /* iCarousel.m */; };
+		A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D25A8177EDF4600F10202 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A89D25AB177EDFEF00F10202 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89D25AA177EDFEF00F10202 /* QuartzCore.framework */; };
 		A89D25AD177EE1EB00F10202 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A89D25AC177EE1EB00F10202 /* page.png */; };
 		A8A27C2A1773B06000E8CFD1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A27C291773B06000E8CFD1 /* Default.png */; };
@@ -144,6 +145,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 		A89689841781D197001682B0 /* ControllerCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerCarousel.h; sourceTree = "<group>"; };
 		A89689851781D197001682B0 /* ControllerCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerCarousel.m; sourceTree = "<group>"; };
 		A89D25A7177EDF4600F10202 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 		A8CF88C4177365180051DA64 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A85E94EC1781E3E70078F165 /* Images.plist */,
 				A8CF88C5177365180051DA64 /* BlackList-Info.plist */,
 				A8CF88C6177365180051DA64 /* InfoPlist.strings */,
 				A8CF88C9177365180051DA64 /* main.m */,
@@ -826,6 +829,7 @@
 				A8A2B04A177DFBC000B72A54 /* sitioS.png in Resources */,
 				A8A2B04B177DFBC000B72A54 /* sitioS@2x.png in Resources */,
 				A89D25AD177EE1EB00F10202 /* page.png in Resources */,
+				A85E94ED1781E3E70078F165 /* Images.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,8 +842,8 @@
 			files = (
 				A8CF88CA177365180051DA64 /* main.m in Sources */,
 				A8CF88CE177365180051DA64 /* AppDelegate.m in Sources */,
-				A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */,
 				A89689861781D197001682B0 /* ControllerCarousel.m in Sources */,
+				A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

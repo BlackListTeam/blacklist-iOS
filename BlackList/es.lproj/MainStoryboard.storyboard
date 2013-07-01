@@ -115,31 +115,6 @@
             </objects>
             <point key="canvasLocation" x="-1308" y="150"/>
         </scene>
-        <!--Controller Carousel-->
-        <scene sceneID="owu-r5-8HE">
-            <objects>
-                <viewController id="I19-EQ-Csq" customClass="ControllerCarousel" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="c0f-39-XHB">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-4t-JqC" userLabel="iCarousel" customClass="iCarousel">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="d4Y-4t-JqC" secondAttribute="bottom" constant="-10" id="OrY-98-xsd"/>
-                            <constraint firstItem="d4Y-4t-JqC" firstAttribute="trailing" secondItem="c0f-39-XHB" secondAttribute="trailing" type="default" id="bic-85-mB0"/>
-                            <constraint firstItem="d4Y-4t-JqC" firstAttribute="leading" secondItem="c0f-39-XHB" secondAttribute="leading" type="default" id="iuf-q7-7gq"/>
-                            <constraint firstItem="d4Y-4t-JqC" firstAttribute="top" secondItem="c0f-39-XHB" secondAttribute="top" constant="10" id="rWm-ZN-Wf5"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xpc-QG-vHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-897" y="1020"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="me8-Mn-qKR">
             <objects>
@@ -231,6 +206,53 @@
             </objects>
             <point key="canvasLocation" x="726" y="383"/>
         </scene>
+        <!--Controller Carousel-->
+        <scene sceneID="RBo-KI-EcP">
+            <objects>
+                <viewController id="vWy-dr-byP" customClass="ControllerCarousel" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QgW-na-QWy">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="4.BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Mk-lA-Ndo">
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRl-aA-oJ8" userLabel="iCarousel" customClass="iCarousel">
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vWy-dr-byP" id="FFf-zI-7rf"/>
+                                    <outlet property="delegate" destination="vWy-dr-byP" id="zFw-Rf-8XJ"/>
+                                </connections>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="4.Label-PRÓXIMO-EVENTO@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-wE-yvT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="X01-Oc-sSK"/>
+                                    <constraint firstAttribute="width" constant="240" id="c7J-GE-TjA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nRl-aA-oJ8" firstAttribute="leading" secondItem="QgW-na-QWy" secondAttribute="leading" type="default" id="Cxz-AB-PQp"/>
+                            <constraint firstItem="5Mk-lA-Ndo" firstAttribute="leading" secondItem="QgW-na-QWy" secondAttribute="leading" type="default" id="DN0-zb-7vJ"/>
+                            <constraint firstItem="nRl-aA-oJ8" firstAttribute="trailing" secondItem="QgW-na-QWy" secondAttribute="trailing" type="default" id="DQl-2q-xmp"/>
+                            <constraint firstItem="5Mk-lA-Ndo" firstAttribute="top" secondItem="QgW-na-QWy" secondAttribute="top" type="default" id="JqU-qM-Gut"/>
+                            <constraint firstItem="nRl-aA-oJ8" firstAttribute="top" secondItem="QgW-na-QWy" secondAttribute="top" constant="108" id="OcG-n3-XyW"/>
+                            <constraint firstItem="nRl-aA-oJ8" firstAttribute="centerX" secondItem="SKU-wE-yvT" secondAttribute="centerX" type="default" id="Qx3-vv-rBo"/>
+                            <constraint firstItem="SKU-wE-yvT" firstAttribute="top" secondItem="QgW-na-QWy" secondAttribute="top" constant="51" id="ZoU-Nl-crc"/>
+                            <constraint firstAttribute="bottom" secondItem="nRl-aA-oJ8" secondAttribute="bottom" constant="51" id="dUP-oF-0L9"/>
+                            <constraint firstItem="5Mk-lA-Ndo" firstAttribute="bottom" secondItem="QgW-na-QWy" secondAttribute="bottom" type="default" id="esK-lm-Fd5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pz1-e9-ii8"/>
+                    <connections>
+                        <outlet property="carousel" destination="nRl-aA-oJ8" id="pmy-xL-3kT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTw-NE-Eqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="-209"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="VgY-Pp-vLZ">
             <objects>
@@ -241,7 +263,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="zxJ-OC-8rO" kind="relationship" relationship="rootViewController" id="xhy-co-awb"/>
+                        <segue destination="vWy-dr-byP" kind="relationship" relationship="rootViewController" id="FKl-g0-cNT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pw-rx-GTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -441,48 +463,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG6-7n-dKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="726" y="-821"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Z3c-sd-Ffk">
-            <objects>
-                <viewController id="zxJ-OC-8rO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aT1-5a-vRP">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="4.--_0000s_0001_BG.png" translatesAutoresizingMaskIntoConstraints="NO" id="dNc-nB-fvd"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="4.BG@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="qGh-00-nUQ"/>
-                            <imageView userInteractionEnabled="NO" contentMode="center" image="4.Label-PRÓXIMO-EVENTO@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-wE-yvT">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="X01-Oc-sSK"/>
-                                    <constraint firstAttribute="width" constant="240" id="c7J-GE-TjA"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qGh-00-nUQ" firstAttribute="trailing" secondItem="aT1-5a-vRP" secondAttribute="trailing" type="default" id="5iF-RR-oXu"/>
-                            <constraint firstItem="SKU-wE-yvT" firstAttribute="leading" secondItem="aT1-5a-vRP" secondAttribute="leading" constant="45" id="CB2-EH-15r"/>
-                            <constraint firstItem="dNc-nB-fvd" firstAttribute="leading" secondItem="aT1-5a-vRP" secondAttribute="leading" type="default" id="PvG-Al-cDA"/>
-                            <constraint firstItem="dNc-nB-fvd" firstAttribute="trailing" secondItem="aT1-5a-vRP" secondAttribute="trailing" type="default" id="QOz-cb-2Fp"/>
-                            <constraint firstItem="qGh-00-nUQ" firstAttribute="leading" secondItem="aT1-5a-vRP" secondAttribute="leading" type="default" id="THl-OQ-DiZ"/>
-                            <constraint firstItem="qGh-00-nUQ" firstAttribute="centerY" secondItem="dNc-nB-fvd" secondAttribute="centerY" type="default" id="YiV-PQ-wD1"/>
-                            <constraint firstItem="dNc-nB-fvd" firstAttribute="bottom" secondItem="aT1-5a-vRP" secondAttribute="bottom" type="default" id="ZoU-iE-mxR"/>
-                            <constraint firstItem="dNc-nB-fvd" firstAttribute="top" secondItem="aT1-5a-vRP" secondAttribute="top" type="default" id="cf8-4g-ALg"/>
-                            <constraint firstItem="qGh-00-nUQ" firstAttribute="top" secondItem="aT1-5a-vRP" secondAttribute="top" type="default" id="sKS-Mf-PB3"/>
-                            <constraint firstItem="SKU-wE-yvT" firstAttribute="top" secondItem="aT1-5a-vRP" secondAttribute="top" constant="55" id="v7b-6c-oGc"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" tag="-3" title="" image="0.homeS.png" id="5eI-hB-drd"/>
-                    <navigationItem key="navigationItem" id="Xn6-gt-luu"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="carousel" destination="qGh-00-nUQ" id="AzM-eH-ByJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AKF-Ug-MED" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1096" y="-209"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GAC-MG-Gvh">
@@ -1367,8 +1347,7 @@
         <image name="3.BG@2x.png" width="640" height="960"/>
         <image name="3.ButtonProblemas@2x.png" width="274" height="43"/>
         <image name="3.ButtonSolicitar@2x.png" width="227" height="44"/>
-        <image name="4.--_0000s_0001_BG.png" width="16" height="16"/>
-        <image name="4.BG@2x.png" width="640" height="960"/>
+        <image name="4.BG.png" width="320" height="480"/>
         <image name="4.Label-PRÓXIMO-EVENTO@2x.png" width="202" height="74"/>
         <image name="5.BG@2x.png" width="640" height="960"/>
         <image name="5.ButtonReservarAcceso.png" width="165" height="26"/>

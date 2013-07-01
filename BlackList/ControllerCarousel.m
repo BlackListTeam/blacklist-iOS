@@ -76,7 +76,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    UILabel *label = nil;
+    /*UILabel *label = nil;
     
     //create new view if no view is available for recycling
     if (view == nil)
@@ -104,7 +104,40 @@
     //in the wrong place in the carousel
     label.text = [[items objectAtIndex:index] stringValue];
     
-    return view;
+    return view;*/
+    
+    UIButton *button = (UIButton *)view;
+	if (button == nil)
+	{
+		//no button available to recycle, so create new one
+		UIImage *image = [UIImage imageNamed:@"page.png"];
+		button = [UIButton buttonWithType:UIButtonTypeCustom];
+		button.frame = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+		[button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+		[button setBackgroundImage:image forState:UIControlStateNormal];
+		button.titleLabel.font = [button.titleLabel.font fontWithSize:50];
+		[button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+	}
+	
+	//set button label
+	[button setTitle:[NSString stringWithFormat:@"%i", index] forState:UIControlStateNormal];
+	
+	return button;
+
+}
+#pragma mark -
+#pragma mark Button tap event
+
+- (void)buttonTapped:(UIButton *)sender
+{
+	//get item index for button
+	NSInteger index = [carousel indexOfItemViewOrSubview:sender];
+	
+    /*[[[[UIAlertView alloc] initWithTitle:@"Button Tapped"
+                                 message:[NSString stringWithFormat:@"You tapped button number %i", index]
+                                delegate:nil
+                       cancelButtonTitle:@"OK"
+                       otherButtonTitles:nil] autorelease] show];*/
 }
 
 @end
