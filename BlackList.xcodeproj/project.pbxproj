@@ -10,6 +10,7 @@
 		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		458666AA1783253A00C63591 /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A91783253A00C63591 /* Reservation.m */; };
 		458666AD1783260500C63591 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666AC1783260500C63591 /* Party.m */; };
+		458666DA178344F300C63591 /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666D9178344F300C63591 /* utils.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
 		A85E94F51781EC0A0078F165 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94F21781EC0A0078F165 /* jsonParser.m */; };
@@ -180,6 +181,8 @@
 		458666A91783253A00C63591 /* Reservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
 		458666AB1783260500C63591 /* Party.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Party.h; sourceTree = "<group>"; };
 		458666AC1783260500C63591 /* Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Party.m; sourceTree = "<group>"; };
+		458666D8178344F300C63591 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		458666D9178344F300C63591 /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 		A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = promoterCodeViewController.h; sourceTree = "<group>"; };
 		A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = promoterCodeViewController.m; sourceTree = "<group>"; };
@@ -453,6 +456,8 @@
 			children = (
 				A85E94F11781EC0A0078F165 /* jsonParser.h */,
 				A85E94F21781EC0A0078F165 /* jsonParser.m */,
+				458666D8178344F300C63591 /* utils.h */,
+				458666D9178344F300C63591 /* utils.m */,
 				A85E94F31781EC0A0078F165 /* webServiceCaller.h */,
 				A85E94F41781EC0A0078F165 /* webServiceCaller.m */,
 				A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */,
@@ -1028,6 +1033,7 @@
 				A8BD3E0917833BBE006E80EC /* InviteViewController.m in Sources */,
 				A8BD3E0C17833C08006E80EC /* RegisterViewController.m in Sources */,
 				A8BD3E0F17833C33006E80EC /* PromoterCodeOKViewController.m in Sources */,
+				458666DA178344F300C63591 /* utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
