@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A858609D1782084600F83F6A /* DetailsEventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
 		A85E94F51781EC0A0078F165 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94F21781EC0A0078F165 /* jsonParser.m */; };
@@ -111,6 +112,7 @@
 		A8AD2122177CAD6300090305 /* 15.1.BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AD211E177CAD6300090305 /* 15.1.BG@2x.png */; };
 		A8AD2123177CAD6300090305 /* 15.1.SectionMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AD211F177CAD6300090305 /* 15.1.SectionMessage.png */; };
 		A8AD2124177CAD6300090305 /* 15.1.SectionMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AD2120177CAD6300090305 /* 15.1.SectionMessage@2x.png */; };
+		A8B40C7617821B020011ADBD /* PicturesEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B40C7517821B020011ADBD /* PicturesEventViewController.m */; };
 		A8CAB86C177C725C00F3B802 /* 0.BG.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CAB84B177C725C00F3B802 /* 0.BG.png */; };
 		A8CAB86D177C725C00F3B802 /* 0.BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CAB84C177C725C00F3B802 /* 0.BG@2x.png */; };
 		A8CAB86E177C725C00F3B802 /* 0.InputNEGRE.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CAB84D177C725C00F3B802 /* 0.InputNEGRE.png */; };
@@ -158,6 +160,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A858609B1782084600F83F6A /* DetailsEventInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventInfoViewController.h; sourceTree = "<group>"; };
+		A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventInfoViewController.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 		A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = promoterCodeViewController.h; sourceTree = "<group>"; };
 		A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = promoterCodeViewController.m; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 		A8AD211E177CAD6300090305 /* 15.1.BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15.1.BG@2x.png"; sourceTree = "<group>"; };
 		A8AD211F177CAD6300090305 /* 15.1.SectionMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.1.SectionMessage.png; sourceTree = "<group>"; };
 		A8AD2120177CAD6300090305 /* 15.1.SectionMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15.1.SectionMessage@2x.png"; sourceTree = "<group>"; };
+		A8B40C7417821B020011ADBD /* PicturesEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesEventViewController.h; sourceTree = "<group>"; };
+		A8B40C7517821B020011ADBD /* PicturesEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesEventViewController.m; sourceTree = "<group>"; };
 		A8CAB84B177C725C00F3B802 /* 0.BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.BG.png; sourceTree = "<group>"; };
 		A8CAB84C177C725C00F3B802 /* 0.BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0.BG@2x.png"; sourceTree = "<group>"; };
 		A8CAB84D177C725C00F3B802 /* 0.InputNEGRE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.InputNEGRE.png; sourceTree = "<group>"; };
@@ -405,6 +411,10 @@
 				A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */,
 				A89689841781D197001682B0 /* ControllerCarousel.h */,
 				A89689851781D197001682B0 /* ControllerCarousel.m */,
+				A858609B1782084600F83F6A /* DetailsEventInfoViewController.h */,
+				A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */,
+				A8B40C7417821B020011ADBD /* PicturesEventViewController.h */,
+				A8B40C7517821B020011ADBD /* PicturesEventViewController.m */,
 			);
 			name = Controlador;
 			sourceTree = "<group>";
@@ -932,6 +942,8 @@
 				A85E95141781EC300078F165 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				A85E95151781EC300078F165 /* SBJsonStreamWriterState.m in Sources */,
 				A85E95161781EC300078F165 /* SBJsonWriter.m in Sources */,
+				A858609D1782084600F83F6A /* DetailsEventInfoViewController.m in Sources */,
+				A8B40C7617821B020011ADBD /* PicturesEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
