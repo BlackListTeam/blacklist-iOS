@@ -1,20 +1,20 @@
 //
-//  ControllerCarousel.m
+//  EventsViewController.m
 //  BlackList
 //
 //  Created by Albert on 01/07/13.
 //  Copyright (c) 2013 AndreuRM. All rights reserved.
 //
 
-#import "ControllerCarousel.h"
+#import "EventsViewController.h"
 
-@interface ControllerCarousel ()
+@interface EventsViewController ()
 
 @property (nonatomic, retain) NSMutableArray *items;
 
 @end
 
-@implementation ControllerCarousel
+@implementation EventsViewController
 
 @synthesize carousel;
 @synthesize items;

@@ -1,5 +1,5 @@
 //
-//  ControllerCarousel.h
+//  EventsViewController.h
 //  BlackList
 //
 //  Created by Albert on 01/07/13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 
-@interface ControllerCarousel : UIViewController <iCarouselDataSource, iCarouselDelegate>
+@interface EventsViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
