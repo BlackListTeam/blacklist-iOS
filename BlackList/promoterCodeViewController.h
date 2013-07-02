@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "webServiceCaller.h"
 #import "jsonParser.h"
+#import "User.h"
 
 
 

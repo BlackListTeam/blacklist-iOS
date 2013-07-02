@@ -15,6 +15,35 @@
     NSString *errorMessage;
 }
 
++ (Boolean) authError;
+
++ (NSString *) errorMessage;
+
 + (Boolean) parseValidatePromoterCode:(NSMutableData *) webData;
+
++ (Boolean) parseAddUser:(NSMutableData *) webData;
+
++ (Boolean) parseLogin:(NSMutableData *) webData;
+
++ (Boolean) parseGetPartyCovers:(NSMutableData *) webData;
+
++ (Boolean) parseGetParty:(NSMutableData *) webData;
+
++ (Boolean) parseGetPartyGallery:(NSMutableData *) webData;
+
++ (Boolean) parseGetCurrentReservation:(NSMutableData *) webData;
+
++ (Boolean) parseMakeReservation:(NSMutableData *) webData;
+
++ (Boolean) parseEditReservation:(NSMutableData *) webData;
+
++ (Boolean) parseDeleteReservation:(NSMutableData *) webData;
+
++ (Boolean) parseGetMessages:(NSMutableData *) webData;
+
++ (Boolean) parseReplyMessage:(NSMutableData *) webData;
+
++ (Boolean) parseSendInvitation:(NSMutableData *) webData;
+
 
 @end

@@ -52,20 +52,30 @@
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    if(![jsonParser parseValidatePromoterCode:webData]){
-        NSLog(@"OK");
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Código de promotor incorrecto"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cerrar"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+    [jsonParser parseAddUser:webData];
+    
+    
+    /*   if([jsonParser parseValidatePromoterCode:webData]){
+     NSLog(@"OK");
+     
+     
+     }else{
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+     message:@"Código de promotor incorrecto"
+     delegate:self
+     cancelButtonTitle:@"Cerrar"
+     otherButtonTitles:nil];
+     [alert show];
+     }*/
 }
 
 - (IBAction)onClickOk:(UIButton *)sender {
     webData = [NSMutableData data];
-	[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
-}
+    
+	//[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
+    [webServiceCaller addUser: [[User alloc] initWithName:@"Nom"
+                                                 andEmail:@"Email"
+                                             andBirthYear:@"1234"]
+             withPromoterCode:@"TEST123"
+                andDelegateTo: self];}
 @end
