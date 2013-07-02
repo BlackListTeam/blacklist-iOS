@@ -35,6 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)redireccioMailContacta:(UIButton *)sender {
+- (IBAction)contactaEmail:(UIButton *)sender {
 }
 @end

@@ -1,8 +1,8 @@
 //
-//  DetailsEventViewController.m
+//  DetailsEventInfoViewController.m
 //  BlackList
 //
-//  Created by Albert on 01/07/13.
+//  Created by Albert on 02/07/13.
 //  Copyright (c) 2013 AndreuRM. All rights reserved.
 //
 

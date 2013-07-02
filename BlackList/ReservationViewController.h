@@ -10,4 +10,6 @@
 
 @interface ReservationViewController : UIViewController
 
+- (IBAction)reservationOK:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UIButton *contactoReservaEspecial;
 @end

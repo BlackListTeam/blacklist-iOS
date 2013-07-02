@@ -10,8 +10,4 @@
 
 @interface CodeEntranceViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UITextField *email;
-
-- (IBAction)inviteCode:(UIButton *)sender;
-
 @end

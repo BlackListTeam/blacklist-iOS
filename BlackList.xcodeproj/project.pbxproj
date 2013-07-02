@@ -10,7 +10,6 @@
 		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		458666AA1783253A00C63591 /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A91783253A00C63591 /* Reservation.m */; };
 		458666AD1783260500C63591 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666AC1783260500C63591 /* Party.m */; };
-		A858609D1782084600F83F6A /* DetailsEventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
 		A85E94F51781EC0A0078F165 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94F21781EC0A0078F165 /* jsonParser.m */; };
@@ -116,6 +115,18 @@
 		A8AD2123177CAD6300090305 /* 15.1.SectionMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AD211F177CAD6300090305 /* 15.1.SectionMessage.png */; };
 		A8AD2124177CAD6300090305 /* 15.1.SectionMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AD2120177CAD6300090305 /* 15.1.SectionMessage@2x.png */; };
 		A8B40C7617821B020011ADBD /* PicturesEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B40C7517821B020011ADBD /* PicturesEventViewController.m */; };
+		A8BD3DDF178338DB006E80EC /* AnswerMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DDE178338DA006E80EC /* AnswerMessageViewController.m */; };
+		A8BD3DE517833955006E80EC /* WriteMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DE417833955006E80EC /* WriteMessageViewController.m */; };
+		A8BD3DE817833971006E80EC /* ListMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DE717833970006E80EC /* ListMessagesViewController.m */; };
+		A8BD3DEB178339A3006E80EC /* CodeEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DEA178339A3006E80EC /* CodeEntranceViewController.m */; };
+		A8BD3DEE178339BE006E80EC /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DED178339BB006E80EC /* ReservationViewController.m */; };
+		A8BD3DF1178339F2006E80EC /* DetailsEventSitioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DF0178339F1006E80EC /* DetailsEventSitioViewController.m */; };
+		A8BD3DF717833A10006E80EC /* DetailsEventPrecioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3DF617833A0F006E80EC /* DetailsEventPrecioViewController.m */; };
+		A8BD3E0317833B6E006E80EC /* FormLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3E0217833B6E006E80EC /* FormLoginViewController.m */; };
+		A8BD3E0617833B8F006E80EC /* DetailsEventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3E0517833B8E006E80EC /* DetailsEventInfoViewController.m */; };
+		A8BD3E0917833BBE006E80EC /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3E0817833BBC006E80EC /* InviteViewController.m */; };
+		A8BD3E0C17833C08006E80EC /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3E0B17833C07006E80EC /* RegisterViewController.m */; };
+		A8BD3E0F17833C33006E80EC /* PromoterCodeOKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD3E0E17833C33006E80EC /* PromoterCodeOKViewController.m */; };
 		A8CAB86C177C725C00F3B802 /* 0.BG.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CAB84B177C725C00F3B802 /* 0.BG.png */; };
 		A8CAB86D177C725C00F3B802 /* 0.BG@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CAB84C177C725C00F3B802 /* 0.BG@2x.png */; };
 		A8CAB86E177C725C00F3B802 /* 0.InputNEGRE.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CAB84D177C725C00F3B802 /* 0.InputNEGRE.png */; };
@@ -160,17 +171,6 @@
 		A8CF88DE177365190051DA64 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88DD177365190051DA64 /* first@2x.png */; };
 		A8CF88E3177365190051DA64 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88E2177365190051DA64 /* second.png */; };
 		A8CF88E5177365190051DA64 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88E4177365190051DA64 /* second@2x.png */; };
-		A8D38C46178328B6009E8C92 /* PromoterCodeOKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C45178328B6009E8C92 /* PromoterCodeOKViewController.m */; };
-		A8D38C4917832931009E8C92 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C4817832931009E8C92 /* RegisterViewController.m */; };
-		A8D38C4C17832A9A009E8C92 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C4B17832A9A009E8C92 /* InviteViewController.m */; };
-		A8D38C4F17832ABC009E8C92 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C4E17832ABC009E8C92 /* LoginViewController.m */; };
-		A8D38C5217832B4A009E8C92 /* DetailsEventPrecioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5117832B4A009E8C92 /* DetailsEventPrecioViewController.m */; };
-		A8D38C5517832B5F009E8C92 /* DetailsEventSitioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5417832B5F009E8C92 /* DetailsEventSitioViewController.m */; };
-		A8D38C5817832B9D009E8C92 /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5717832B9C009E8C92 /* ReservationViewController.m */; };
-		A8D38C5B17832BDA009E8C92 /* CodeEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5A17832BDA009E8C92 /* CodeEntranceViewController.m */; };
-		A8D38C5E17832C09009E8C92 /* ListMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5D17832C09009E8C92 /* ListMessagesViewController.m */; };
-		A8D38C6117832C29009E8C92 /* WriteMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C6017832C29009E8C92 /* WriteMessageViewController.m */; };
-		A8D38C6417832C71009E8C92 /* AnswerMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C6317832C71009E8C92 /* AnswerMessageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,8 +180,6 @@
 		458666A91783253A00C63591 /* Reservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
 		458666AB1783260500C63591 /* Party.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Party.h; sourceTree = "<group>"; };
 		458666AC1783260500C63591 /* Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Party.m; sourceTree = "<group>"; };
-		A858609B1782084600F83F6A /* DetailsEventInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventInfoViewController.h; sourceTree = "<group>"; };
-		A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventInfoViewController.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 		A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = promoterCodeViewController.h; sourceTree = "<group>"; };
 		A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = promoterCodeViewController.m; sourceTree = "<group>"; };
@@ -306,6 +304,30 @@
 		A8AD2120177CAD6300090305 /* 15.1.SectionMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15.1.SectionMessage@2x.png"; sourceTree = "<group>"; };
 		A8B40C7417821B020011ADBD /* PicturesEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesEventViewController.h; sourceTree = "<group>"; };
 		A8B40C7517821B020011ADBD /* PicturesEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesEventViewController.m; sourceTree = "<group>"; };
+		A8BD3DDD178338DA006E80EC /* AnswerMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerMessageViewController.h; sourceTree = "<group>"; };
+		A8BD3DDE178338DA006E80EC /* AnswerMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerMessageViewController.m; sourceTree = "<group>"; };
+		A8BD3DE317833954006E80EC /* WriteMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteMessageViewController.h; sourceTree = "<group>"; };
+		A8BD3DE417833955006E80EC /* WriteMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteMessageViewController.m; sourceTree = "<group>"; };
+		A8BD3DE617833970006E80EC /* ListMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMessagesViewController.h; sourceTree = "<group>"; };
+		A8BD3DE717833970006E80EC /* ListMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListMessagesViewController.m; sourceTree = "<group>"; };
+		A8BD3DE9178339A2006E80EC /* CodeEntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeEntranceViewController.h; sourceTree = "<group>"; };
+		A8BD3DEA178339A3006E80EC /* CodeEntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeEntranceViewController.m; sourceTree = "<group>"; };
+		A8BD3DEC178339BA006E80EC /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
+		A8BD3DED178339BB006E80EC /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
+		A8BD3DEF178339F0006E80EC /* DetailsEventSitioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventSitioViewController.h; sourceTree = "<group>"; };
+		A8BD3DF0178339F1006E80EC /* DetailsEventSitioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventSitioViewController.m; sourceTree = "<group>"; };
+		A8BD3DF517833A0F006E80EC /* DetailsEventPrecioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventPrecioViewController.h; sourceTree = "<group>"; };
+		A8BD3DF617833A0F006E80EC /* DetailsEventPrecioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventPrecioViewController.m; sourceTree = "<group>"; };
+		A8BD3E0117833B6D006E80EC /* FormLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormLoginViewController.h; sourceTree = "<group>"; };
+		A8BD3E0217833B6E006E80EC /* FormLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormLoginViewController.m; sourceTree = "<group>"; };
+		A8BD3E0417833B8E006E80EC /* DetailsEventInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventInfoViewController.h; sourceTree = "<group>"; };
+		A8BD3E0517833B8E006E80EC /* DetailsEventInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventInfoViewController.m; sourceTree = "<group>"; };
+		A8BD3E0717833BBB006E80EC /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
+		A8BD3E0817833BBC006E80EC /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
+		A8BD3E0A17833C07006E80EC /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		A8BD3E0B17833C07006E80EC /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		A8BD3E0D17833C33006E80EC /* PromoterCodeOKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoterCodeOKViewController.h; sourceTree = "<group>"; };
+		A8BD3E0E17833C33006E80EC /* PromoterCodeOKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoterCodeOKViewController.m; sourceTree = "<group>"; };
 		A8CAB84B177C725C00F3B802 /* 0.BG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.BG.png; sourceTree = "<group>"; };
 		A8CAB84C177C725C00F3B802 /* 0.BG@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0.BG@2x.png"; sourceTree = "<group>"; };
 		A8CAB84D177C725C00F3B802 /* 0.InputNEGRE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.InputNEGRE.png; sourceTree = "<group>"; };
@@ -352,28 +374,6 @@
 		A8CF88DD177365190051DA64 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		A8CF88E2177365190051DA64 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		A8CF88E4177365190051DA64 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		A8D38C44178328B6009E8C92 /* PromoterCodeOKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoterCodeOKViewController.h; sourceTree = "<group>"; };
-		A8D38C45178328B6009E8C92 /* PromoterCodeOKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoterCodeOKViewController.m; sourceTree = "<group>"; };
-		A8D38C4717832931009E8C92 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		A8D38C4817832931009E8C92 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		A8D38C4A17832A9A009E8C92 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
-		A8D38C4B17832A9A009E8C92 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
-		A8D38C4D17832ABC009E8C92 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A8D38C4E17832ABC009E8C92 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		A8D38C5017832B4A009E8C92 /* DetailsEventPrecioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventPrecioViewController.h; sourceTree = "<group>"; };
-		A8D38C5117832B4A009E8C92 /* DetailsEventPrecioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventPrecioViewController.m; sourceTree = "<group>"; };
-		A8D38C5317832B5F009E8C92 /* DetailsEventSitioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventSitioViewController.h; sourceTree = "<group>"; };
-		A8D38C5417832B5F009E8C92 /* DetailsEventSitioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventSitioViewController.m; sourceTree = "<group>"; };
-		A8D38C5617832B9C009E8C92 /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
-		A8D38C5717832B9C009E8C92 /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
-		A8D38C5917832BDA009E8C92 /* CodeEntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeEntranceViewController.h; sourceTree = "<group>"; };
-		A8D38C5A17832BDA009E8C92 /* CodeEntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeEntranceViewController.m; sourceTree = "<group>"; };
-		A8D38C5C17832C09009E8C92 /* ListMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMessagesViewController.h; sourceTree = "<group>"; };
-		A8D38C5D17832C09009E8C92 /* ListMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListMessagesViewController.m; sourceTree = "<group>"; };
-		A8D38C5F17832C29009E8C92 /* WriteMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteMessageViewController.h; sourceTree = "<group>"; };
-		A8D38C6017832C29009E8C92 /* WriteMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteMessageViewController.m; sourceTree = "<group>"; };
-		A8D38C6217832C71009E8C92 /* AnswerMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerMessageViewController.h; sourceTree = "<group>"; };
-		A8D38C6317832C71009E8C92 /* AnswerMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerMessageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,32 +459,32 @@
 				A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */,
 				A89689841781D197001682B0 /* EventsViewController.h */,
 				A89689851781D197001682B0 /* EventsViewController.m */,
-				A858609B1782084600F83F6A /* DetailsEventInfoViewController.h */,
-				A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */,
 				A8B40C7417821B020011ADBD /* PicturesEventViewController.h */,
 				A8B40C7517821B020011ADBD /* PicturesEventViewController.m */,
-				A8D38C44178328B6009E8C92 /* PromoterCodeOKViewController.h */,
-				A8D38C45178328B6009E8C92 /* PromoterCodeOKViewController.m */,
-				A8D38C4717832931009E8C92 /* RegisterViewController.h */,
-				A8D38C4817832931009E8C92 /* RegisterViewController.m */,
-				A8D38C4A17832A9A009E8C92 /* InviteViewController.h */,
-				A8D38C4B17832A9A009E8C92 /* InviteViewController.m */,
-				A8D38C4D17832ABC009E8C92 /* LoginViewController.h */,
-				A8D38C4E17832ABC009E8C92 /* LoginViewController.m */,
-				A8D38C5017832B4A009E8C92 /* DetailsEventPrecioViewController.h */,
-				A8D38C5117832B4A009E8C92 /* DetailsEventPrecioViewController.m */,
-				A8D38C5317832B5F009E8C92 /* DetailsEventSitioViewController.h */,
-				A8D38C5417832B5F009E8C92 /* DetailsEventSitioViewController.m */,
-				A8D38C5617832B9C009E8C92 /* ReservationViewController.h */,
-				A8D38C5717832B9C009E8C92 /* ReservationViewController.m */,
-				A8D38C5917832BDA009E8C92 /* CodeEntranceViewController.h */,
-				A8D38C5A17832BDA009E8C92 /* CodeEntranceViewController.m */,
-				A8D38C5C17832C09009E8C92 /* ListMessagesViewController.h */,
-				A8D38C5D17832C09009E8C92 /* ListMessagesViewController.m */,
-				A8D38C5F17832C29009E8C92 /* WriteMessageViewController.h */,
-				A8D38C6017832C29009E8C92 /* WriteMessageViewController.m */,
-				A8D38C6217832C71009E8C92 /* AnswerMessageViewController.h */,
-				A8D38C6317832C71009E8C92 /* AnswerMessageViewController.m */,
+				A8BD3DDD178338DA006E80EC /* AnswerMessageViewController.h */,
+				A8BD3DDE178338DA006E80EC /* AnswerMessageViewController.m */,
+				A8BD3DE317833954006E80EC /* WriteMessageViewController.h */,
+				A8BD3DE417833955006E80EC /* WriteMessageViewController.m */,
+				A8BD3DE617833970006E80EC /* ListMessagesViewController.h */,
+				A8BD3DE717833970006E80EC /* ListMessagesViewController.m */,
+				A8BD3DE9178339A2006E80EC /* CodeEntranceViewController.h */,
+				A8BD3DEA178339A3006E80EC /* CodeEntranceViewController.m */,
+				A8BD3DEC178339BA006E80EC /* ReservationViewController.h */,
+				A8BD3DED178339BB006E80EC /* ReservationViewController.m */,
+				A8BD3DEF178339F0006E80EC /* DetailsEventSitioViewController.h */,
+				A8BD3DF0178339F1006E80EC /* DetailsEventSitioViewController.m */,
+				A8BD3DF517833A0F006E80EC /* DetailsEventPrecioViewController.h */,
+				A8BD3DF617833A0F006E80EC /* DetailsEventPrecioViewController.m */,
+				A8BD3E0117833B6D006E80EC /* FormLoginViewController.h */,
+				A8BD3E0217833B6E006E80EC /* FormLoginViewController.m */,
+				A8BD3E0417833B8E006E80EC /* DetailsEventInfoViewController.h */,
+				A8BD3E0517833B8E006E80EC /* DetailsEventInfoViewController.m */,
+				A8BD3E0717833BBB006E80EC /* InviteViewController.h */,
+				A8BD3E0817833BBC006E80EC /* InviteViewController.m */,
+				A8BD3E0A17833C07006E80EC /* RegisterViewController.h */,
+				A8BD3E0B17833C07006E80EC /* RegisterViewController.m */,
+				A8BD3E0D17833C33006E80EC /* PromoterCodeOKViewController.h */,
+				A8BD3E0E17833C33006E80EC /* PromoterCodeOKViewController.m */,
 			);
 			name = Controlador;
 			sourceTree = "<group>";
@@ -1012,11 +1012,22 @@
 				A85E95141781EC300078F165 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				A85E95151781EC300078F165 /* SBJsonStreamWriterState.m in Sources */,
 				A85E95161781EC300078F165 /* SBJsonWriter.m in Sources */,
-				A858609D1782084600F83F6A /* DetailsEventInfoViewController.m in Sources */,
 				A8B40C7617821B020011ADBD /* PicturesEventViewController.m in Sources */,
 				458666A7178323C100C63591 /* User.m in Sources */,
 				458666AA1783253A00C63591 /* Reservation.m in Sources */,
 				458666AD1783260500C63591 /* Party.m in Sources */,
+				A8BD3DDF178338DB006E80EC /* AnswerMessageViewController.m in Sources */,
+				A8BD3DE517833955006E80EC /* WriteMessageViewController.m in Sources */,
+				A8BD3DE817833971006E80EC /* ListMessagesViewController.m in Sources */,
+				A8BD3DEB178339A3006E80EC /* CodeEntranceViewController.m in Sources */,
+				A8BD3DEE178339BE006E80EC /* ReservationViewController.m in Sources */,
+				A8BD3DF1178339F2006E80EC /* DetailsEventSitioViewController.m in Sources */,
+				A8BD3DF717833A10006E80EC /* DetailsEventPrecioViewController.m in Sources */,
+				A8BD3E0317833B6E006E80EC /* FormLoginViewController.m in Sources */,
+				A8BD3E0617833B8F006E80EC /* DetailsEventInfoViewController.m in Sources */,
+				A8BD3E0917833BBE006E80EC /* InviteViewController.m in Sources */,
+				A8BD3E0C17833C08006E80EC /* RegisterViewController.m in Sources */,
+				A8BD3E0F17833C33006E80EC /* PromoterCodeOKViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

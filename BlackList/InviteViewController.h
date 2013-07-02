@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface InviteViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *email;
+- (IBAction)inviteOK:(UIButton *)sender;
 
 @end

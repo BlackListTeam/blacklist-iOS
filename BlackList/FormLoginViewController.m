@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  FormLoginViewController.m
 //  BlackList
 //
 //  Created by Albert on 02/07/13.
 //  Copyright (c) 2013 AndreuRM. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "FormLoginViewController.h"
 
-@interface LoginViewController ()
+@interface FormLoginViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation FormLoginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,9 +38,9 @@
 - (IBAction)loginOK:(UIButton *)sender {
 }
 
-- (IBAction)problemasParaAcceder:(UIButton *)sender {
+- (IBAction)solicitarDatosAcceso:(UIButton *)sender {
 }
 
-- (IBAction)solicitarDatos:(UIButton *)sender {
+- (IBAction)tengoProblemasParaAcceder:(UIButton *)sender {
 }
 @end

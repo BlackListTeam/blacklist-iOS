@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PromoterCodeOKViewController : UIViewController
-- (IBAction)redireccioMailContacta:(UIButton *)sender;
+- (IBAction)contactaEmail:(UIButton *)sender;
 
 @end

@@ -35,6 +35,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)inviteCode:(UIButton *)sender {
-}
 @end

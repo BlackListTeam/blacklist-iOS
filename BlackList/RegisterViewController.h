@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController
-
 @property (strong, nonatomic) IBOutlet UITextField *email;
 @property (strong, nonatomic) IBOutlet UITextField *nombre;
 @property (strong, nonatomic) IBOutlet UITextField *anyoNacimiento;
 
 - (IBAction)registerOK:(UIButton *)sender;
-
 @end
