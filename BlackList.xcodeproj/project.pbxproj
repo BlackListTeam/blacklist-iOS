@@ -24,7 +24,7 @@
 		A85E95141781EC300078F165 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E95081781EC300078F165 /* SBJsonStreamWriterAccumulator.m */; };
 		A85E95151781EC300078F165 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E950A1781EC300078F165 /* SBJsonStreamWriterState.m */; };
 		A85E95161781EC300078F165 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E950C1781EC300078F165 /* SBJsonWriter.m */; };
-		A89689861781D197001682B0 /* ControllerCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89689851781D197001682B0 /* ControllerCarousel.m */; };
+		A89689861781D197001682B0 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89689851781D197001682B0 /* EventsViewController.m */; };
 		A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D25A8177EDF4600F10202 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A89D25AB177EDFEF00F10202 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89D25AA177EDFEF00F10202 /* QuartzCore.framework */; };
 		A89D25AD177EE1EB00F10202 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A89D25AC177EE1EB00F10202 /* page.png */; };
@@ -159,6 +159,17 @@
 		A8CF88DE177365190051DA64 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88DD177365190051DA64 /* first@2x.png */; };
 		A8CF88E3177365190051DA64 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88E2177365190051DA64 /* second.png */; };
 		A8CF88E5177365190051DA64 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88E4177365190051DA64 /* second@2x.png */; };
+		A8D38C46178328B6009E8C92 /* PromoterCodeOKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C45178328B6009E8C92 /* PromoterCodeOKViewController.m */; };
+		A8D38C4917832931009E8C92 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C4817832931009E8C92 /* RegisterViewController.m */; };
+		A8D38C4C17832A9A009E8C92 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C4B17832A9A009E8C92 /* InviteViewController.m */; };
+		A8D38C4F17832ABC009E8C92 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C4E17832ABC009E8C92 /* LoginViewController.m */; };
+		A8D38C5217832B4A009E8C92 /* DetailsEventPrecioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5117832B4A009E8C92 /* DetailsEventPrecioViewController.m */; };
+		A8D38C5517832B5F009E8C92 /* DetailsEventSitioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5417832B5F009E8C92 /* DetailsEventSitioViewController.m */; };
+		A8D38C5817832B9D009E8C92 /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5717832B9C009E8C92 /* ReservationViewController.m */; };
+		A8D38C5B17832BDA009E8C92 /* CodeEntranceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5A17832BDA009E8C92 /* CodeEntranceViewController.m */; };
+		A8D38C5E17832C09009E8C92 /* ListMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C5D17832C09009E8C92 /* ListMessagesViewController.m */; };
+		A8D38C6117832C29009E8C92 /* WriteMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C6017832C29009E8C92 /* WriteMessageViewController.m */; };
+		A8D38C6417832C71009E8C92 /* AnswerMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D38C6317832C71009E8C92 /* AnswerMessageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,8 +207,8 @@
 		A85E950A1781EC300078F165 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		A85E950B1781EC300078F165 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A85E950C1781EC300078F165 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		A89689841781D197001682B0 /* ControllerCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControllerCarousel.h; sourceTree = "<group>"; };
-		A89689851781D197001682B0 /* ControllerCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControllerCarousel.m; sourceTree = "<group>"; };
+		A89689841781D197001682B0 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		A89689851781D197001682B0 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		A89D25A7177EDF4600F10202 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		A89D25A8177EDF4600F10202 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A89D25AA177EDFEF00F10202 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -338,6 +349,28 @@
 		A8CF88DD177365190051DA64 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		A8CF88E2177365190051DA64 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		A8CF88E4177365190051DA64 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		A8D38C44178328B6009E8C92 /* PromoterCodeOKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromoterCodeOKViewController.h; sourceTree = "<group>"; };
+		A8D38C45178328B6009E8C92 /* PromoterCodeOKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromoterCodeOKViewController.m; sourceTree = "<group>"; };
+		A8D38C4717832931009E8C92 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		A8D38C4817832931009E8C92 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		A8D38C4A17832A9A009E8C92 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
+		A8D38C4B17832A9A009E8C92 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
+		A8D38C4D17832ABC009E8C92 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A8D38C4E17832ABC009E8C92 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A8D38C5017832B4A009E8C92 /* DetailsEventPrecioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventPrecioViewController.h; sourceTree = "<group>"; };
+		A8D38C5117832B4A009E8C92 /* DetailsEventPrecioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventPrecioViewController.m; sourceTree = "<group>"; };
+		A8D38C5317832B5F009E8C92 /* DetailsEventSitioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventSitioViewController.h; sourceTree = "<group>"; };
+		A8D38C5417832B5F009E8C92 /* DetailsEventSitioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventSitioViewController.m; sourceTree = "<group>"; };
+		A8D38C5617832B9C009E8C92 /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
+		A8D38C5717832B9C009E8C92 /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
+		A8D38C5917832BDA009E8C92 /* CodeEntranceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeEntranceViewController.h; sourceTree = "<group>"; };
+		A8D38C5A17832BDA009E8C92 /* CodeEntranceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeEntranceViewController.m; sourceTree = "<group>"; };
+		A8D38C5C17832C09009E8C92 /* ListMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListMessagesViewController.h; sourceTree = "<group>"; };
+		A8D38C5D17832C09009E8C92 /* ListMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListMessagesViewController.m; sourceTree = "<group>"; };
+		A8D38C5F17832C29009E8C92 /* WriteMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteMessageViewController.h; sourceTree = "<group>"; };
+		A8D38C6017832C29009E8C92 /* WriteMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteMessageViewController.m; sourceTree = "<group>"; };
+		A8D38C6217832C71009E8C92 /* AnswerMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerMessageViewController.h; sourceTree = "<group>"; };
+		A8D38C6317832C71009E8C92 /* AnswerMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerMessageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,12 +452,34 @@
 				A85E94F41781EC0A0078F165 /* webServiceCaller.m */,
 				A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */,
 				A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */,
-				A89689841781D197001682B0 /* ControllerCarousel.h */,
-				A89689851781D197001682B0 /* ControllerCarousel.m */,
+				A89689841781D197001682B0 /* EventsViewController.h */,
+				A89689851781D197001682B0 /* EventsViewController.m */,
 				A858609B1782084600F83F6A /* DetailsEventInfoViewController.h */,
 				A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */,
 				A8B40C7417821B020011ADBD /* PicturesEventViewController.h */,
 				A8B40C7517821B020011ADBD /* PicturesEventViewController.m */,
+				A8D38C44178328B6009E8C92 /* PromoterCodeOKViewController.h */,
+				A8D38C45178328B6009E8C92 /* PromoterCodeOKViewController.m */,
+				A8D38C4717832931009E8C92 /* RegisterViewController.h */,
+				A8D38C4817832931009E8C92 /* RegisterViewController.m */,
+				A8D38C4A17832A9A009E8C92 /* InviteViewController.h */,
+				A8D38C4B17832A9A009E8C92 /* InviteViewController.m */,
+				A8D38C4D17832ABC009E8C92 /* LoginViewController.h */,
+				A8D38C4E17832ABC009E8C92 /* LoginViewController.m */,
+				A8D38C5017832B4A009E8C92 /* DetailsEventPrecioViewController.h */,
+				A8D38C5117832B4A009E8C92 /* DetailsEventPrecioViewController.m */,
+				A8D38C5317832B5F009E8C92 /* DetailsEventSitioViewController.h */,
+				A8D38C5417832B5F009E8C92 /* DetailsEventSitioViewController.m */,
+				A8D38C5617832B9C009E8C92 /* ReservationViewController.h */,
+				A8D38C5717832B9C009E8C92 /* ReservationViewController.m */,
+				A8D38C5917832BDA009E8C92 /* CodeEntranceViewController.h */,
+				A8D38C5A17832BDA009E8C92 /* CodeEntranceViewController.m */,
+				A8D38C5C17832C09009E8C92 /* ListMessagesViewController.h */,
+				A8D38C5D17832C09009E8C92 /* ListMessagesViewController.m */,
+				A8D38C5F17832C29009E8C92 /* WriteMessageViewController.h */,
+				A8D38C6017832C29009E8C92 /* WriteMessageViewController.m */,
+				A8D38C6217832C71009E8C92 /* AnswerMessageViewController.h */,
+				A8D38C6317832C71009E8C92 /* AnswerMessageViewController.m */,
 			);
 			name = Controlador;
 			sourceTree = "<group>";
@@ -937,7 +992,7 @@
 			files = (
 				A8CF88CA177365180051DA64 /* main.m in Sources */,
 				A8CF88CE177365180051DA64 /* AppDelegate.m in Sources */,
-				A89689861781D197001682B0 /* ControllerCarousel.m in Sources */,
+				A89689861781D197001682B0 /* EventsViewController.m in Sources */,
 				A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */,
 				A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */,
 				A85E94F51781EC0A0078F165 /* jsonParser.m in Sources */,
@@ -956,6 +1011,17 @@
 				A8B40C7617821B020011ADBD /* PicturesEventViewController.m in Sources */,
 				458666A7178323C100C63591 /* User.m in Sources */,
 				458666AA1783253A00C63591 /* Reservation.m in Sources */,
+				A8D38C46178328B6009E8C92 /* PromoterCodeOKViewController.m in Sources */,
+				A8D38C4917832931009E8C92 /* RegisterViewController.m in Sources */,
+				A8D38C4C17832A9A009E8C92 /* InviteViewController.m in Sources */,
+				A8D38C4F17832ABC009E8C92 /* LoginViewController.m in Sources */,
+				A8D38C5217832B4A009E8C92 /* DetailsEventPrecioViewController.m in Sources */,
+				A8D38C5517832B5F009E8C92 /* DetailsEventSitioViewController.m in Sources */,
+				A8D38C5817832B9D009E8C92 /* ReservationViewController.m in Sources */,
+				A8D38C5B17832BDA009E8C92 /* CodeEntranceViewController.m in Sources */,
+				A8D38C5E17832C09009E8C92 /* ListMessagesViewController.m in Sources */,
+				A8D38C6117832C29009E8C92 /* WriteMessageViewController.m in Sources */,
+				A8D38C6417832C71009E8C92 /* AnswerMessageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
