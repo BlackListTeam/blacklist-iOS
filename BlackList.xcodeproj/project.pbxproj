@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		A858609D1782084600F83F6A /* DetailsEventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
@@ -160,6 +161,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		458666A5178323C100C63591 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		458666A6178323C100C63591 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A858609B1782084600F83F6A /* DetailsEventInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventInfoViewController.h; sourceTree = "<group>"; };
 		A858609C1782084600F83F6A /* DetailsEventInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventInfoViewController.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
@@ -389,6 +392,8 @@
 		A89D25AE177EE46000F10202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				458666A5178323C100C63591 /* User.h */,
+				458666A6178323C100C63591 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -944,6 +949,7 @@
 				A85E95161781EC300078F165 /* SBJsonWriter.m in Sources */,
 				A858609D1782084600F83F6A /* DetailsEventInfoViewController.m in Sources */,
 				A8B40C7617821B020011ADBD /* PicturesEventViewController.m in Sources */,
+				458666A7178323C100C63591 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
