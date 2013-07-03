@@ -14,6 +14,9 @@
 
 @implementation FormLoginViewController
 
+@synthesize nombre;
+@synthesize password;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -43,4 +46,14 @@
 
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender {
 }
+
+- (IBAction)bgTouched:(id)sender {
+    [nombre resignFirstResponder];
+    [password resignFirstResponder];
+}
+
+- (IBAction)doneEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
 @end

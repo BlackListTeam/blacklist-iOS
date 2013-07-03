@@ -14,6 +14,8 @@
 
 @implementation promoterCodeViewController
 
+@synthesize promoterCode;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -78,4 +80,13 @@
                                              andBirthYear:@"1986"]
              withPromoterCode:@"TEST1234"
                 andDelegateTo: self];}
+
+- (IBAction)doneEditing:(id)sender{
+    [sender resignFirstResponder];
+}
+
+- (IBAction)bgTouched:(id)sender {
+    [promoterCode resignFirstResponder];
+}
+
 @end
