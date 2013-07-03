@@ -12,4 +12,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *email;
 - (IBAction)inviteOK:(UIButton *)sender;
 
+- (IBAction)editDone:(id)sender;
+- (IBAction)bgTouched:(id)sender;
+
 @end

@@ -21,19 +21,18 @@
 @synthesize carousel;
 @synthesize imageURLs;
 
-- (void)dealloc
+- (void)awakeFromNib
 {
-    //it's a good idea to set these to nil here to avoid
-    //sending messages to a deallocated viewcontroller
-    
-    carousel.delegate = nil;
-    carousel.dataSource = nil;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
+    //set up data
+    //your carousel should always be driven by an array of
+    //data of some kind - don't store data in your item views
+    //or the recycling mechanism will destroy your data once
+    //your item views move off-screen
+    /*self.imageURLs = [NSMutableArray array];
+    for (int i = 0; i < 1000; i++)
+    {
+        [imageURLs addObject:[NSNumber numberWithInt:i]];
+    }*/
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Images" ofType:@"plist"];
     NSArray *imagePaths = [NSArray arrayWithContentsOfFile:plistPath];
     
@@ -53,7 +52,25 @@
     }
     self.imageURLs = URLs;
 
+}
+
+
+
+- (void)dealloc
+{
+    //it's a good idea to set these to nil here to avoid
+    //sending messages to a deallocated viewcontroller
     
+    carousel.delegate = nil;
+    carousel.dataSource = nil;
+}
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
     //configure carousel
     carousel.type = iCarouselTypeCoverFlow2;
@@ -82,52 +99,19 @@
     return [imageURLs count];
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(AsyncImageView *)view
 {
-    UILabel *label = nil;
-    #define IMAGE_VIEW_TAG 99
-    //create new view if no view is available for recycling
-    if (view == nil)
-    {
-        NSLog(@"asfasdf %i",index);
-        NSLog(@"asfasdf %@",[imageURLs objectAtIndex:index]);
-        AsyncImageView *view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 200.0f)];
-        view.imageURL = [imageURLs objectAtIndex:index];
-		view.contentMode = UIViewContentModeCenter;
-        /*label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = UITextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        label.tag = 1;
-        [view addSubview:label];*/
-
-        
-        /*view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
-        view.contentMode = UIViewContentModeCenter;
-        label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = UITextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        label.tag = 1;
-        [view addSubview:label];*/
+    if (view == nil) {
+        view = [[[AsyncImageView alloc]initWithFrame:CGRectMake(0, 0, 300, 280)] autorelease];
     }
-    else
+    view.imageURL=[imageURLs objectAtIndex:index];
+    
+    if(view ==nil)
     {
-        //get a reference to the label in the recycled view
-        label = (UILabel *)[view viewWithTag:1];
+        [[AsyncImageLoader sharedLoader]cancelLoadingImagesForTarget:view];
     }
-    
-    //AsyncImageView *view = (AsyncImageView *)[view viewWithTag:IMAGE_VIEW_TAG];
-	
-    //cancel loading previous image for cell
-    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:view];
-    
-    //load the image
-    //view.imageURL = [imageURLs objectAtIndex:index];
-
-    
     return view;
+    
 }
 
 @end

@@ -14,6 +14,8 @@
 
 @implementation InviteViewController
 
+@synthesize email;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,4 +39,13 @@
 
 - (IBAction)inviteOK:(UIButton *)sender {
 }
+
+- (IBAction)editDone:(id)sender {
+    [email resignFirstResponder];
+}
+
+- (IBAction)bgTouched:(id)sender {
+    [sender resignFirstResponder];
+}
+
 @end
