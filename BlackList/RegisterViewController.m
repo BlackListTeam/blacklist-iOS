@@ -14,6 +14,10 @@
 
 @implementation RegisterViewController
 
+@synthesize email;
+@synthesize nombre;
+@synthesize anyoNacimiento;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,4 +41,15 @@
 
 - (IBAction)registerOK:(UIButton *)sender {
 }
+
+- (IBAction)doneEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)bgTouched:(id)sender {
+    [email resignFirstResponder];
+    [nombre resignFirstResponder];
+    [anyoNacimiento resignFirstResponder];
+}
+
 @end

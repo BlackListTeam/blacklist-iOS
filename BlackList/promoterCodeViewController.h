@@ -22,5 +22,12 @@
     IBOutlet UITextField *promoterCode;
 }
 
+@property (nonatomic,retain) UITextField *promoterCode;
+
 - (IBAction)onClickOk:(UIButton *)sender;
+- (IBAction)doneEditing:(id)sender;
+- (IBAction)bgTouched:(id)sender;
+
 @end
+
+

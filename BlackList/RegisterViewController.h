@@ -14,4 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *anyoNacimiento;
 
 - (IBAction)registerOK:(UIButton *)sender;
+- (IBAction)doneEditing:(id)sender;
+- (IBAction)bgTouched:(id)sender;
 @end
