@@ -31,7 +31,7 @@ static NSString *userDataDocName=@"userData.txt";
 }
 
 
-+ (void) allowUserToUseApp
++ (void) allowUserToUseApp:(NSString *)promoterCode
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(
                                                          NSDocumentDirectory, NSUserDomainMask, YES);
@@ -41,13 +41,32 @@ static NSString *userDataDocName=@"userData.txt";
     [documentsDir stringByAppendingPathComponent:userAllowDocName];
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    [array addObject:@"Allowed"];
+    [array addObject:promoterCode];
     [array writeToFile:fileName atomically:YES];
+}
+
++ (NSString *) retrivePromoterCode
+{
+    NSString *ret=@"";
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(
+                                                         NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [paths objectAtIndex:0];
+    
+    NSString *fileName =
+    [documentsDir stringByAppendingPathComponent:userAllowDocName];
+    
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
+        NSArray *array = [[NSArray alloc] initWithContentsOfFile: fileName];
+        ret = [NSString stringWithFormat:@"%@",[array objectAtIndex:0]];
+    }
+    return ret;
 }
 
 + (NSString *) retriveUserName
 {
-    NSString *ret=@"";
+    NSString *ret=@"Nombre";
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(
                                                          NSDocumentDirectory, NSUserDomainMask, YES);

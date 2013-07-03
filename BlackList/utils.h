@@ -16,7 +16,9 @@
 
 + (Boolean) userAllowedToUseApp;
 
-+ (void) allowUserToUseApp;
++ (void) allowUserToUseApp:(NSString *) promoterCode;
+
++ (NSString *) retrivePromoterCode;
 
 + (NSString *) retriveUserName;
 

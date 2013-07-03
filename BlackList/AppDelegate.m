@@ -13,6 +13,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    
+    if(![utils userAllowedToUseApp]){
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"promoterCodeViewController"];
+        self.window.rootViewController = viewController;
+    }else{
+        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+        self.window.rootViewController = viewController;
+    }
+    
+    
+    // determine the initial view controller here and instantiate it with [storyboard instantiateViewControllerWithIdentifier:<storyboard id>];
+    
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

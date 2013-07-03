@@ -25,7 +25,6 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     Boolean ret=false;
-    NSLog(@"Valid: %@",[response objectForKey:@"valid"]);
     if([[NSString stringWithFormat:@"%@",[response objectForKey:@"valid"]] isEqual: @"1"]){
         ret= true;
     }

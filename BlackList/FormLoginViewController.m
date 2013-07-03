@@ -30,6 +30,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    if(![utils userAllowedToUseApp]){
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"promoterCodeViewController"];
+        [self presentViewController:controller animated:YES completion:nil ];
+    }
+    nombre.text=[utils retriveUserName];
 }
 
 - (void)didReceiveMemoryWarning

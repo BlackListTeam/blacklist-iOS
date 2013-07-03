@@ -28,10 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*NSLog(@"%c",[utils userAllowedToUseApp]);
-    NSLog(@"%@",[utils retriveUserName]);
-    [utils saveUserName:@"Andreu Recañ"];*/
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,14 +53,11 @@
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
-{
-    /*[jsonParser parseAddUser:webData];
-    NSLog(@"%@",[jsonParser errorMessage]);*/
-    
+{    
      if([jsonParser parseValidatePromoterCode:webData]){
-         [utils allowUserToUseApp];
-         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PromoterCodeOKViewController"];
-         [self.navigationController pushViewController:controller animated:YES];     
+         [utils allowUserToUseApp:promoterCode.text];
+         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+         [self presentViewController:controller animated:YES completion:nil ];
      }else{
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                          message:@"Código de promotor incorrecto"
@@ -79,11 +72,14 @@
 {
     webData = [NSMutableData data];
 	[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
-    
-    /*[webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Recasens"
-                                                 andEmail:@"andreurm@gmail.com"
-                                             andBirthYear:@"1986"]
-             withPromoterCode:@"TEST123"
-                andDelegateTo: self];*/
 }
+
+- (IBAction)doneEditing:(id)sender{
+    [sender resignFirstResponder];
+}
+
+- (IBAction)bgTouched:(id)sender {
+    [promoterCode resignFirstResponder];
+}
+
 @end
