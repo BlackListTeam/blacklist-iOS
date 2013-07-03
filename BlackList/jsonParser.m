@@ -274,6 +274,25 @@ static NSString *errorMessage=@"";
     return ret;
 }
 
++ (Boolean) parseGetUserQr: (NSMutableData *) webData{
+    [self reset];
+    Boolean ret=false;
+    NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
+                                                 length:[webData length]
+                                               encoding:NSUTF8StringEncoding];
+    
+    NSDictionary *result= [[[SBJsonParser alloc] init] objectWithString:strResult];
+    
+    NSDictionary *response = [result objectForKey:@"response"];
+    
+    
+    
+    
+    
+    
+    return ret;
+}
+
 + (void) reset
 {
     authError=false;

@@ -26,6 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%c",[utils userAllowedToUseApp]);
+    [utils allowUserToUseApp];
+    NSLog(@"%c",[utils userAllowedToUseApp]);
+    
+    NSLog(@"%@",[utils retriveUserName]);
+    [utils saveUserName:@"Andreu Recañ"];
+    NSLog(@"%@",[utils retriveUserName]);
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,9 +81,9 @@
     webData = [NSMutableData data];
     
 	//[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
-    [webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Reca"
-                                                 andEmail:@"test@testfromApp.com"
+    [webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Recasens"
+                                                 andEmail:@"andreurm@gmail.com"
                                              andBirthYear:@"1986"]
-             withPromoterCode:@"TEST1234"
+             withPromoterCode:@"TEST123"
                 andDelegateTo: self];}
 @end
