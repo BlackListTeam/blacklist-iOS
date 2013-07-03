@@ -35,6 +35,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)contactaEmail:(UIButton *)sender {
+- (IBAction)contactaEmail:(UIButton *)sender
+{
+    NSString *emailString =[[NSString alloc] initWithFormat:@"mailto:?to=%@&subject=%@&body=%@",
+                            [@"info@blacklistmeetings.com" stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding],
+                            [@"Contacto" stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+                            [@"" stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:emailString]];
 }
 @end

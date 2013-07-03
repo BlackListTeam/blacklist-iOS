@@ -11,10 +11,17 @@
 @interface utils : NSObject
 {
     NSString *userAllowDocName;
+    NSString *userDataDocName;
 }
 
 + (Boolean) userAllowedToUseApp;
 
-+ (void) allowUserToUseApp;
++ (void) allowUserToUseApp:(NSString *) promoterCode;
+
++ (NSString *) retrivePromoterCode;
+
++ (NSString *) retriveUserName;
+
++ (void) saveUserName:(NSString *) name;
 
 @end

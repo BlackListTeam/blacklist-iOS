@@ -25,8 +25,8 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) addUser: (User *) user withPromoterCode: (NSString *) promoterCode andDelegateTo:(id) delegator{
-    //promoter_code + name + email + birth_year
++ (void) addUser: (User *) user withPromoterCode: (NSString *) promoterCode andDelegateTo:(id) delegator
+{
     NSString *postStr = [NSString stringWithFormat:@"promoter_code=%@&name=%@&email=%@&birth_year=%@"
                          ,promoterCode,user.name,user.email,user.birth_year];
     NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/addUser"];
@@ -40,9 +40,10 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) login: (NSString *) email withPassword: (NSString *) password andDelegateTo:(id) delegator{
++ (void) login: (NSString *) name withPassword: (NSString *) password andDelegateTo:(id) delegator
+{
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/login?email=%@&password=%@",email,password];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/login?name=%@&password=%@",name,password];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -50,7 +51,8 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) getPartyCovers: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) getPartyCovers: (NSString *) sessionId andDelegateTo:(id) delegator
+{
     NSString *queryURL =
     [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getPartyCovers?sessionId=%@",sessionId];
     
@@ -60,7 +62,8 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) getParty: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) getParty: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
     NSString *queryURL =
     [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getParty?partyId=%d&sessionId=%@",partyId,sessionId];
     
@@ -70,7 +73,8 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) getPartyGallery: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) getPartyGallery: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
     NSString *queryURL =
     [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getPartyGallery?partyId=%d&sessionId=%@",partyId,sessionId];
     
@@ -80,7 +84,8 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) getCurrentReservation: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) getCurrentReservation: (NSString *) sessionId andDelegateTo:(id) delegator
+{
     NSString *queryURL =
     [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getCurrentReservation?sessionId=%@",sessionId];
     
@@ -90,28 +95,97 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) makeReservation: (Reservation *) reservation withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
-    
++ (void) makeReservation: (Reservation *) reservation withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *postStr = [NSString stringWithFormat:@"escorts=%d&vip=%c&rooms=%d&session_id=%@"
+                         ,reservation.escorts,reservation.vip,reservation.rooms,sessionId];
+    NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/makeReservation"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
+    [req addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content- Type"];
+    [req addValue:strLength forHTTPHeaderField:@"Content-Length"];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody: [postStr dataUsingEncoding:NSUTF8StringEncoding]];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
 }
 
-+ (void) editReservation: (Reservation *) reservation withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
-    
++ (void) editReservation: (Reservation *) reservation withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *postStr = [NSString stringWithFormat:@"escorts=%d&vip=%c&rooms=%d&session_id=%@"
+                         ,reservation.escorts,reservation.vip,reservation.rooms,sessionId];
+    NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/editReservation"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
+    [req addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content- Type"];
+    [req addValue:strLength forHTTPHeaderField:@"Content-Length"];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody: [postStr dataUsingEncoding:NSUTF8StringEncoding]];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
 }
 
-+ (void) deleteReservation: (int) reservationId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) deleteReservation: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *queryURL =
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/deleteReservation?sessionId=%@",sessionId];
     
+    NSURL *url = [NSURL URLWithString: queryURL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
 }
 
-+ (void) getMessages: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) getMessages: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *queryURL =
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getMessages?sessionId=%@",sessionId];
     
+    NSURL *url = [NSURL URLWithString: queryURL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
 }
 
-+ (void) replyMessage: (NSString *) message inMessageStreamId: (int) messageStreamId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
-    
++ (void) replyMessage: (NSString *) message inMessageStreamId: (int) messageStreamId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *postStr = [NSString stringWithFormat:@"message=%@&message_stream_id=%d&session_id=%@"
+                         ,message,messageStreamId,sessionId];
+    NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/replyMessage"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
+    [req addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content- Type"];
+    [req addValue:strLength forHTTPHeaderField:@"Content-Length"];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody: [postStr dataUsingEncoding:NSUTF8StringEncoding]];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
 }
 
-+ (void) sendInvitation: (NSString *) email withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator{
++ (void) sendInvitation: (NSString *) email withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *postStr = [NSString stringWithFormat:@"email=%@&session_id=%@"
+                         ,email,sessionId];
+    NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/sendInvitation"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
+    [req addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content- Type"];
+    [req addValue:strLength forHTTPHeaderField:@"Content-Length"];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody: [postStr dataUsingEncoding:NSUTF8StringEncoding]];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
+}
+
++ (void) getUserQr: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *queryURL =
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getUserQr?sessionId=%@",sessionId];
     
+    NSURL *url = [NSURL URLWithString: queryURL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
 }
 
 @end

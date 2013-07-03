@@ -25,7 +25,6 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     Boolean ret=false;
-    NSLog(@"Valid: %@",[response objectForKey:@"valid"]);
     if([[NSString stringWithFormat:@"%@",[response objectForKey:@"valid"]] isEqual: @"1"]){
         ret= true;
     }
@@ -256,6 +255,25 @@ static NSString *errorMessage=@"";
 
 + (Boolean) parseSendInvitation:(NSMutableData *) webData
 {
+    [self reset];
+    Boolean ret=false;
+    NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
+                                                 length:[webData length]
+                                               encoding:NSUTF8StringEncoding];
+    
+    NSDictionary *result= [[[SBJsonParser alloc] init] objectWithString:strResult];
+    
+    NSDictionary *response = [result objectForKey:@"response"];
+    
+    
+    
+    
+    
+    
+    return ret;
+}
+
++ (Boolean) parseGetUserQr: (NSMutableData *) webData{
     [self reset];
     Boolean ret=false;
     NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]

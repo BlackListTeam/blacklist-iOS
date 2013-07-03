@@ -45,5 +45,7 @@
 
 + (Boolean) parseSendInvitation:(NSMutableData *) webData;
 
++ (Boolean) parseGetUserQr: (NSMutableData *) webData;
+
 
 @end

@@ -10,4 +10,14 @@
 
 @implementation Party
 
+@synthesize name;
+@synthesize date;
+@synthesize cover;
+@synthesize image;
+@synthesize gallery;
+@synthesize info;
+@synthesize price_info;
+@synthesize location_date;
+@synthesize map;
+
 @end

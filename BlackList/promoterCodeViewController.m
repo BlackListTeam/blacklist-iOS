@@ -53,33 +53,26 @@
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
-{
-    [jsonParser parseAddUser:webData];
-    NSLog(@"%@",[jsonParser errorMessage]);
-    
-    /*   if([jsonParser parseValidatePromoterCode:webData]){
-     NSLog(@"OK");
-     
-     
+{    
+     if([jsonParser parseValidatePromoterCode:webData]){
+         [utils allowUserToUseApp:promoterCode.text];
+         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+         [self presentViewController:controller animated:YES completion:nil ];
      }else{
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-     message:@"Código de promotor incorrecto"
-     delegate:self
-     cancelButtonTitle:@"Cerrar"
-     otherButtonTitles:nil];
-     [alert show];
-     }*/
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"Código de promotor incorrecto"
+                                                        delegate:self
+                                               cancelButtonTitle:@"Cerrar"
+                                               otherButtonTitles:nil];
+         [alert show];
+     }
 }
 
-- (IBAction)onClickOk:(UIButton *)sender {
+- (IBAction)onClickOk:(UIButton *)sender
+{
     webData = [NSMutableData data];
-    
-	//[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
-    [webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Reca"
-                                                 andEmail:@"test@testfromApp.com"
-                                             andBirthYear:@"1986"]
-             withPromoterCode:@"TEST1234"
-                andDelegateTo: self];}
+	[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
+}
 
 - (IBAction)doneEditing:(id)sender{
     [sender resignFirstResponder];
