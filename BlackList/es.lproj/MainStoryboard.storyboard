@@ -278,10 +278,10 @@
             </objects>
             <point key="canvasLocation" x="726" y="-209"/>
         </scene>
-        <!--View Controller-->
+        <!--List Messages View Controller-->
         <scene sceneID="rlt-zc-joP">
             <objects>
-                <viewController id="sa0-ba-Tjk" sceneMemberID="viewController">
+                <viewController id="sa0-ba-Tjk" customClass="ListMessagesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qbc-Zs-RHI">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -312,6 +312,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6D-8r-iNB">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LLt-gh-TvY"/>
                                     <constraint firstAttribute="width" constant="73" id="t00-Ys-HkO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -335,9 +336,8 @@
                             <constraint firstItem="nQ9-uH-QJQ" firstAttribute="centerX" secondItem="uIz-YV-5Au" secondAttribute="centerX" type="default" id="0aH-wt-eUc"/>
                             <constraint firstItem="nQ9-uH-QJQ" firstAttribute="top" secondItem="qbc-Zs-RHI" secondAttribute="top" constant="39" id="2J9-04-0I6"/>
                             <constraint firstItem="sQk-et-wbg" firstAttribute="top" secondItem="uIz-YV-5Au" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8iD-If-eyd"/>
-                            <constraint firstItem="P6D-8r-iNB" firstAttribute="top" secondItem="sQk-et-wbg" secondAttribute="top" type="default" id="Erz-Li-SA6"/>
-                            <constraint firstAttribute="trailing" secondItem="P6D-8r-iNB" secondAttribute="trailing" constant="5" id="Ii4-cY-49g"/>
-                            <constraint firstItem="P6D-8r-iNB" firstAttribute="bottom" secondItem="sQk-et-wbg" secondAttribute="bottom" type="default" id="S3l-58-wTH"/>
+                            <constraint firstItem="P6D-8r-iNB" firstAttribute="leading" secondItem="qbc-Zs-RHI" secondAttribute="leading" constant="260" id="BYO-VM-b3a"/>
+                            <constraint firstItem="P6D-8r-iNB" firstAttribute="top" secondItem="qbc-Zs-RHI" secondAttribute="top" constant="104" id="QJ3-7m-mny"/>
                             <constraint firstItem="jqr-3u-WXv" firstAttribute="leading" secondItem="qbc-Zs-RHI" secondAttribute="leading" type="default" id="TaA-nB-5bL"/>
                             <constraint firstItem="jqr-3u-WXv" firstAttribute="centerX" secondItem="nQ9-uH-QJQ" secondAttribute="centerX" type="default" id="WhO-4L-eyq"/>
                             <constraint firstItem="jqr-3u-WXv" firstAttribute="top" secondItem="qbc-Zs-RHI" secondAttribute="top" type="default" id="ble-GD-TJN"/>
@@ -902,10 +902,10 @@
             </objects>
             <point key="canvasLocation" x="1962" y="-794"/>
         </scene>
-        <!--View Controller-->
+        <!--Write Message View Controller-->
         <scene sceneID="gca-kM-YLK">
             <objects>
-                <viewController id="VjM-fV-k7v" sceneMemberID="viewController">
+                <viewController id="VjM-fV-k7v" customClass="WriteMessageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u0Z-l3-ViN">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -925,22 +925,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sa0-ba-Tjk" kind="push" id="DSm-e6-OAv"/>
+                                    <segue destination="sa0-ba-Tjk" kind="push" id="fZg-dl-rVQ"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCj-Ka-d6d">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="FHh-kQ-2Ue"/>
-                                    <constraint firstAttribute="height" constant="50" id="VuB-v5-QDX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="15.2.ButtonEnviar.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6U3-Jt-Yxe">
                                 <constraints>
@@ -970,18 +956,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6U-fn-viB">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="1Bg-ih-hCG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="15.2.ButtonEnviar.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="enviarMessage:" destination="VjM-fV-k7v" eventType="touchUpInside" id="cWJ-Rb-a0I"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Lde-YG-NPD" firstAttribute="leading" secondItem="u0Z-l3-ViN" secondAttribute="leading" constant="-9" id="5ik-Vw-Hw2"/>
                             <constraint firstItem="aZ7-RI-pty" firstAttribute="top" secondItem="u0Z-l3-ViN" secondAttribute="top" constant="174" id="Ro2-pm-fqe"/>
-                            <constraint firstAttribute="trailing" secondItem="aCj-Ka-d6d" secondAttribute="trailing" constant="12" id="WqW-pw-khM"/>
+                            <constraint firstItem="N6U-fn-viB" firstAttribute="bottom" secondItem="Lde-YG-NPD" secondAttribute="bottom" type="default" id="TTn-di-XXh"/>
                             <constraint firstItem="Lde-YG-NPD" firstAttribute="top" secondItem="u0Z-l3-ViN" secondAttribute="top" constant="332" id="ass-Nv-3dt"/>
                             <constraint firstItem="uLy-N4-52e" firstAttribute="bottom" secondItem="u0Z-l3-ViN" secondAttribute="bottom" type="default" id="beg-PY-PIX"/>
                             <constraint firstItem="uLy-N4-52e" firstAttribute="leading" secondItem="u0Z-l3-ViN" secondAttribute="leading" type="default" id="g8f-Ps-JOG"/>
                             <constraint firstItem="6U3-Jt-Yxe" firstAttribute="top" secondItem="u0Z-l3-ViN" secondAttribute="top" constant="58" id="lla-Fr-hu2"/>
-                            <constraint firstItem="Lde-YG-NPD" firstAttribute="centerY" secondItem="aCj-Ka-d6d" secondAttribute="centerY" type="default" id="rer-wk-IdW"/>
+                            <constraint firstItem="N6U-fn-viB" firstAttribute="top" secondItem="Lde-YG-NPD" secondAttribute="top" type="default" id="pej-HJ-yL9"/>
                             <constraint firstItem="uLy-N4-52e" firstAttribute="top" secondItem="u0Z-l3-ViN" secondAttribute="top" type="default" id="she-sM-3db"/>
+                            <constraint firstItem="N6U-fn-viB" firstAttribute="trailing" secondItem="aZ7-RI-pty" secondAttribute="trailing" type="default" id="uYU-OS-6os"/>
                             <constraint firstItem="uLy-N4-52e" firstAttribute="centerX" secondItem="aZ7-RI-pty" secondAttribute="centerX" type="default" id="xHb-QN-qi5"/>
                             <constraint firstItem="6U3-Jt-Yxe" firstAttribute="leading" secondItem="u0Z-l3-ViN" secondAttribute="leading" constant="-22" id="xdf-p6-pxq"/>
                         </constraints>
@@ -1054,10 +1057,10 @@
             </objects>
             <point key="canvasLocation" x="1596" y="969"/>
         </scene>
-        <!--View Controller-->
+        <!--Answer Message View Controller-->
         <scene sceneID="hLQ-wZ-149">
             <objects>
-                <viewController id="lM0-XZ-y9w" sceneMemberID="viewController">
+                <viewController id="lM0-XZ-y9w" customClass="AnswerMessageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tfi-7z-b3k">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1083,15 +1086,34 @@
                                     <constraint firstAttribute="width" constant="326" id="vSH-B5-UvK"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQV-6q-LRt">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="d4t-Pz-pX6"/>
+                                    <constraint firstAttribute="height" constant="44" id="k1B-Wt-SQH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="contestar.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="contestarMessageShowTextArea:" destination="lM0-XZ-y9w" eventType="touchUpInside" id="6wm-LE-9sf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wnR-RP-O00" firstAttribute="top" secondItem="Tfi-7z-b3k" secondAttribute="top" constant="104" id="6js-tk-wK1"/>
+                            <constraint firstItem="wnR-RP-O00" firstAttribute="centerX" secondItem="SLq-uR-JHZ" secondAttribute="centerX" type="default" id="9eo-9I-et4"/>
+                            <constraint firstAttribute="bottom" secondItem="tQV-6q-LRt" secondAttribute="bottom" constant="175" id="A7j-ea-Fdr"/>
                             <constraint firstItem="xDn-ct-jmw" firstAttribute="top" secondItem="Tfi-7z-b3k" secondAttribute="top" constant="58" id="N0e-h1-c0X"/>
                             <constraint firstItem="SLq-uR-JHZ" firstAttribute="top" secondItem="Tfi-7z-b3k" secondAttribute="top" type="default" id="Yhm-LD-Ikg"/>
                             <constraint firstItem="xDn-ct-jmw" firstAttribute="leading" secondItem="Tfi-7z-b3k" secondAttribute="leading" constant="-22" id="ZjA-tQ-AIs"/>
                             <constraint firstItem="SLq-uR-JHZ" firstAttribute="leading" secondItem="Tfi-7z-b3k" secondAttribute="leading" type="default" id="hwN-RM-LzA"/>
-                            <constraint firstItem="wnR-RP-O00" firstAttribute="trailing" secondItem="Tfi-7z-b3k" secondAttribute="trailing" type="default" id="wvo-3O-TkQ"/>
+                            <constraint firstAttribute="trailing" secondItem="tQV-6q-LRt" secondAttribute="trailing" constant="6" id="qrs-Gq-LBZ"/>
                             <constraint firstItem="SLq-uR-JHZ" firstAttribute="bottom" secondItem="Tfi-7z-b3k" secondAttribute="bottom" type="default" id="yNk-85-47N"/>
                         </constraints>
                     </view>
@@ -1456,6 +1478,7 @@
         <image name="9.ESPACIO-VIP-en-cabina.png" width="135" height="15"/>
         <image name="9.HABITACIONES-.png" width="83" height="15"/>
         <image name="9.contacto-para-reserva-especial.png" width="138" height="12"/>
+        <image name="contestar.png" width="46" height="19"/>
         <image name="info.png" width="92" height="26"/>
         <image name="infoS.png" width="93" height="26"/>
         <image name="precio.png" width="93" height="26"/>
@@ -1463,6 +1486,103 @@
         <image name="sitio.png" width="89" height="26"/>
         <image name="sitioS.png" width="96" height="26"/>
     </resources>
+    <classes>
+        <class className="AnswerMessageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerMessageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="contestarMessageShowTextArea:"/>
+            </relationships>
+        </class>
+        <class className="CodeEntranceViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CodeEntranceViewController.h"/>
+        </class>
+        <class className="DetailsEventInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsEventInfoViewController.h"/>
+        </class>
+        <class className="DetailsEventPrecioViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsEventPrecioViewController.h"/>
+        </class>
+        <class className="DetailsEventSitioViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsEventSitioViewController.h"/>
+        </class>
+        <class className="EventsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+            </relationships>
+        </class>
+        <class className="FormLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FormLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginOK:" candidateClass="UIButton"/>
+                <relationship kind="action" name="solicitarDatosAcceso:" candidateClass="UIButton"/>
+                <relationship kind="action" name="tengoProblemasParaAcceder:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nombre" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="InviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="inviteOK:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ListMessagesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListMessagesViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PicturesEventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PicturesEventViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+            </relationships>
+        </class>
+        <class className="PromoterCodeOKViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PromoterCodeOKViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="contactaEmail:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="RegisterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="registerOK:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="anyoNacimiento" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nombre" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ReservationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReservationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reservationOK:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="contactoReservaEspecial" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="WriteMessageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WriteMessageViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="enviarMessage:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="promoterCodeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/promoterCodeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="onClickOk:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="promoterCode" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

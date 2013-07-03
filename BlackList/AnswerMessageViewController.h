@@ -10,4 +10,5 @@
 
 @interface AnswerMessageViewController : UIViewController
 
+- (IBAction)contestarMessageShowTextArea:(id)sender;
 @end

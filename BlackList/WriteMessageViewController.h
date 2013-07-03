@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WriteMessageViewController : UIViewController
+- (IBAction)enviarMessage:(UIButton *)sender;
 
 @end
