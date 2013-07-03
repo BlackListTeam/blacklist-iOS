@@ -705,7 +705,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="doneEditing:" destination="1AH-nH-RZa" eventType="editingDidEndOnExit" id="FG4-Ig-jDR"/>
                                 </connections>
@@ -824,7 +824,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="doneEditing:" destination="ACc-5f-pXs" eventType="editingDidEndOnExit" id="OYc-9I-JuM"/>
                                 </connections>
