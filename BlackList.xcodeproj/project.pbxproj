@@ -10,7 +10,7 @@
 		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		458666AA1783253A00C63591 /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A91783253A00C63591 /* Reservation.m */; };
 		458666AD1783260500C63591 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666AC1783260500C63591 /* Party.m */; };
-		458666DA178344F300C63591 /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666D9178344F300C63591 /* utils.m */; };
+		A84F91F01784776B004D15DD /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F91EF1784776B004D15DD /* AsyncImageView.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
 		A85E94F51781EC0A0078F165 /* jsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94F21781EC0A0078F165 /* jsonParser.m */; };
@@ -33,7 +33,6 @@
 		A89E2E0F17846B930083EF74 /* 15.1.SectionMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A89E2E0B17846B930083EF74 /* 15.1.SectionMessage@2x.png */; };
 		A89E2E1017846B930083EF74 /* contestar.png in Resources */ = {isa = PBXBuildFile; fileRef = A89E2E0C17846B930083EF74 /* contestar.png */; };
 		A89E2E1117846B930083EF74 /* contestar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A89E2E0D17846B930083EF74 /* contestar@2x.png */; };
-		A89E2E1517846EFC0083EF74 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E2E1417846EFC0083EF74 /* AsyncImageView.m */; };
 		A8A27C2A1773B06000E8CFD1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A27C291773B06000E8CFD1 /* Default.png */; };
 		A8A27C2C1773B0B100E8CFD1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A27C2B1773B0B100E8CFD1 /* Default@2x.png */; };
 		A8A2B040177DFBC000B72A54 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A2B034177DFBC000B72A54 /* info.png */; };
@@ -186,6 +185,8 @@
 		458666AC1783260500C63591 /* Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Party.m; sourceTree = "<group>"; };
 		458666D8178344F300C63591 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		458666D9178344F300C63591 /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
+		A84F91EE1784776B004D15DD /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		A84F91EF1784776B004D15DD /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
 		A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = promoterCodeViewController.h; sourceTree = "<group>"; };
 		A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = promoterCodeViewController.m; sourceTree = "<group>"; };
@@ -224,8 +225,6 @@
 		A89E2E0B17846B930083EF74 /* 15.1.SectionMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15.1.SectionMessage@2x.png"; sourceTree = "<group>"; };
 		A89E2E0C17846B930083EF74 /* contestar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contestar.png; sourceTree = "<group>"; };
 		A89E2E0D17846B930083EF74 /* contestar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contestar@2x.png"; sourceTree = "<group>"; };
-		A89E2E1317846EFC0083EF74 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
-		A89E2E1417846EFC0083EF74 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		A8A27C291773B06000E8CFD1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A8A27C2B1773B0B100E8CFD1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A8A27C2D1773B30C00E8CFD1 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -401,6 +400,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A84F91ED1784776B004D15DD /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				A84F91EE1784776B004D15DD /* AsyncImageView.h */,
+				A84F91EF1784776B004D15DD /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
 		A85E94F71781EC170078F165 /* SBJson */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,16 +507,6 @@
 				A8BD3E0E17833C33006E80EC /* PromoterCodeOKViewController.m */,
 			);
 			name = Controlador;
-			sourceTree = "<group>";
-		};
-		A89E2E1217846EFC0083EF74 /* AsyncImageView */ = {
-			isa = PBXGroup;
-			children = (
-				A89E2E1317846EFC0083EF74 /* AsyncImageView.h */,
-				A89E2E1417846EFC0083EF74 /* AsyncImageView.m */,
-			);
-			name = AsyncImageView;
-			path = "../../AsyncImageView-master/AsyncImageView";
 			sourceTree = "<group>";
 		};
 		A89FFA221778B62600391A44 /* Images */ = {
@@ -797,7 +795,7 @@
 		A8CF88C3177365180051DA64 /* BlackList */ = {
 			isa = PBXGroup;
 			children = (
-				A89E2E1217846EFC0083EF74 /* AsyncImageView */,
+				A84F91ED1784776B004D15DD /* AsyncImageView */,
 				A85E94F71781EC170078F165 /* SBJson */,
 				A89D25B0177EE46C00F10202 /* Controlador */,
 				A89D25AF177EE46700F10202 /* Vista */,
@@ -1055,7 +1053,7 @@
 				A8BD3E0917833BBE006E80EC /* InviteViewController.m in Sources */,
 				A8BD3E0C17833C08006E80EC /* RegisterViewController.m in Sources */,
 				A8BD3E0F17833C33006E80EC /* PromoterCodeOKViewController.m in Sources */,
-				A89E2E1517846EFC0083EF74 /* AsyncImageView.m in Sources */,
+				A84F91F01784776B004D15DD /* AsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

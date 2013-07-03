@@ -103,12 +103,12 @@
         AsyncImageView *view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 200.0f)];
         view.imageURL = [imageURLs objectAtIndex:index];
 		view.contentMode = UIViewContentModeCenter;
-        label = [[UILabel alloc] initWithFrame:view.bounds];
+        /*label = [[UILabel alloc] initWithFrame:view.bounds];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = UITextAlignmentCenter;
         label.font = [label.font fontWithSize:50];
         label.tag = 1;
-        [view addSubview:label];
+        [view addSubview:label];*/
 
         
         /*view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
@@ -126,13 +126,6 @@
         //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
     }
-    
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
-    label.text = [[imageURLs objectAtIndex:index] stringValue];
     
     return view;
 }
