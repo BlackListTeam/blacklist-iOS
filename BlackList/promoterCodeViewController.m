@@ -53,7 +53,7 @@
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
     [jsonParser parseAddUser:webData];
-    
+    NSLog(@"%@",[jsonParser errorMessage]);
     
     /*   if([jsonParser parseValidatePromoterCode:webData]){
      NSLog(@"OK");
@@ -73,9 +73,9 @@
     webData = [NSMutableData data];
     
 	//[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
-    [webServiceCaller addUser: [[User alloc] initWithName:@"Nom"
-                                                 andEmail:@"Email"
-                                             andBirthYear:@"1234"]
-             withPromoterCode:@"TEST123"
+    [webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Reca"
+                                                 andEmail:@"test@testfromApp.com"
+                                             andBirthYear:@"1986"]
+             withPromoterCode:@"TEST1234"
                 andDelegateTo: self];}
 @end
