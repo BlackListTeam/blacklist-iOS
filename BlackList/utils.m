@@ -21,12 +21,12 @@ static NSString *userDataDocName=@"userData.txt";
     NSString *documentsDir = [paths objectAtIndex:0];
     
     NSString *fileName =
-        [documentsDir stringByAppendingPathComponent:userAllowDocName];
+    [documentsDir stringByAppendingPathComponent:userAllowDocName];
     
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
         ret=true;
-    }    
+    }
     return ret;
 }
 

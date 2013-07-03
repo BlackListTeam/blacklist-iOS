@@ -26,13 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%c",[utils userAllowedToUseApp]);
-    [utils allowUserToUseApp];
-    NSLog(@"%c",[utils userAllowedToUseApp]);
-    
+    /*NSLog(@"%c",[utils userAllowedToUseApp]);
     NSLog(@"%@",[utils retriveUserName]);
-    [utils saveUserName:@"Andreu Recañ"];
-    NSLog(@"%@",[utils retriveUserName]);
+    [utils saveUserName:@"Andreu Recañ"];*/
     
 }
 
@@ -60,30 +56,32 @@
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    [jsonParser parseAddUser:webData];
-    NSLog(@"%@",[jsonParser errorMessage]);
+    /*[jsonParser parseAddUser:webData];
+    NSLog(@"%@",[jsonParser errorMessage]);*/
     
-    /*   if([jsonParser parseValidatePromoterCode:webData]){
-     NSLog(@"OK");
-     
-     
+     if([jsonParser parseValidatePromoterCode:webData]){
+         [utils allowUserToUseApp];
+         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PromoterCodeOKViewController"];
+         [self.navigationController pushViewController:controller animated:YES];     
      }else{
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-     message:@"Código de promotor incorrecto"
-     delegate:self
-     cancelButtonTitle:@"Cerrar"
-     otherButtonTitles:nil];
-     [alert show];
-     }*/
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"Código de promotor incorrecto"
+                                                        delegate:self
+                                               cancelButtonTitle:@"Cerrar"
+                                               otherButtonTitles:nil];
+         [alert show];
+     }
 }
 
-- (IBAction)onClickOk:(UIButton *)sender {
+- (IBAction)onClickOk:(UIButton *)sender
+{
     webData = [NSMutableData data];
+	[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
     
-	//[webServiceCaller validatePromoterCode: promoterCode.text andDelegateTo: self];
-    [webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Recasens"
+    /*[webServiceCaller addUser: [[User alloc] initWithName:@"Andreu Recasens"
                                                  andEmail:@"andreurm@gmail.com"
                                              andBirthYear:@"1986"]
              withPromoterCode:@"TEST123"
-                andDelegateTo: self];}
+                andDelegateTo: self];*/
+}
 @end

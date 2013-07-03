@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45861DD5178478FA00B4D80C /* utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 45861DD4178478FA00B4D80C /* utils.m */; };
 		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		458666AA1783253A00C63591 /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A91783253A00C63591 /* Reservation.m */; };
 		458666AD1783260500C63591 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666AC1783260500C63591 /* Party.m */; };
@@ -177,14 +178,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45861DD3178478FA00B4D80C /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		45861DD4178478FA00B4D80C /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
 		458666A5178323C100C63591 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		458666A6178323C100C63591 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		458666A81783253A00C63591 /* Reservation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reservation.h; sourceTree = "<group>"; };
 		458666A91783253A00C63591 /* Reservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
 		458666AB1783260500C63591 /* Party.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Party.h; sourceTree = "<group>"; };
 		458666AC1783260500C63591 /* Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Party.m; sourceTree = "<group>"; };
-		458666D8178344F300C63591 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
-		458666D9178344F300C63591 /* utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = utils.m; sourceTree = "<group>"; };
 		A84F91EE1784776B004D15DD /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		A84F91EF1784776B004D15DD /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
@@ -471,8 +472,6 @@
 			children = (
 				A85E94F11781EC0A0078F165 /* jsonParser.h */,
 				A85E94F21781EC0A0078F165 /* jsonParser.m */,
-				458666D8178344F300C63591 /* utils.h */,
-				458666D9178344F300C63591 /* utils.m */,
 				A85E94F31781EC0A0078F165 /* webServiceCaller.h */,
 				A85E94F41781EC0A0078F165 /* webServiceCaller.m */,
 				A85E94EE1781EBEF0078F165 /* promoterCodeViewController.h */,
@@ -505,6 +504,8 @@
 				A8BD3E0B17833C07006E80EC /* RegisterViewController.m */,
 				A8BD3E0D17833C33006E80EC /* PromoterCodeOKViewController.h */,
 				A8BD3E0E17833C33006E80EC /* PromoterCodeOKViewController.m */,
+				45861DD3178478FA00B4D80C /* utils.h */,
+				45861DD4178478FA00B4D80C /* utils.m */,
 			);
 			name = Controlador;
 			sourceTree = "<group>";
@@ -1054,6 +1055,7 @@
 				A8BD3E0C17833C08006E80EC /* RegisterViewController.m in Sources */,
 				A8BD3E0F17833C33006E80EC /* PromoterCodeOKViewController.m in Sources */,
 				A84F91F01784776B004D15DD /* AsyncImageView.m in Sources */,
+				45861DD5178478FA00B4D80C /* utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
