@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SBJson.h"
+#import "Party.h"
 
 @interface jsonParser : NSObject
 {
@@ -23,9 +24,9 @@
 
 + (Boolean) parseAddUser:(NSMutableData *) webData;
 
-+ (Boolean) parseLogin:(NSMutableData *) webData;
++ (NSString *) parseLogin:(NSMutableData *) webData;
 
-+ (Boolean) parseGetPartyCovers:(NSMutableData *) webData;
++ (NSMutableArray *) parseGetPartyCovers:(NSMutableData *) webData;
 
 + (Boolean) parseGetParty:(NSMutableData *) webData;
 

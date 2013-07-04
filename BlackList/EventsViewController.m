@@ -15,6 +15,8 @@
 
 @end
 
+NSString *sessionId;
+
 @implementation EventsViewController
 
 @synthesize carousel;
@@ -28,7 +30,7 @@
     //or the recycling mechanism will destroy your data once
     //your item views move off-screen
     webData = [NSMutableData data];
-    [webServiceCaller getPartyCovers: @"asd" andDelegateTo:self];
+    [webServiceCaller getPartyCovers: sessionId andDelegateTo:self];
     
     
     
@@ -69,6 +71,9 @@
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    NSLog(@"o%@",[jsonParser parseGetPartyCovers:webData]);
+    NSMutableArray *test=[jsonParser parseGetPartyCovers:webData];
+    Party *p=[test objectAtIndex:0];
     /*if([jsonParser parseGetPartyCovers:webData]){
         [utils allowUserToUseApp:promoterCode.text];
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
