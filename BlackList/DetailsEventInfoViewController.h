@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailsEventInfoViewController : UIViewController
+@interface DetailsEventInfoViewController : UIViewController{
+    NSNumber * _idParty;
+}
+@property (nonatomic, retain) NSNumber * idParty;
 
 @end

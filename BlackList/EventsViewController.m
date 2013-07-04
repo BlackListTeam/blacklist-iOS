@@ -8,12 +8,15 @@
 
 #import "EventsViewController.h"
 #import "AsyncImageView.h"
+#import "DetailsEventInfoViewController.h"
 
 @interface EventsViewController ()
 
 @property (nonatomic, retain) NSMutableArray *imageURLs;
 
 @end
+
+int userSession;
 
 @implementation EventsViewController
 
@@ -26,11 +29,7 @@
     //your carousel should always be driven by an array of
     //data of some kind - don't store data in your item views
     //or the recycling mechanism will destroy your data once
-    //your item views move off-screen
-    webData = [NSMutableData data];
-    [webServiceCaller getPartyCovers: @"asd" andDelegateTo:self];
-    
-    
+    //your item views move off-screen    
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Images" ofType:@"plist"];
     NSArray *imagePaths = [NSArray arrayWithContentsOfFile:plistPath];
@@ -50,37 +49,6 @@
         }
     }
     self.imageURLs = URLs;
-}
-
--(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
-{
-    [webData setLength: 0];
-}
-
--(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
-{
-    [webData appendData:data];
-}
-
--(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
-{
-    NSLog(@"Error in webservice communication");
-}
-
-- (void) connectionDidFinishLoading:(NSURLConnection *) connection
-{
-    /*if([jsonParser parseGetPartyCovers:webData]){
-        [utils allowUserToUseApp:promoterCode.text];
-        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
-        [self presentViewController:controller animated:YES completion:nil ];
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Código de promotor incorrecto"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cerrar"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }*/
 }
 
 - (void)dealloc
@@ -147,19 +115,146 @@
 
 - (void)buttonTapped:(UIButton *)sender
 {
-    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsEventInfoViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
-    
-    
-    
-    //detailsEventController = [[DetailsEventController alloc] initWithNibName: nil bundle: nil];
-    //[window addSubview: detailsEventController.view];
-    
-    /*[[[[UIAlertView alloc] initWithTitle:@"Button Tapped"
-                                 message:[NSString stringWithFormat:@"You tapped button number %i", index]
-                                delegate:nil
-                       cancelButtonTitle:@"OK"
-                       otherButtonTitles:nil] autorelease] show];*/
+    DetailsEventInfoViewController* detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsEventInfoViewController"];
+    detailViewController.idParty=[NSNumber numberWithInt:100];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end
+
+
+
+/*@implementation EventsViewController
+
+@synthesize carousel;
+@synthesize imageURLs;
+
+- (void)awakeFromNib
+{
+    //set up data
+    //your carousel should always be driven by an array of
+    //data of some kind - don't store data in your item views
+    //or the recycling mechanism will destroy your data once
+    //your item views move off-screen
+    webData = [NSMutableData data];
+    [webServiceCaller getPartyCovers: @"asd" andDelegateTo:self];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+     NSMutableArray *parties = [jsonParser parseGetPartyCovers:webData];
+     if (){
+    for (NSString *path in parties)
+    {
+        NSURL *URL = [NSURL URLWithString:path];
+        if (URL)
+        {
+            [URLs addObject:URL];
+        }
+        else
+        {
+            NSLog(@"'%@' is not a valid URL", path);
+        }
+     self.imageURLs = URLs;
+     }
+     }
+     else{
+     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+     message:@"Código de promotor incorrecto"
+     delegate:self
+     cancelButtonTitle:@"Cerrar"
+     otherButtonTitles:nil];
+     [alert show];
+     } 
+}
+
+- (void)dealloc
+{
+    //it's a good idea to set these to nil here to avoid
+    //sending messages to a deallocated viewcontroller
+    carousel.delegate = nil;
+    carousel.dataSource = nil;
+}
+
+#pragma mark -
+#pragma mark View lifecycle
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //configure carousel
+    carousel.type = iCarouselTypeCoverFlow2;
+    NSLog(@"someGlobal = %i", userSession);
+    userSession = 57;
+    NSLog(@"someGlobal = %i", userSession);
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    //free up memory by releasing subviews
+    self.carousel = nil;
+    
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+#pragma mark -
+#pragma mark iCarousel methods
+
+- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    //return the total number of items in the carousel
+    return [imageURLs count];
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(AsyncImageView *)view
+{
+    if (view == nil) {
+        view = [[[AsyncImageView alloc]initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)] autorelease];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+		button.frame = CGRectMake(0.0f, 0.0f, 200.0f, 200.0f);
+		[button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:button];
+    }
+    view.imageURL=[imageURLs objectAtIndex:index];
+    
+    if(view ==nil)
+    {
+        [[AsyncImageLoader sharedLoader]cancelLoadingImagesForTarget:view];
+    }
+    return view;
+}
+
+#pragma mark -
+#pragma mark Button tap event
+
+- (void)buttonTapped:(UIButton *)sender
+{
+    DetailsEventInfoViewController *controller = [[DetailsEventInfoViewController alloc] init];
+    //UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsEventInfoViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
+
+}
+
+@end*/
