@@ -506,6 +506,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="editDone:" destination="uwK-se-OYU" eventType="editingDidEndOnExit" id="ELA-B8-oZH"/>
+                                    <action selector="validateEmail:" destination="uwK-se-OYU" eventType="editingDidEnd" id="njv-kr-rEy"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -697,6 +698,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="doneEditing:" destination="1AH-nH-RZa" eventType="editingDidEndOnExit" id="Q5w-gn-pKn"/>
+                                    <action selector="validateEmail:" destination="1AH-nH-RZa" eventType="editingDidEnd" id="fJQ-AJ-1lv"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Año de nacimiento" textAlignment="center" minimumFontSize="17" background="0.InputFull@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZDQ-SB-Nb0">
@@ -708,6 +710,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="doneEditing:" destination="1AH-nH-RZa" eventType="editingDidEndOnExit" id="FG4-Ig-jDR"/>
+                                    <action selector="validateAnyo:" destination="1AH-nH-RZa" eventType="editingDidEnd" id="TBf-ai-axv"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ns-Vl-491">
@@ -878,8 +881,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="solicitarDatos:" destination="ACc-5f-pXs" eventType="touchUpInside" id="x34-qr-wBl"/>
-                                    <action selector="solicitarDatosAcceso:" destination="ACc-5f-pXs" eventType="touchUpInside" id="8zv-fP-eQd"/>
                                     <segue destination="1AH-nH-RZa" kind="modal" id="IBl-TK-1P5"/>
                                 </connections>
                             </button>
@@ -1587,111 +1588,6 @@
         <image name="sitio.png" width="89" height="26"/>
         <image name="sitioS.png" width="96" height="26"/>
     </resources>
-    <classes>
-        <class className="AnswerMessageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AnswerMessageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="contestarMessageShowTextArea:"/>
-            </relationships>
-        </class>
-        <class className="CodeEntranceViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CodeEntranceViewController.h"/>
-        </class>
-        <class className="DetailsEventInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsEventInfoViewController.h"/>
-        </class>
-        <class className="DetailsEventPrecioViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsEventPrecioViewController.h"/>
-        </class>
-        <class className="DetailsEventSitioViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailsEventSitioViewController.h"/>
-        </class>
-        <class className="EventsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
-            </relationships>
-        </class>
-        <class className="FormLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FormLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTouched:"/>
-                <relationship kind="action" name="doneEditing:"/>
-                <relationship kind="action" name="loginOK:" candidateClass="UIButton"/>
-                <relationship kind="action" name="solicitarDatosAcceso:" candidateClass="UIButton"/>
-                <relationship kind="action" name="tengoProblemasParaAcceder:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="nombre" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="InviteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTouched:"/>
-                <relationship kind="action" name="editDone:"/>
-                <relationship kind="action" name="inviteOK:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ListMessagesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListMessagesViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PicturesEventViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PicturesEventViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
-            </relationships>
-        </class>
-        <class className="PromoterCodeOKViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PromoterCodeOKViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="contactaEmail:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="RegisterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTouched:"/>
-                <relationship kind="action" name="doneEditing:"/>
-                <relationship kind="action" name="registerOK:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="anyoNacimiento" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nombre" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ReservationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReservationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="reservationOK:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="contactoReservaEspecial" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="WriteMessageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WriteMessageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="enviarMessage:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="iCarousel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="promoterCodeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/promoterCodeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="bgTouched:"/>
-                <relationship kind="action" name="doneEditing:"/>
-                <relationship kind="action" name="onClickOk:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="promoterCode" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -46,9 +46,6 @@
 - (IBAction)loginOK:(UIButton *)sender {
 }
 
-- (IBAction)solicitarDatosAcceso:(UIButton *)sender {
-}
-
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender {
 }
 

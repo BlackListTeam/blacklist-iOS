@@ -48,4 +48,24 @@
     [sender resignFirstResponder];
 }
 
+//************ VALIDATIONS *************
+
+- (BOOL)validateInputEmail:(NSString *)emailStr
+{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email.text];
+}
+
+- (IBAction)validateEmail:(id)sender {
+    if(![self validateInputEmail:[email text]])
+    {
+        // user entered invalid email address
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Escribe un mail correcto." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        
+        email.text=@"";
+    }
+}
+
 @end

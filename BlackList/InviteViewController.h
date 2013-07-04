@@ -14,5 +14,6 @@
 
 - (IBAction)editDone:(id)sender;
 - (IBAction)bgTouched:(id)sender;
+- (IBAction)validateEmail:(id)sender;
 
 @end

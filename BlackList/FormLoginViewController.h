@@ -15,7 +15,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *nombre;
 @property (strong, nonatomic) IBOutlet UITextField *password;
 - (IBAction)loginOK:(UIButton *)sender;
-- (IBAction)solicitarDatosAcceso:(UIButton *)sender;
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender;
 - (IBAction)bgTouched:(id)sender;
 - (IBAction)doneEditing:(id)sender;

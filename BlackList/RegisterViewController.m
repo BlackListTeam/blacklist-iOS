@@ -92,4 +92,43 @@
     [anyoNacimiento resignFirstResponder];
 }
 
+// ********* VALIDATIONS ***********
+
+
+- (BOOL)validateInputEmail:(NSString *)emailStr
+{
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email.text];
+}
+
+- (BOOL)validateInputAnyo:(NSString *)emailStr
+{
+    NSString *anyoRegex = @"[0-9]{4}";
+    NSPredicate *anyoTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", anyoRegex];
+    return [anyoTest evaluateWithObject:anyoNacimiento.text];
+}
+
+- (IBAction)validateEmail:(id)sender {
+        if(![self validateInputEmail:[email text]])
+        {
+            // user entered invalid email address
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Escribe un mail correcto." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+            [alert show];
+            
+            email.text=@"";
+        }
+}
+
+- (IBAction)validateAnyo:(id)sender {
+    if(![self validateInputAnyo:[anyoNacimiento text]])
+    {
+        // user entered invalid email address
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Escribe un anyo de 4 cifras" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        
+        anyoNacimiento.text=@"";
+    }
+}
+
 @end

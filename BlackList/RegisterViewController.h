@@ -26,4 +26,6 @@
 - (IBAction)registerOK:(UIButton *)sender;
 - (IBAction)doneEditing:(id)sender;
 - (IBAction)bgTouched:(id)sender;
+- (IBAction)validateEmail:(id)sender;
+- (IBAction)validateAnyo:(id)sender;
 @end
