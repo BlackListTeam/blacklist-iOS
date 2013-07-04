@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
+#import "jsonParser.h"
+#import "webServiceCaller.h"
 
-@interface EventsViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
-
+@interface EventsViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, NSURLConnectionDelegate>
+{
+    @private NSMutableData *webData;
+}
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
 @end

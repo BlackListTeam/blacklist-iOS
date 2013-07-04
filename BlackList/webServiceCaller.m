@@ -54,7 +54,7 @@ static NSURLConnection *conn;
 + (void) getPartyCovers: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getPartyCovers?sessionId=%@",sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getPartyCovers?session_id=%@",sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -65,7 +65,7 @@ static NSURLConnection *conn;
 + (void) getParty: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getParty?partyId=%d&sessionId=%@",partyId,sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getParty?party_id=%d&session_id=%@",partyId,sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -76,7 +76,7 @@ static NSURLConnection *conn;
 + (void) getPartyGallery: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getPartyGallery?partyId=%d&sessionId=%@",partyId,sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getPartyGallery?party_id=%d&session_id=%@",partyId,sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -87,7 +87,7 @@ static NSURLConnection *conn;
 + (void) getCurrentReservation: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getCurrentReservation?sessionId=%@",sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getCurrentReservation?session_id=%@",sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -128,7 +128,7 @@ static NSURLConnection *conn;
 + (void) deleteReservation: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/deleteReservation?sessionId=%@",sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/deleteReservation?session_id=%@",sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -139,7 +139,7 @@ static NSURLConnection *conn;
 + (void) getMessages: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getMessages?sessionId=%@",sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getMessages?session_id=%@",sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -180,7 +180,7 @@ static NSURLConnection *conn;
 + (void) getUserQr: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getUserQr?sessionId=%@",sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getUserQr?session_id=%@",sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
