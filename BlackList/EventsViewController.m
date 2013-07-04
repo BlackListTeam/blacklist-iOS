@@ -27,6 +27,11 @@
     //data of some kind - don't store data in your item views
     //or the recycling mechanism will destroy your data once
     //your item views move off-screen
+    webData = [NSMutableData data];
+    [webServiceCaller getPartyCovers: @"asd" andDelegateTo:self];
+    
+    
+    
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Images" ofType:@"plist"];
     NSArray *imagePaths = [NSArray arrayWithContentsOfFile:plistPath];
     
@@ -45,6 +50,37 @@
         }
     }
     self.imageURLs = URLs;
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+    /*if([jsonParser parseGetPartyCovers:webData]){
+        [utils allowUserToUseApp:promoterCode.text];
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+        [self presentViewController:controller animated:YES completion:nil ];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Código de promotor incorrecto"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cerrar"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }*/
 }
 
 - (void)dealloc
