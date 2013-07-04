@@ -19,6 +19,7 @@
     NSString *price_info;
     NSDate *location_date;
     NSString *map;
+    int party_id;
 }
 
 @property (nonatomic, retain) NSString *name;
@@ -30,6 +31,7 @@
 @property (nonatomic, retain) NSString *price_info;
 @property (nonatomic, retain) NSDate *location_date;
 @property (nonatomic, retain) NSString *map;
+@property (nonatomic) int party_id;
 
 
 

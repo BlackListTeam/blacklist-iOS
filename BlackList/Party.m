@@ -19,5 +19,6 @@
 @synthesize price_info;
 @synthesize location_date;
 @synthesize map;
+@synthesize party_id;
 
 @end

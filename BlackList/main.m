@@ -12,6 +12,8 @@
 
 int main(int argc, char *argv[])
 {
+    NSString *sessionId;
+    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }

@@ -12,6 +12,8 @@
 
 @end
 
+NSString *sessionId;
+
 @implementation FormLoginViewController
 
 @synthesize nombre;
@@ -35,6 +37,38 @@
         [self presentViewController:controller animated:YES completion:nil ];
     }
     nombre.text=[utils retriveUserName];
+    
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+    sessionId=[jsonParser parseLogin:webData];
+    if([[NSString stringWithFormat:@"%@",sessionId] isEqual: @""]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[jsonParser errorMessage]
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cerrar"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }else{
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EventsViewController"];
+        [self presentViewController:controller animated:YES completion:nil ];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +78,8 @@
 }
 
 - (IBAction)loginOK:(UIButton *)sender {
+    webData = [NSMutableData data];
+	[webServiceCaller login:nombre.text withPassword:password.text andDelegateTo:self];
 }
 
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender {

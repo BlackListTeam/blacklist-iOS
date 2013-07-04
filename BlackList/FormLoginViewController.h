@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 
 #import "utils.h"
+#import "webServiceCaller.h"
+#import "jsonParser.h"
+
 
 @interface FormLoginViewController : UIViewController
-
+<NSURLConnectionDelegate>
+{
+@private NSMutableData *webData;
+}
 @property (strong, nonatomic) IBOutlet UITextField *nombre;
 @property (strong, nonatomic) IBOutlet UITextField *password;
 - (IBAction)loginOK:(UIButton *)sender;

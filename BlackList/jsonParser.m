@@ -53,10 +53,10 @@ static NSString *errorMessage=@"";
     return ret;
 }
 
-+ (Boolean) parseLogin:(NSMutableData *) webData
++ (NSString *) parseLogin:(NSMutableData *) webData
 {
     [self reset];
-    Boolean ret=false;
+    NSString *ret=@"";
     NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
                                                  length:[webData length]
                                                encoding:NSUTF8StringEncoding];
@@ -66,17 +66,19 @@ static NSString *errorMessage=@"";
     NSDictionary *response = [result objectForKey:@"response"];
     
     
-    
-    
-    
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"logged"]] isEqual: @"1"]){
+        ret=[response objectForKey:@"sessionId"];
+    }else{
+        errorMessage=[response objectForKey:@"errorMessage"];
+    }
     
     return ret;
 }
 
-+ (Boolean) parseGetPartyCovers:(NSMutableData *) webData
++ (NSMutableArray *) parseGetPartyCovers:(NSMutableData *) webData
 {
     [self reset];
-    Boolean ret=false;
+    NSMutableArray *ret=[[NSMutableArray alloc] init];
     NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
                                                  length:[webData length]
                                                encoding:NSUTF8StringEncoding];
@@ -85,10 +87,27 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     
+    NSLog(@"JSONPARSER: %@",response);
     
-    
-    
-    
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        for(id party_json_index in [response objectForKey:@"parties"]){
+            
+            NSDictionary *party_json = [party_json_index objectForKey:@"Party"];
+            //TODO
+            Party *p=[[Party alloc] init];
+            p.cover =[NSString stringWithFormat:@"http://www.blacklistmeetings.com/files/party/cover/%@/%@",
+                      [party_json objectForKey:@"cover_dir"],
+                      [party_json objectForKey:@"cover"]];
+            p.party_id =[[party_json objectForKey:@"id"] intValue];
+            //p.date =[[party_json objectForKey:@"date"] date];
+            [ret addObject:p];
+        }
+
+    }
     
     return ret;
 }
