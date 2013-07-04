@@ -16,9 +16,9 @@
 
 @end
 
-int userSession;
+NSString *sessionId;
 
-@implementation EventsViewController
+/*@implementation EventsViewController
 
 @synthesize carousel;
 @synthesize imageURLs;
@@ -120,11 +120,11 @@ int userSession;
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
-@end
+@end*/
 
 
 
-/*@implementation EventsViewController
+@implementation EventsViewController
 
 @synthesize carousel;
 @synthesize imageURLs;
@@ -157,30 +157,30 @@ int userSession;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-     NSMutableArray *parties = [jsonParser parseGetPartyCovers:webData];
-     if (){
-    for (NSString *path in parties)
+ 
+    NSMutableArray *parties = [jsonParser parseGetPartyCovers:webData];
+    NSMutableArray *URLs = [NSMutableArray array];
+    for (Party *party in parties)
     {
-        NSURL *URL = [NSURL URLWithString:path];
+        NSURL *URL = [NSURL URLWithString:party.cover];
         if (URL)
         {
             [URLs addObject:URL];
         }
         else
         {
-            NSLog(@"'%@' is not a valid URL", path);
+            NSLog(@"'%@' is not a valid URL", party.cover);
         }
      self.imageURLs = URLs;
      }
-     }
-     else{
+     /*else{
      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
      message:@"Código de promotor incorrecto"
      delegate:self
      cancelButtonTitle:@"Cerrar"
      otherButtonTitles:nil];
      [alert show];
-     } 
+     } */
 }
 
 - (void)dealloc
@@ -200,9 +200,6 @@ int userSession;
     
     //configure carousel
     carousel.type = iCarouselTypeCoverFlow2;
-    NSLog(@"someGlobal = %i", userSession);
-    userSession = 57;
-    NSLog(@"someGlobal = %i", userSession);
 }
 
 - (void)viewDidUnload
@@ -257,4 +254,4 @@ int userSession;
 
 }
 
-@end*/
+@end
