@@ -21,6 +21,8 @@
 
 @synthesize party = _party;
 @synthesize landscapeImage;
+@synthesize locationText;
+@synthesize buttonReservar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +38,7 @@
     [super viewDidLoad];
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
+    locationText.text = _party.place_text;
     
     if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
         //Countdown

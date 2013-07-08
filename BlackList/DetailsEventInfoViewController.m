@@ -20,6 +20,7 @@
 @synthesize party = _party;
 @synthesize landscapeImage;
 @synthesize textInfo;
+@synthesize buttonReservar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
