@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Party.h"
 
-@interface ReservationViewController : UIViewController
+@interface ReservationViewController : UIViewController{
+    Party * _party;
+}
+@property (nonatomic, retain) Party * party;
+@property (strong, nonatomic) IBOutlet UIImageView *landscapeImage;
 
 - (IBAction)reservationOK:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *contactoReservaEspecial;

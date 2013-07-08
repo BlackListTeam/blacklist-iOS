@@ -7,6 +7,9 @@
 //
 
 #import "DetailsEventInfoViewController.h"
+#import "DetailsEventSitioViewController.h"
+#import "DetailsEventPrecioViewController.h"
+#import "ReservationViewController.h"
 
 @interface DetailsEventInfoViewController ()
 
@@ -14,7 +17,9 @@
 
 @implementation DetailsEventInfoViewController
 
-@synthesize idParty = _idParty;
+@synthesize party = _party;
+@synthesize landscapeImage;
+@synthesize textInfo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,14 +33,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    NSLog(@"id Party: %@ ",_idParty);
+    textInfo.text = _party.info;
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
+    landscapeImage.image = [UIImage imageWithData:imageData];    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"infoToSitio"]) {
+        DetailsEventSitioViewController *controller = (DetailsEventSitioViewController *) segue.destinationViewController;
+        controller.party=_party;
+    }
+    if ([[segue identifier] isEqualToString:@"infoToPrecio"]) {
+        DetailsEventPrecioViewController *controller = (DetailsEventPrecioViewController *) segue.destinationViewController;
+        controller.party=_party;
+    }
+    if ([[segue identifier] isEqualToString:@"infoToReserva"]) {
+        ReservationViewController *controller = (ReservationViewController *) segue.destinationViewController;
+        controller.party=_party;
+    }
 }
 
 @end

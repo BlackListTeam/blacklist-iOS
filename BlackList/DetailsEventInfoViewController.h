@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Party.h"
 
 @interface DetailsEventInfoViewController : UIViewController{
-    NSNumber * _idParty;
+    Party * _party;
 }
-@property (nonatomic, retain) NSNumber * idParty;
+@property (nonatomic, retain) Party * party;
+@property (strong, nonatomic) IBOutlet UIImageView *landscapeImage;
+@property (strong, nonatomic) IBOutlet UITextView *textInfo;
 
 @end

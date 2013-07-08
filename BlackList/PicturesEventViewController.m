@@ -17,44 +17,9 @@
 
 @implementation PicturesEventViewController
 
-
+@synthesize party = _party;
 @synthesize carousel;
 @synthesize imageURLs;
-
-- (void)awakeFromNib
-{
-    //set up data
-    //your carousel should always be driven by an array of
-    //data of some kind - don't store data in your item views
-    //or the recycling mechanism will destroy your data once
-    //your item views move off-screen
-    /*self.imageURLs = [NSMutableArray array];
-    for (int i = 0; i < 1000; i++)
-    {
-        [imageURLs addObject:[NSNumber numberWithInt:i]];
-    }*/
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Images" ofType:@"plist"];
-    NSArray *imagePaths = [NSArray arrayWithContentsOfFile:plistPath];
-    
-    //remote image URLs
-    NSMutableArray *URLs = [NSMutableArray array];
-    for (NSString *path in imagePaths)
-    {
-        NSURL *URL = [NSURL URLWithString:path];
-        if (URL)
-        {
-            [URLs addObject:URL];
-        }
-        else
-        {
-            NSLog(@"'%@' is not a valid URL", path);
-        }
-    }
-    self.imageURLs = URLs;
-
-}
-
-
 
 - (void)dealloc
 {
@@ -71,10 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.imageURLs = _party.gallery;
     //configure carousel
     carousel.type = iCarouselTypeCoverFlow2;
     carousel.vertical = YES;
+    [self.carousel reloadData];
 }
 
 - (void)viewDidUnload

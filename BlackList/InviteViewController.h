@@ -10,6 +10,7 @@
 
 @interface InviteViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UITextField *email;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollField;
 - (IBAction)inviteOK:(UIButton *)sender;
 
 - (IBAction)editDone:(id)sender;

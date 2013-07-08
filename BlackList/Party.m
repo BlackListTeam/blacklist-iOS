@@ -17,6 +17,7 @@
 @synthesize gallery;
 @synthesize info;
 @synthesize price_info;
+@synthesize place_text;
 @synthesize location_date;
 @synthesize map;
 @synthesize party_id;

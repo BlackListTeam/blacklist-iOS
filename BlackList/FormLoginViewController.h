@@ -20,6 +20,7 @@
 }
 @property (strong, nonatomic) IBOutlet UITextField *nombre;
 @property (strong, nonatomic) IBOutlet UITextField *password;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollField;
 - (IBAction)loginOK:(UIButton *)sender;
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender;
 - (IBAction)bgTouched:(id)sender;

@@ -72,6 +72,8 @@ static NSString *errorMessage=@"";
         errorMessage=[response objectForKey:@"errorMessage"];
     }
     
+    NSLog(@"Response %@",response);
+    
     return ret;
 }
 
@@ -94,16 +96,44 @@ static NSString *errorMessage=@"";
         authError=true;
     }else{
         authError=false;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
         for(id party_json_index in [response objectForKey:@"parties"]){
             
             NSDictionary *party_json = [party_json_index objectForKey:@"Party"];
+            NSDictionary *gallery_json = [party_json_index objectForKey:@"Image"];
             //TODO
             Party *p=[[Party alloc] init];
-            p.cover =[NSString stringWithFormat:@"http://www.blacklistmeetings.com/files/party/cover/%@/%@",
+            p.cover =[NSString stringWithFormat:@"http://www.blacklistmeetings.com/files/party/cover/%@/iphone_%@",
                       [party_json objectForKey:@"cover_dir"],
                       [party_json objectForKey:@"cover"]];
             p.party_id =[[party_json objectForKey:@"id"] intValue];
-            //p.date =[[party_json objectForKey:@"date"] date];
+            p.info = [party_json objectForKey:@"info"];
+            p.image = [NSString stringWithFormat:@"http://www.blacklistmeetings.com/files/party/img/%@/iphone_%@",
+                       [party_json objectForKey:@"img_dir"],
+                       [party_json objectForKey:@"img"]];
+            p.date =[dateFormatter dateFromString:[party_json objectForKey:@"date"]];
+            p.location_date =[dateFormatter dateFromString:[party_json objectForKey:@"place_date"]];
+            p.price_info =[party_json objectForKey:@"price_info"];
+            p.place_text =[party_json objectForKey:@"place_text"];
+            p.max_escorts =[[party_json objectForKey:@"max_escorts"] intValue];
+            p.max_rooms =[[party_json objectForKey:@"max_rooms"] intValue];
+            p.vip_allowed =[[party_json objectForKey:@"vip_allowed"] boolValue];
+            p.gallery = [NSMutableArray array];
+            for(id party_image in gallery_json){
+                NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.blacklistmeetings.com/files/image/img/%@/iphone_%@",
+                                                   [party_image objectForKey:@"img_dir"],
+                                                   [party_image objectForKey:@"img"]]];
+                if (URL)
+                {
+                    [p.gallery addObject:URL];
+                }
+                else
+                {
+                    NSLog(@"'%@' is not a valid URL", p.gallery);
+                }
+
+            }
             [ret addObject:p];
         }
 

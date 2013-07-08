@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Party.h"
 
-@interface DetailsEventPrecioViewController : UIViewController
+@interface DetailsEventPrecioViewController : UIViewController{
+    Party * _party;
+}
+@property (nonatomic, retain) Party * party;
+@property (strong, nonatomic) IBOutlet UIImageView *landscapeImage;
 
 @end
