@@ -32,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
+    landscapeImage.image = [UIImage imageWithData:imageData];
 }
 
 - (void)didReceiveMemoryWarning

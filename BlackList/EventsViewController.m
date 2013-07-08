@@ -24,6 +24,7 @@ NSString *sessionId;
 @synthesize carousel;
 @synthesize imageURLs;
 @synthesize parties;
+int id_actual;
 
 - (void)awakeFromNib
 {
@@ -55,6 +56,7 @@ NSString *sessionId;
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
     parties = [jsonParser parseGetPartyCovers:webData];
+    [self actualParty];
     NSMutableArray *URLs = [NSMutableArray array];
     for (Party *party in parties)
     {
@@ -70,6 +72,7 @@ NSString *sessionId;
      }
     self.imageURLs = URLs;
     [self.carousel reloadData];
+    
     /*if(){
      else{
      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -95,7 +98,6 @@ NSString *sessionId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"View DId Load");
     //configure carousel
     carousel.type = iCarouselTypeCoverFlow2;
 }
@@ -134,12 +136,33 @@ NSString *sessionId;
         [view addSubview:button];
     }
     view.imageURL=[imageURLs objectAtIndex:index];
-    
+    Party *aux=[parties objectAtIndex:index];
+    NSLog(@"ID ACTUAL %i",id_actual);
+    if(aux.party_id==id_actual)
+    {
+        NSLog(@"DINS");
+        [self.carousel scrollToItemAtIndex: index animated: YES];
+    }
     if(view ==nil)
     {
         [[AsyncImageLoader sharedLoader]cancelLoadingImagesForTarget:view];
     }
     return view;
+}
+
+- (void)actualParty
+{
+    id_actual=0;
+    for (Party *party in parties)
+    {
+        //Si hoy es antes que la date de la party, cogemos el id de la party anterior
+        NSLog(@"DIns de la funcio actual Party %d",[party.date compare:[NSDate date]] == NSOrderedAscending);
+        NSLog(@"DIns de la funcio actual Party %@",[NSDate date]);
+        NSLog(@"DIns de la funcio actual Party %@", party.date);
+        if(!([party.date compare:[NSDate date]] == NSOrderedAscending) && id_actual == 0){
+            id_actual = party.party_id;
+        }
+    }
 }
 
 #pragma mark -
