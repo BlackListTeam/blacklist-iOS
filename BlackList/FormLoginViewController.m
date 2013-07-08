@@ -84,6 +84,7 @@ NSString *sessionId;
                                               otherButtonTitles:nil];
         [alert show];
     }else{
+        [utils saveUserName:nombre.text];
         UITabBarController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         [self presentViewController:controller animated:YES completion:nil ];
     }
