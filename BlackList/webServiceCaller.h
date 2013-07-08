@@ -24,11 +24,11 @@
 + (void) login: (NSString *) name withPassword: (NSString *) password andDelegateTo:(id) delegator;
 
 + (void) getPartyCovers: (NSString *) sessionId andDelegateTo:(id) delegator;
-
+/*
 + (void) getParty: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator;
 
 + (void) getPartyGallery: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator;
-
+*/
 + (void) getCurrentReservation: (NSString *) sessionId andDelegateTo:(id) delegator;
 
 + (void) makeReservation: (Reservation *) reservation withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator;

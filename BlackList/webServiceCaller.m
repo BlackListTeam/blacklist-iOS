@@ -61,7 +61,7 @@ static NSURLConnection *conn;
     conn = [[NSURLConnection alloc] initWithRequest:req
                                            delegate:delegator];
 }
-
+/*
 + (void) getParty: (int) partyId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
@@ -83,7 +83,7 @@ static NSURLConnection *conn;
     conn = [[NSURLConnection alloc] initWithRequest:req
                                            delegate:delegator];
 }
-
+*/
 + (void) getCurrentReservation: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =

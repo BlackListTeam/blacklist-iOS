@@ -12,9 +12,12 @@
 
 @end
 
+NSString *sessionId;
+
 @implementation InviteViewController
 
 @synthesize email;
+@synthesize qrImg;
 @synthesize scrollField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +33,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    webData = [NSMutableData data];
+    qrLoaded=false;
+	[webServiceCaller getUserQr:sessionId andDelegateTo:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +44,65 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+    
+    if(!qrLoaded){
+        NSString *qr=[jsonParser parseGetUserQr:webData];
+        if([[NSString stringWithFormat:@"%@",qr] isEqual: @""]){
+           /* UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[jsonParser errorMessage]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cerrar"
+                                                  otherButtonTitles:nil];
+            [alert show];*/
+            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+            [self presentViewController:controller animated:YES completion:nil ];
+        }else{
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:qr]];
+            qrImg.image = [UIImage imageWithData:imageData];
+        }
+        qrLoaded=true;
+    }else{
+        if([jsonParser parseSendInvitation:webData]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invitación enviada"
+                                                            message:[jsonParser errorMessage]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cerrar"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }else if(![jsonParser authError]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[jsonParser errorMessage]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cerrar"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }else{
+            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+            [self presentViewController:controller animated:YES completion:nil ];
+        }
+    }
+}
+
 - (IBAction)inviteOK:(UIButton *)sender {
+    webData = [NSMutableData data];
+	[webServiceCaller sendInvitation:email.text withSessionId:sessionId andDelegateTo:self];
 }
 
 - (IBAction)editDone:(id)sender {
