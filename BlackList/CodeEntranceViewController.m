@@ -91,4 +91,9 @@ NSString *sessionId;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)cambiarReserva:(id)sender {
+}
+
+- (IBAction)anularReserva:(id)sender {
+}
 @end
