@@ -89,8 +89,6 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     
-    NSLog(@"JSONPARSER: %@",response);
-    
     errorMessage=[response objectForKey:@"errorMessage"];
     if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
         authError=true;

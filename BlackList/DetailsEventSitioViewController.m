@@ -21,6 +21,8 @@
 
 @synthesize party = _party;
 @synthesize landscapeImage;
+@synthesize locationText;
+@synthesize buttonReservar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +36,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
+    landscapeImage.image = [UIImage imageWithData:imageData];
+    locationText.text = _party.place_text;
+    
+    if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
+        //Countdown
+    }
+    else if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
+        //Nomes Icones de mapes
+    }
+    else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
+        //Dos Icones però al click del location va cap a 
+    }
+    else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
+        //Dos Icones
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +76,6 @@
     }
     if ([[segue identifier] isEqualToString:@"sitioToGallery"]) {
         PicturesEventViewController *controller = (PicturesEventViewController *) segue.destinationViewController;
-        NSLog(@"CONTROLADOR PICTURES %@",controller);
         controller.party=_party;
     }
 }

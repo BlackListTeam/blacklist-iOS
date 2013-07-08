@@ -15,5 +15,6 @@
 @property (nonatomic, retain) Party * party;
 @property (strong, nonatomic) IBOutlet UIImageView *landscapeImage;
 @property (strong, nonatomic) IBOutlet UITextView *textInfo;
+@property (strong, nonatomic) IBOutlet UIButton *buttonReservar;
 
 @end

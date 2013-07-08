@@ -19,6 +19,8 @@
 
 @synthesize party = _party;
 @synthesize landscapeImage;
+@synthesize textPrice;
+@synthesize buttonReservar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
+    landscapeImage.image = [UIImage imageWithData:imageData];
+    textPrice.text = _party.price_info;
 }
 
 - (void)didReceiveMemoryWarning

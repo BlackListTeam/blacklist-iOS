@@ -10,4 +10,6 @@
 
 @interface ListMessagesViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIScrollView *viewScroll;
+
 @end
