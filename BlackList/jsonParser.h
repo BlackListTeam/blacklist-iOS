@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SBJson.h"
 #import "Party.h"
+#import "Reservation.h"
 
 @interface jsonParser : NSObject
 {
@@ -27,12 +28,12 @@
 + (NSString *) parseLogin:(NSMutableData *) webData;
 
 + (NSMutableArray *) parseGetPartyCovers:(NSMutableData *) webData;
-
+/*
 + (Boolean) parseGetParty:(NSMutableData *) webData;
 
 + (Boolean) parseGetPartyGallery:(NSMutableData *) webData;
-
-+ (Boolean) parseGetCurrentReservation:(NSMutableData *) webData;
+*/
++ (Reservation *) parseGetCurrentReservation:(NSMutableData *) webData;
 
 + (Boolean) parseMakeReservation:(NSMutableData *) webData;
 
@@ -46,7 +47,7 @@
 
 + (Boolean) parseSendInvitation:(NSMutableData *) webData;
 
-+ (Boolean) parseGetUserQr: (NSMutableData *) webData;
++ (NSString *) parseGetUserQr: (NSMutableData *) webData;
 
 
 @end

@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "webServiceCaller.h"
+#import "jsonParser.h"
+
 @interface InviteViewController : UIViewController
+<NSURLConnectionDelegate>
+{
+    @private NSMutableData *webData;
+    @private Boolean qrLoaded;
+}
 @property (strong, nonatomic) IBOutlet UITextField *email;
+@property (strong, nonatomic) IBOutlet UIImageView *qrImg;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollField;
 - (IBAction)inviteOK:(UIButton *)sender;
 

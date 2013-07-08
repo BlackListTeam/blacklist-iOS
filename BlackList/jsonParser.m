@@ -139,7 +139,7 @@ static NSString *errorMessage=@"";
     
     return ret;
 }
-
+/*
 + (Boolean) parseGetParty:(NSMutableData *) webData
 {
     [self reset];
@@ -179,11 +179,11 @@ static NSString *errorMessage=@"";
     
     return ret;
 }
-
-+ (Boolean) parseGetCurrentReservation:(NSMutableData *) webData
+*/
++ (Reservation *) parseGetCurrentReservation:(NSMutableData *) webData
 {
     [self reset];
-    Boolean ret=false;
+    Reservation *ret=[Reservation alloc];
     NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
                                                  length:[webData length]
                                                encoding:NSUTF8StringEncoding];
@@ -193,6 +193,22 @@ static NSString *errorMessage=@"";
     NSDictionary *response = [result objectForKey:@"response"];
     
     
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        NSDictionary *reservation=[response objectForKey:@"reservation"];
+        
+        if(reservation != [NSNull null]){
+            ret=[ret initWithEscorts:0
+                              andVip:false
+                            andRooms:1
+                               andQr:[[reservation objectForKey:@"Reservation"] objectForKey:@"qr"]];
+        }
+        //NSLog(@"asd %@",[[response objectForKey:@"reservation"] objectForKey:@"Reservation"]);
+        
+    }
     
     
     
@@ -313,16 +329,25 @@ static NSString *errorMessage=@"";
     NSDictionary *response = [result objectForKey:@"response"];
     
     
-    
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        if([[NSString stringWithFormat:@"%@",[response objectForKey:@"sended"]] isEqual: @"1"]){
+            ret=true;
+        }
+    }
+    return ret;
     
     
     
     return ret;
 }
 
-+ (Boolean) parseGetUserQr: (NSMutableData *) webData{
++ (NSString *) parseGetUserQr: (NSMutableData *) webData{
     [self reset];
-    Boolean ret=false;
+    NSString *ret=@"";
     NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
                                                  length:[webData length]
                                                encoding:NSUTF8StringEncoding];
@@ -331,11 +356,13 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     
-    
-    
-    
-    
-    
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        ret=[response objectForKey:@"qr"];
+    }    
     return ret;
 }
 

@@ -90,7 +90,6 @@ NSString *sessionId;
 }
 
 - (IBAction)loginOK:(UIButton *)sender {
-    NSLog(@"Passowrd %@ , %@",nombre.text,password.text);
     webData = [NSMutableData data];
 	[webServiceCaller login:nombre.text withPassword:password.text andDelegateTo:self];
 }

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "webServiceCaller.h"
+#import "jsonParser.h"
+#import "Reservation.h"
+
 @interface CodeEntranceViewController : UIViewController
+<NSURLConnectionDelegate,UIAlertViewDelegate>
+{
+@private NSMutableData *webData;
+}
+@property (strong, nonatomic) IBOutlet UIImageView *qrImg;
 
 @end
