@@ -161,6 +161,7 @@ int id_actual;
         NSLog(@"DIns de la funcio actual Party %@", party.date);
         if(!([party.date compare:[NSDate date]] == NSOrderedAscending) && id_actual == 0){
             id_actual = party.party_id;
+            party.es_actual = TRUE;
         }
     }
 }

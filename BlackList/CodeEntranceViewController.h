@@ -18,7 +18,8 @@
 @private NSMutableData *webData;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *qrImg;
-@property (strong, nonatomic) IBOutlet UIButton *buttonCambiar;
-@property (strong, nonatomic) IBOutlet UIButton *buttonAnular;
+- (IBAction)cambiarReserva:(id)sender;
+- (IBAction)anularReserva:(id)sender;
+
 
 @end
