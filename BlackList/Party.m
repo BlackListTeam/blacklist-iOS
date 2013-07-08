@@ -21,5 +21,9 @@
 @synthesize location_date;
 @synthesize map;
 @synthesize party_id;
+@synthesize max_escorts;
+@synthesize max_rooms;
+@synthesize vip_allowed;
+@synthesize es_actual;
 
 @end

@@ -24,6 +24,7 @@
     int max_escorts;
     int max_rooms;
     Boolean vip_allowed;
+    Boolean es_actual;
 }
 
 @property (nonatomic, retain) NSString *name;
@@ -40,6 +41,7 @@
 @property (nonatomic) int max_escorts;
 @property (nonatomic) int max_rooms;
 @property (nonatomic) Boolean vip_allowed;
+@property (nonatomic) Boolean es_actual;
 
 
 

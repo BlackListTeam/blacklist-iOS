@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface WriteMessageViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UITextView *textMessage;
+
 - (IBAction)enviarMessage:(UIButton *)sender;
+- (IBAction)bgTouched:(id)sender;
 
 @end

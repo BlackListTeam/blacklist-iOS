@@ -14,6 +14,8 @@
 
 @implementation WriteMessageViewController
 
+@synthesize textMessage;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,5 +38,8 @@
 }
 
 - (IBAction)enviarMessage:(UIButton *)sender {
+}
+- (IBAction)bgTouched:(id)sender {
+    [textMessage resignFirstResponder];
 }
 @end
