@@ -28,7 +28,8 @@ static NSURLConnection *conn;
 + (void) addUser: (User *) user withPromoterCode: (NSString *) promoterCode andDelegateTo:(id) delegator
 {
     NSString *postStr = [NSString stringWithFormat:@"promoter_code=%@&name=%@&email=%@&birth_year=%@"
-                         ,promoterCode,user.name,user.email,user.birth_year];
+                         ,promoterCode, [user.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],user.email,user.birth_year];
+
     NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/addUser"];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
@@ -43,7 +44,7 @@ static NSURLConnection *conn;
 + (void) login: (NSString *) name withPassword: (NSString *) password andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/login?name=%@&password=%@",name,password];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/login?name=%@&password=%@",[name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],password];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
@@ -150,8 +151,23 @@ static NSURLConnection *conn;
 + (void) replyMessage: (NSString *) message inMessageStreamId: (int) messageStreamId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *postStr = [NSString stringWithFormat:@"message=%@&message_stream_id=%d&session_id=%@"
-                         ,message,messageStreamId,sessionId];
+                         ,[message stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],messageStreamId,sessionId];
     NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/replyMessage"];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
+    [req addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content- Type"];
+    [req addValue:strLength forHTTPHeaderField:@"Content-Length"];
+    [req setHTTPMethod:@"POST"];
+    [req setHTTPBody: [postStr dataUsingEncoding:NSUTF8StringEncoding]];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
+}
+
++ (void) addMessage: (NSString *) message withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *postStr = [NSString stringWithFormat:@"message=%@&session_id=%@"
+                         ,[message stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],sessionId];
+    NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/addMessage"];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     NSString *strLength = [NSString stringWithFormat:@"%d", [postStr length]];
     [req addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content- Type"];

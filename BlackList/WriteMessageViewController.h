@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "webServiceCaller.h"
+#import "jsonParser.h"
 
 @interface WriteMessageViewController : UIViewController
-
+<UITextViewDelegate,NSURLConnectionDelegate,UIAlertViewDelegate>
+{
+@private NSMutableData *webData;
+}
 @property (strong, nonatomic) IBOutlet UITextView *textMessage;
 
 - (IBAction)enviarMessage:(UIButton *)sender;
 - (IBAction)bgTouched:(id)sender;
-
 @end
