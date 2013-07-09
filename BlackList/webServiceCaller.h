@@ -41,6 +41,8 @@
 
 + (void) replyMessage: (NSString *) message inMessageStreamId: (int) messageStreamId withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator;
 
++ (void) addMessage: (NSString *) message withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator;
+
 + (void) sendInvitation: (NSString *) email withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator;
 
 + (void) getUserQr: (NSString *) sessionId andDelegateTo:(id) delegator;
