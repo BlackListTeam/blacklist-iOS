@@ -284,10 +284,10 @@ static NSString *errorMessage=@"";
     return ret;
 }
 
-+ (Boolean) parseGetMessages:(NSMutableData *) webData
++ (NSMutableArray *) parseGetMessages:(NSMutableData *) webData
 {
     [self reset];
-    Boolean ret=false;
+    NSMutableArray *ret=[[NSMutableArray alloc] init];
     NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
                                                  length:[webData length]
                                                encoding:NSUTF8StringEncoding];
@@ -296,7 +296,37 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     
-    
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        
+        for(id message_thread_index in [response objectForKey:@"messages"]){
+            NSDictionary *message_thread = [message_thread_index objectForKey:@"MessageThread"];
+            NSDictionary *messages = [message_thread_index objectForKey:@"Message"];
+            
+            MessageThread *mt=[[MessageThread alloc] init];
+            
+            mt.mt_id=[[message_thread objectForKey:@"id"] intValue];
+            mt.from=[message_thread objectForKey:@"from"];
+            mt.subject=[message_thread objectForKey:@"subject"];
+            
+            mt.messages=[NSMutableArray array];
+            for(id msj in messages){
+                Message *m=[[Message alloc] init];
+                m.m_id=[[msj objectForKey:@"id"] intValue];
+                m.answer=[[msj objectForKey:@"answer"] intValue];
+                m.text=[message_thread objectForKey:@"text"];
+                m.pay_link=[message_thread objectForKey:@"pay_link"];
+                [mt.messages addObject:m];
+            }
+            
+            
+            [ret addObject:mt];
+        }
+        
+    }
     
     
     

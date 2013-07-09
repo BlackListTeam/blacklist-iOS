@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "webServiceCaller.h"
+#import "jsonParser.h"
 
 @interface ListMessagesViewController : UIViewController
-
+<NSURLConnectionDelegate>
+{
+@private NSMutableData *webData;
+}
 @property (strong, nonatomic) IBOutlet UIScrollView *viewScroll;
+@property (nonatomic, retain) NSMutableArray *messages;
+
 
 @end
