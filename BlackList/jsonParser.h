@@ -10,6 +10,8 @@
 #import "SBJson.h"
 #import "Party.h"
 #import "Reservation.h"
+#import "MessageThread.h"
+#import "Message.h"
 
 @interface jsonParser : NSObject
 {
@@ -41,7 +43,7 @@
 
 + (Boolean) parseDeleteReservation:(NSMutableData *) webData;
 
-+ (Boolean) parseGetMessages:(NSMutableData *) webData;
++ (NSMutableArray *) parseGetMessages:(NSMutableData *) webData;
 
 + (Boolean) parseReplyMessage:(NSMutableData *) webData;
 
