@@ -11,8 +11,6 @@
 		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		458666AA1783253A00C63591 /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A91783253A00C63591 /* Reservation.m */; };
 		458666AD1783260500C63591 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666AC1783260500C63591 /* Party.m */; };
-		458BF5A8178C57B500D73DEF /* MessageThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 458BF5A7178C57B500D73DEF /* MessageThread.m */; };
-		458BF5AB178C59B100D73DEF /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 458BF5AA178C59B100D73DEF /* Message.m */; };
 		A84F91F01784776B004D15DD /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F91EF1784776B004D15DD /* AsyncImageView.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
@@ -43,6 +41,8 @@
 		A89E6E8A178C632E00E5B992 /* 7.countdown.png in Resources */ = {isa = PBXBuildFile; fileRef = A89E6E88178C632E00E5B992 /* 7.countdown.png */; };
 		A89E6E8B178C632E00E5B992 /* 7.countdown@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = A89E6E89178C632E00E5B992 /* 7.countdown@2X.png */; };
 		A89E6E8E178C7C5F00E5B992 /* DetailsEventSitioCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E6E8D178C7C5F00E5B992 /* DetailsEventSitioCountdownView.m */; };
+		A89E6E93178C7E7100E5B992 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E6E90178C7E7100E5B992 /* Message.m */; };
+		A89E6E94178C7E7100E5B992 /* MessageThread.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E6E92178C7E7100E5B992 /* MessageThread.m */; };
 		A89F1A2C1785D7D800BF200A /* 6.Map.png in Resources */ = {isa = PBXBuildFile; fileRef = A89F1A281785D7D800BF200A /* 6.Map.png */; };
 		A89F1A2D1785D7D800BF200A /* 6.Map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A89F1A291785D7D800BF200A /* 6.Map@2x.png */; };
 		A89F1A2E1785D7D800BF200A /* 6.Pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = A89F1A2A1785D7D800BF200A /* 6.Pictures.png */; };
@@ -197,10 +197,6 @@
 		458666A91783253A00C63591 /* Reservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
 		458666AB1783260500C63591 /* Party.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Party.h; sourceTree = "<group>"; };
 		458666AC1783260500C63591 /* Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Party.m; sourceTree = "<group>"; };
-		458BF5A6178C57B500D73DEF /* MessageThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageThread.h; sourceTree = "<group>"; };
-		458BF5A7178C57B500D73DEF /* MessageThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageThread.m; sourceTree = "<group>"; };
-		458BF5A9178C59B100D73DEF /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		458BF5AA178C59B100D73DEF /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		A84F91EE1784776B004D15DD /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		A84F91EF1784776B004D15DD /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
@@ -249,6 +245,10 @@
 		A89E6E89178C632E00E5B992 /* 7.countdown@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "7.countdown@2X.png"; sourceTree = "<group>"; };
 		A89E6E8C178C7C5F00E5B992 /* DetailsEventSitioCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsEventSitioCountdownView.h; sourceTree = "<group>"; };
 		A89E6E8D178C7C5F00E5B992 /* DetailsEventSitioCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsEventSitioCountdownView.m; sourceTree = "<group>"; };
+		A89E6E8F178C7E7100E5B992 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A89E6E90178C7E7100E5B992 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A89E6E91178C7E7100E5B992 /* MessageThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageThread.h; sourceTree = "<group>"; };
+		A89E6E92178C7E7100E5B992 /* MessageThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageThread.m; sourceTree = "<group>"; };
 		A89F1A281785D7D800BF200A /* 6.Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.Map.png; sourceTree = "<group>"; };
 		A89F1A291785D7D800BF200A /* 6.Map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "6.Map@2x.png"; sourceTree = "<group>"; };
 		A89F1A2A1785D7D800BF200A /* 6.Pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.Pictures.png; sourceTree = "<group>"; };
@@ -475,16 +475,16 @@
 		A89D25AE177EE46000F10202 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A89E6E8F178C7E7100E5B992 /* Message.h */,
+				A89E6E90178C7E7100E5B992 /* Message.m */,
+				A89E6E91178C7E7100E5B992 /* MessageThread.h */,
+				A89E6E92178C7E7100E5B992 /* MessageThread.m */,
 				458666AB1783260500C63591 /* Party.h */,
 				458666AC1783260500C63591 /* Party.m */,
 				458666A81783253A00C63591 /* Reservation.h */,
 				458666A91783253A00C63591 /* Reservation.m */,
 				458666A5178323C100C63591 /* User.h */,
 				458666A6178323C100C63591 /* User.m */,
-				458BF5A6178C57B500D73DEF /* MessageThread.h */,
-				458BF5A7178C57B500D73DEF /* MessageThread.m */,
-				458BF5A9178C59B100D73DEF /* Message.h */,
-				458BF5AA178C59B100D73DEF /* Message.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1088,6 +1088,8 @@
 				A84F91F01784776B004D15DD /* AsyncImageView.m in Sources */,
 				45861DD5178478FA00B4D80C /* utils.m in Sources */,
 				A89E6E8E178C7C5F00E5B992 /* DetailsEventSitioCountdownView.m in Sources */,
+				A89E6E93178C7E7100E5B992 /* Message.m in Sources */,
+				A89E6E94178C7E7100E5B992 /* MessageThread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
