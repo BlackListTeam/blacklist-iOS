@@ -30,6 +30,9 @@
     if (self) {
         // Custom initialization
     }
+    if(!_party.es_actual){
+        buttonReservar.hidden = TRUE;
+    }
     return self;
 }
 

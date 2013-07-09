@@ -36,7 +36,10 @@
     [super viewDidLoad];
     textInfo.text = _party.info;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
-    landscapeImage.image = [UIImage imageWithData:imageData];    
+    landscapeImage.image = [UIImage imageWithData:imageData];
+    if(!_party.es_actual){
+        buttonReservar.hidden = TRUE;
+    }
 }
 
 - (void)didReceiveMemoryWarning

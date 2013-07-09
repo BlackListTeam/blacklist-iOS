@@ -15,6 +15,7 @@
 @implementation promoterCodeViewController
 
 @synthesize promoterCode;
+@synthesize scrollField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +29,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self registerForKeyboardNotifications];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    promoterCode = nil;
+    scrollField = nil;
+    [self unregisterForKeyboardNotifications];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,4 +93,67 @@
     [promoterCode resignFirstResponder];
 }
 
+//****************   SCROLL KEYBOARD   ***************
+- (IBAction)promoterCodeDidBeginEditing:(UITextField *)sender {
+    promoterCode = sender;
+    
+    //Add tap recognizer to scroll view, user can tap other part of scroll view to
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
+    [scrollField addGestureRecognizer:tapRecognizer];
+}
+
+
+#pragma mark - event of keyboard relative methods
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+-(void)unregisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
+    // unregister for keyboard notifications while not visible.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+}
+
+
+- (void)keyboardWillShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGRect frame = self.view.frame;
+    
+    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        frame.size.height -= kbSize.height;
+        
+    }else{
+        frame.size.height -= kbSize.width;
+    }
+    CGPoint fOrigin = promoterCode.frame.origin;
+    fOrigin.y -= scrollField.contentOffset.y;
+    fOrigin.y += promoterCode.frame.size.height;
+    if (!CGRectContainsPoint(frame, fOrigin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, promoterCode.frame.origin.y + promoterCode.frame.size.height - frame.size.height);
+        [scrollField setContentOffset:scrollPoint animated:YES];
+    }
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [scrollField setContentOffset:CGPointZero animated:YES];
+}
+
 @end
+
+

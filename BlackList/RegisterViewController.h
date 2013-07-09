@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *email;
 @property (strong, nonatomic) IBOutlet UITextField *nombre;
 @property (strong, nonatomic) IBOutlet UITextField *anyoNacimiento;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollField;
 
 - (IBAction)registerOK:(UIButton *)sender;
 - (IBAction)doneEditing:(id)sender;

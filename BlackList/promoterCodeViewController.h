@@ -23,6 +23,7 @@
 }
 
 @property (nonatomic,retain) UITextField *promoterCode;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollField;
 
 - (IBAction)onClickOk:(UIButton *)sender;
 - (IBAction)doneEditing:(id)sender;

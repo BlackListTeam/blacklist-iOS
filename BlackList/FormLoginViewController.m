@@ -107,42 +107,13 @@ NSString *sessionId;
     [sender resignFirstResponder];
 }
 
-
-
-
-
-/*
-- (void)nombreDidBeginEditing:(UITextField *)textField {
-    nombre = textField;
-    
-    //Add tap recognizer to scroll view, user can tap other part of scroll view to
-    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
-    [scrollField addGestureRecognizer:tapRecognizer];
-    
-}
-- (void)nombreDidEndEditing:(UITextField *)textField {
-    nombre = nil;
-}*/
-
+//************************ SCROLL  ************************
 - (IBAction)passwordDidBeginEditing:(UITextField *)textField {
     password = textField;
     
     //Add tap recognizer to scroll view, user can tap other part of scroll view to
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
     [scrollField addGestureRecognizer:tapRecognizer];
-}
-- (IBAction)passwordDidEndEditing:(UITextField *)sender {
-    //password= nil;
-}
-
-/*
- When user tap on the scroll view, the method is called to disable the keyboard
- */
-- (void)tapDetected:(UITapGestureRecognizer *)tapRecognizer
-{
-    [nombre resignFirstResponder];
-    [password resignFirstResponder];
-    [scrollField removeGestureRecognizer:tapRecognizer];
 }
 
 #pragma mark - event of keyboard relative methods

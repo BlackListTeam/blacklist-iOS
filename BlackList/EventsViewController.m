@@ -137,10 +137,8 @@ int id_actual;
     }
     view.imageURL=[imageURLs objectAtIndex:index];
     Party *aux=[parties objectAtIndex:index];
-    NSLog(@"ID ACTUAL %i",id_actual);
     if(aux.party_id==id_actual)
     {
-        NSLog(@"DINS");
         [self.carousel scrollToItemAtIndex: index animated: YES];
     }
     if(view ==nil)
@@ -156,9 +154,6 @@ int id_actual;
     for (Party *party in parties)
     {
         //Si hoy es antes que la date de la party, cogemos el id de la party anterior
-        NSLog(@"DIns de la funcio actual Party %d",[party.date compare:[NSDate date]] == NSOrderedAscending);
-        NSLog(@"DIns de la funcio actual Party %@",[NSDate date]);
-        NSLog(@"DIns de la funcio actual Party %@", party.date);
         if(!([party.date compare:[NSDate date]] == NSOrderedAscending) && id_actual == 0){
             id_actual = party.party_id;
             party.es_actual = TRUE;
