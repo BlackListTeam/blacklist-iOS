@@ -17,6 +17,7 @@
 }
 @property (strong, nonatomic) IBOutlet UITextView *textMessage;
 
+- (IBAction)descartarText:(id)sender;
 - (IBAction)enviarMessage:(UIButton *)sender;
 - (IBAction)bgTouched:(id)sender;
 @end
