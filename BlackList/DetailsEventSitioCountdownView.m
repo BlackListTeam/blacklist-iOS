@@ -1,21 +1,18 @@
 //
-//  ReservationViewController.m
+//  DetailsEventSitioCountdownView.m
 //  BlackList
 //
-//  Created by Albert on 02/07/13.
+//  Created by Albert on 09/07/13.
 //  Copyright (c) 2013 AndreuRM. All rights reserved.
 //
 
-#import "ReservationViewController.h"
+#import "DetailsEventSitioCountdownView.h"
 
-@interface ReservationViewController ()
+@interface DetailsEventSitioCountdownView ()
 
 @end
 
-@implementation ReservationViewController
-
-@synthesize party = _party;
-@synthesize landscapeImage;
+@implementation DetailsEventSitioCountdownView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,18 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
-    landscapeImage.image = [UIImage imageWithData:imageData];
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)reservationOK:(UIButton *)sender {
 }
 
 @end

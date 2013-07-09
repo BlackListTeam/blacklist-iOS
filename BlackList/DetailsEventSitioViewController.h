@@ -16,5 +16,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *landscapeImage;
 @property (strong, nonatomic) IBOutlet UITextView *locationText;
 @property (strong, nonatomic) IBOutlet UIButton *buttonReservar;
+@property (strong, nonatomic) IBOutlet UIImageView *countdown;
+@property (strong, nonatomic) IBOutlet UIButton *buttonMap;
+@property (strong, nonatomic) IBOutlet UIButton *buttonPictures;
+@property (strong, nonatomic) IBOutlet UILabel *days;
+@property (strong, nonatomic) IBOutlet UILabel *hours;
+@property (strong, nonatomic) IBOutlet UILabel *minutes;
 
 @end

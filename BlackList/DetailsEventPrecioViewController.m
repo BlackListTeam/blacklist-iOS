@@ -28,9 +28,6 @@
     if (self) {
         // Custom initialization
     }
-    if(!_party.es_actual){
-        buttonReservar.hidden = TRUE;
-    }
     return self;
 }
 
@@ -40,6 +37,9 @@
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
     textPrice.text = _party.price_info;
+    if(!_party.es_actual){
+        buttonReservar.hidden = TRUE;
+    }
 }
 
 - (void)didReceiveMemoryWarning
