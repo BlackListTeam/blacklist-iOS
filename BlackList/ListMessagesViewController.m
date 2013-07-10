@@ -73,6 +73,31 @@ NSString *sessionId;
 {
     if(deleteMsg){
         Boolean deleted = [jsonParser parseDeleteMessage:webData];
+        if([jsonParser authError]){
+            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+            [self presentViewController:controller animated:YES completion:nil ];
+        }else{
+            if(deleted){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atención"
+                                                                message:@"Mensaje borrado correctamente"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+                deleteMsg=false;
+                webData = [NSMutableData data];
+                [webServiceCaller getMessages:sessionId andDelegateTo:self];
+                [alert show];
+                
+            }else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                message:[jsonParser errorMessage]
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Cerrar"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+        }
+
     }else{
         messages = [jsonParser parseGetMessages:webData];
         
@@ -80,6 +105,11 @@ NSString *sessionId;
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
             [self presentViewController:controller animated:YES completion:nil ];
         }else{
+            
+            for(UIView *subview in [viewScroll subviews]) {
+                [subview removeFromSuperview];
+            }
+            
             int yo=0;
             int yd=85;
             int i=0;
@@ -151,8 +181,8 @@ NSString *sessionId;
     UIButton *aux=sender;
     NSLog(@"trash %ld",(long)aux.tag);
     deleteMsg=true;
-   /* webData = [NSMutableData data];
-    [webServiceCaller deleteMessage: [[messages objectAtIndex:aux.tag] mt_id] withSessionId:sessionId andDelegateTo:self];*/
+    webData = [NSMutableData data];
+    [webServiceCaller deleteMessage: [[messages objectAtIndex:aux.tag] mt_id] withSessionId:sessionId andDelegateTo:self];
 }
     
 
