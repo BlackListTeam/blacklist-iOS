@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 #import "Party.h"
 
 @interface DetailsEventSitioViewController : UIViewController{
@@ -22,5 +23,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *days;
 @property (strong, nonatomic) IBOutlet UILabel *hours;
 @property (strong, nonatomic) IBOutlet UILabel *minutes;
+@property (strong, nonatomic) IBOutlet MKMapView *mapa;
 
 @end

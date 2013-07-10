@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface Party : NSObject
 {
@@ -42,7 +43,8 @@
 @property (nonatomic) int max_rooms;
 @property (nonatomic) Boolean vip_allowed;
 @property (nonatomic) Boolean es_actual;
-
+@property (nonatomic) CLLocationDegrees longitude;
+@property (nonatomic) CLLocationDegrees latitude;
 
 
 

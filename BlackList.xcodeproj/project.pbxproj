@@ -29,6 +29,8 @@
 		A85E95151781EC300078F165 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E950A1781EC300078F165 /* SBJsonStreamWriterState.m */; };
 		A85E95161781EC300078F165 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E950C1781EC300078F165 /* SBJsonWriter.m */; };
 		A89689861781D197001682B0 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89689851781D197001682B0 /* EventsViewController.m */; };
+		A89AD241178DA54900336842 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89AD240178DA54900336842 /* CoreLocation.framework */; };
+		A89AD243178DAABC00336842 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89AD242178DAABC00336842 /* MapKit.framework */; };
 		A89D25A9177EDF4600F10202 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D25A8177EDF4600F10202 /* iCarousel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A89D25AB177EDFEF00F10202 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A89D25AA177EDFEF00F10202 /* QuartzCore.framework */; };
 		A89D25AD177EE1EB00F10202 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A89D25AC177EE1EB00F10202 /* page.png */; };
@@ -182,7 +184,6 @@
 		A8CF88CE177365180051DA64 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CF88CD177365180051DA64 /* AppDelegate.m */; };
 		A8CF88D0177365180051DA64 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88CF177365180051DA64 /* Default.png */; };
 		A8CF88D2177365180051DA64 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88D1177365180051DA64 /* Default@2x.png */; };
-		A8CF88D4177365190051DA64 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88D3177365190051DA64 /* Default-568h@2x.png */; };
 		A8CF88D7177365190051DA64 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88D5177365190051DA64 /* MainStoryboard.storyboard */; };
 		A8CF88DC177365190051DA64 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88DB177365190051DA64 /* first.png */; };
 		A8CF88DE177365190051DA64 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CF88DD177365190051DA64 /* first@2x.png */; };
@@ -233,6 +234,8 @@
 		A85E950C1781EC300078F165 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		A89689841781D197001682B0 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
 		A89689851781D197001682B0 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		A89AD240178DA54900336842 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A89AD242178DAABC00336842 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A89D25A7177EDF4600F10202 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		A89D25A8177EDF4600F10202 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A89D25AA177EDFEF00F10202 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -420,6 +423,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A89AD243178DAABC00336842 /* MapKit.framework in Frameworks */,
+				A89AD241178DA54900336842 /* CoreLocation.framework in Frameworks */,
 				A89D25AB177EDFEF00F10202 /* QuartzCore.framework in Frameworks */,
 				A8CF88BE177365180051DA64 /* UIKit.framework in Frameworks */,
 				A8CF88C0177365180051DA64 /* Foundation.framework in Frameworks */,
@@ -821,6 +826,8 @@
 		A8CF88BC177365180051DA64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A89AD242178DAABC00336842 /* MapKit.framework */,
+				A89AD240178DA54900336842 /* CoreLocation.framework */,
 				A89D25AA177EDFEF00F10202 /* QuartzCore.framework */,
 				A8CF88BD177365180051DA64 /* UIKit.framework */,
 				A8CF88BF177365180051DA64 /* Foundation.framework */,
@@ -922,7 +929,6 @@
 				A8CF88C8177365180051DA64 /* InfoPlist.strings in Resources */,
 				A8CF88D0177365180051DA64 /* Default.png in Resources */,
 				A8CF88D2177365180051DA64 /* Default@2x.png in Resources */,
-				A8CF88D4177365190051DA64 /* Default-568h@2x.png in Resources */,
 				A8CF88D7177365190051DA64 /* MainStoryboard.storyboard in Resources */,
 				A8CF88DC177365190051DA64 /* first.png in Resources */,
 				A8CF88DE177365190051DA64 /* first@2x.png in Resources */,

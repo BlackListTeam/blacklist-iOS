@@ -8,6 +8,7 @@
 
 #import "jsonParser.h"
 #import "SBJson.h"
+#import <MapKit/MapKit.h>
 
 static Boolean authError=false;
 static NSString *errorMessage=@"";
@@ -113,6 +114,8 @@ static NSString *errorMessage=@"";
             p.date =[dateFormatter dateFromString:[party_json objectForKey:@"date"]];
             p.location_date =[dateFormatter dateFromString:[party_json objectForKey:@"place_date"]];
             p.price_info =[party_json objectForKey:@"price_info"];
+            p.latitude = [[party_json objectForKey:@"place_lat"]doubleValue];
+            p.longitude = [[party_json objectForKey:@"place_long"]doubleValue];
             p.place_text =[party_json objectForKey:@"place_text"];
             p.max_escorts =[[party_json objectForKey:@"max_escorts"] intValue];
             p.max_rooms =[[party_json objectForKey:@"max_rooms"] intValue];
