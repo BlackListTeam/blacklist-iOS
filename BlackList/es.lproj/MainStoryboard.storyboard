@@ -153,6 +153,7 @@
                             <constraint firstItem="ZXk-No-t92" firstAttribute="bottom" secondItem="bKa-K7-4z9" secondAttribute="bottom" type="default" id="dwQ-1Z-Obx"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="promoterCode" destination="l4E-fm-tB5" id="Q0j-YL-lJI"/>
                         <outlet property="scrollField" destination="ZXk-No-t92" id="FB4-l4-IGr"/>
