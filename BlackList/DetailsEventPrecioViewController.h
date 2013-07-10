@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *landscapeImage;
 @property (strong, nonatomic) IBOutlet UITextView *textPrice;
 @property (strong, nonatomic) IBOutlet UIButton *buttonReservar;
+@property (strong, nonatomic) IBOutlet UILabel *titleEvent;
 
 @end

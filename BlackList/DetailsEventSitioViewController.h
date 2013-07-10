@@ -24,5 +24,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *hours;
 @property (strong, nonatomic) IBOutlet UILabel *minutes;
 @property (strong, nonatomic) IBOutlet MKMapView *mapa;
+@property (strong, nonatomic) IBOutlet UILabel *titleEvent;
+@property (strong, nonatomic) IBOutlet UIButton *buttonMapOnly;
+@property (strong, nonatomic) IBOutlet UIView *blackLine;
 
 @end

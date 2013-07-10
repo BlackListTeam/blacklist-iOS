@@ -25,11 +25,14 @@
 @synthesize buttonReservar;
 @synthesize countdown;
 @synthesize buttonMap;
+@synthesize buttonMapOnly;
 @synthesize buttonPictures;
 @synthesize days;
 @synthesize minutes;
 @synthesize hours;
 @synthesize mapa;
+@synthesize titleEvent;
+@synthesize blackLine;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,9 +63,10 @@
         NSLog(@"2 ");
         //Nomes Icones de mapes
         [self countdownOff];
-        buttonPictures.hidden = TRUE;
-        locationText.hidden = TRUE;
-        [self.buttonMap addTarget:self
+        [self buttonsOff];
+        blackLine.hidden = YES;
+        buttonMapOnly.hidden = FALSE;
+        [self.buttonMapOnly addTarget:self
                            action:@selector(showMap:)
                  forControlEvents:UIControlEventTouchUpInside];
     }
@@ -82,6 +86,8 @@
                            action:@selector(showMap:)
                  forControlEvents:UIControlEventTouchUpInside];
     }
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.text = _party.name;
 }
 
 - (void)showCountdown:(UIButton *)sender
@@ -93,6 +99,7 @@
     minutes.hidden = FALSE;
     days.hidden = FALSE;
     hours.hidden = FALSE;
+    //[self countdownReload];
 }
 
 - (void)showMap:(UIButton *)sender

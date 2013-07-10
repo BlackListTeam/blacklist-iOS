@@ -16,5 +16,6 @@
     @private NSMutableData *webData;
 }
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
+@property (strong, nonatomic) IBOutlet UILabel *titleEvent;
 
 @end

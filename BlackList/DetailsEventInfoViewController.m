@@ -21,6 +21,7 @@
 @synthesize landscapeImage;
 @synthesize textInfo;
 @synthesize buttonReservar;
+@synthesize titleEvent;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +41,8 @@
     if(!_party.es_actual){
         buttonReservar.hidden = TRUE;
     }
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.text = _party.name;
 }
 
 - (void)didReceiveMemoryWarning

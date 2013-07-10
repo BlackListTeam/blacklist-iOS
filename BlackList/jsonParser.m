@@ -117,6 +117,7 @@ static NSString *errorMessage=@"";
             p.latitude = [[party_json objectForKey:@"place_lat"]doubleValue];
             p.longitude = [[party_json objectForKey:@"place_long"]doubleValue];
             p.place_text =[party_json objectForKey:@"place_text"];
+            p.name =[party_json objectForKey:@"name"];
             p.max_escorts =[[party_json objectForKey:@"max_escorts"] intValue];
             p.max_rooms =[[party_json objectForKey:@"max_rooms"] intValue];
             p.vip_allowed =[[party_json objectForKey:@"vip_allowed"] boolValue];
