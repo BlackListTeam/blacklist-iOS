@@ -181,7 +181,7 @@ static NSURLConnection *conn;
 + (void) deleteMessage: (int) m_id withSessionId:(NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/deleteMessage?message_thread_id=%d&session_id=%@",m_id,sessionId];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/deleteMessage?message_stream_id=%d&session_id=%@",m_id,sessionId];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];

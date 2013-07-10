@@ -12,14 +12,16 @@
 #import "AnswerMessageViewController.h"
 
 @interface ListMessagesViewController : UIViewController
-<NSURLConnectionDelegate>
+<NSURLConnectionDelegate,UIAlertViewDelegate>
 {
 @private NSMutableData *webData;
     Boolean deleteMsg;
+    int indexClicked;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *viewScroll;
 @property (nonatomic, retain) NSMutableArray *messages;
 @property (nonatomic) Boolean deleteMsg;
+@property (nonatomic) int indexClicked;
 
 
 
