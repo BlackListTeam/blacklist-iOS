@@ -20,6 +20,7 @@ NSString *sessionId;
 @synthesize messages;
 @synthesize viewScroll;
 @synthesize deleteMsg;
+@synthesize indexClicked;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,7 @@ NSString *sessionId;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //viewScroll.userInteractionEnabled=YES;
+    indexClicked=-1;
     deleteMsg=false;
     webData = [NSMutableData data];
     [webServiceCaller getMessages:sessionId andDelegateTo:self];
@@ -78,9 +80,9 @@ NSString *sessionId;
             [self presentViewController:controller animated:YES completion:nil ];
         }else{
             if(deleted){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atención"
-                                                                message:@"Mensaje borrado correctamente"
-                                                               delegate:self
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mensaje borrado correctamente"
+                                                                message:nil
+                                                               delegate:nil
                                                       cancelButtonTitle:@"Ok"
                                                       otherButtonTitles:nil];
                 deleteMsg=false;
@@ -114,9 +116,7 @@ NSString *sessionId;
             int yd=85;
             int i=0;
             
-            NSLog(@"%@",[messages objectAtIndex:0]);
             for(MessageThread *messageThread in messages){
-                NSLog(@"%@",messageThread.subject);
                 
                 UIImage *bkg = [UIImage imageNamed:@"15.de_.png"];
                 UIImageView *container= [[UIImageView alloc] initWithImage:bkg];
@@ -176,24 +176,38 @@ NSString *sessionId;
     deleteMsg=false;
 }
 
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==0){
+        deleteMsg=true;
+        webData = [NSMutableData data];
+        [webServiceCaller deleteMessage: [[messages objectAtIndex:indexClicked] mt_id]
+                          withSessionId:sessionId
+                          andDelegateTo:self];
+    }
+}
+
 -(void) trashClicked: (id) sender
 {
     UIButton *aux=sender;
-    NSLog(@"trash %ld",(long)aux.tag);
-    deleteMsg=true;
-    webData = [NSMutableData data];
-    [webServiceCaller deleteMessage: [[messages objectAtIndex:aux.tag] mt_id] withSessionId:sessionId andDelegateTo:self];
+    indexClicked=aux.tag;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atención"
+                                                    message:@"Estás seguro de querer borrar el mensaje"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Si"
+                                          otherButtonTitles:@"No",nil];
+    [alert show];
 }
-    
+
 
 -(void) labelTapped:(UIGestureRecognizer *)sender
 {
     UILabel *aux=sender.view;
-    NSLog(@"tabed %ld",(long)aux.tag);
     
     AnswerMessageViewController* answerMessageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AnswerMessageViewController"];
     answerMessageViewController._messageThread=[messages objectAtIndex:aux.tag];
-    [self.navigationController pushViewController:answerMessageViewController animated:YES];
+    [self.navigationController pushViewController:answerMessageViewController
+                                         animated:YES];
     
 }
 

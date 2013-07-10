@@ -102,6 +102,11 @@ NSString *sessionId;
 }
 
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender {
+    NSString *emailString =[[NSString alloc] initWithFormat:@"mailto:?to=%@&subject=%@&body=%@",
+                            [@"info@blacklistmeetings.com" stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding],
+                            [@"Contacto" stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+                            [@"" stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:emailString]];
 }
 
 - (IBAction)bgTouched:(id)sender {
