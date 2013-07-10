@@ -9,14 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "webServiceCaller.h"
 #import "jsonParser.h"
+#import "AnswerMessageViewController.h"
 
 @interface ListMessagesViewController : UIViewController
 <NSURLConnectionDelegate>
 {
 @private NSMutableData *webData;
+    Boolean deleteMsg;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *viewScroll;
 @property (nonatomic, retain) NSMutableArray *messages;
+@property (nonatomic) Boolean deleteMsg;
+
 
 
 @end

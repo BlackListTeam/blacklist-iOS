@@ -12,7 +12,11 @@
 
 @end
 
+
+
 @implementation AnswerMessageViewController
+
+@synthesize _messageThread;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSLog(@"%@",_messageThread.subject);
 }
 
 - (void)didReceiveMemoryWarning

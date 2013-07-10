@@ -11,6 +11,8 @@
 		458666A7178323C100C63591 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A6178323C100C63591 /* User.m */; };
 		458666AA1783253A00C63591 /* Reservation.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666A91783253A00C63591 /* Reservation.m */; };
 		458666AD1783260500C63591 /* Party.m in Sources */ = {isa = PBXBuildFile; fileRef = 458666AC1783260500C63591 /* Party.m */; };
+		458C98E0178D713A004835C9 /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 458C98DF178D713A004835C9 /* BebasNeue.otf */; };
+		458C98E2178D75D7004835C9 /* merit4.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 458C98E1178D75D7004835C9 /* merit4.ttf */; };
 		A84F91F01784776B004D15DD /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A84F91EF1784776B004D15DD /* AsyncImageView.m */; };
 		A85E94ED1781E3E70078F165 /* Images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A85E94EC1781E3E70078F165 /* Images.plist */; };
 		A85E94F01781EBF00078F165 /* promoterCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85E94EF1781EBF00078F165 /* promoterCodeViewController.m */; };
@@ -197,6 +199,8 @@
 		458666A91783253A00C63591 /* Reservation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reservation.m; sourceTree = "<group>"; };
 		458666AB1783260500C63591 /* Party.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Party.h; sourceTree = "<group>"; };
 		458666AC1783260500C63591 /* Party.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Party.m; sourceTree = "<group>"; };
+		458C98DF178D713A004835C9 /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
+		458C98E1178D75D7004835C9 /* merit4.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = merit4.ttf; sourceTree = "<group>"; };
 		A84F91EE1784776B004D15DD /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		A84F91EF1784776B004D15DD /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		A85E94EC1781E3E70078F165 /* Images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Images.plist; sourceTree = "<group>"; };
@@ -426,6 +430,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		458C98DE178D7123004835C9 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				458C98E1178D75D7004835C9 /* merit4.ttf */,
+				458C98DF178D713A004835C9 /* BebasNeue.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		A84F91ED1784776B004D15DD /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +854,7 @@
 		A8CF88C4177365180051DA64 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				458C98DE178D7123004835C9 /* fonts */,
 				A85E94EC1781E3E70078F165 /* Images.plist */,
 				A8CF88C5177365180051DA64 /* BlackList-Info.plist */,
 				A8CF88C6177365180051DA64 /* InfoPlist.strings */,
@@ -1042,6 +1056,8 @@
 				A89E6E83178C5FED00E5B992 /* 4.BG@2x.png in Resources */,
 				A89E6E8A178C632E00E5B992 /* 7.countdown.png in Resources */,
 				A89E6E8B178C632E00E5B992 /* 7.countdown@2X.png in Resources */,
+				458C98E0178D713A004835C9 /* BebasNeue.otf in Resources */,
+				458C98E2178D75D7004835C9 /* merit4.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,11 +1190,16 @@
 		A8CF88E9177365190051DA64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andreu Recasens Mullor (QPD867QE64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andreu Recasens Mullor (QPD867QE64)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlackList/BlackList-Prefix.pch";
 				INFOPLIST_FILE = "BlackList/BlackList-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1186,12 +1207,14 @@
 		A8CF88EA177365190051DA64 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlackList/BlackList-Prefix.pch";
 				INFOPLIST_FILE = "BlackList/BlackList-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SDKROOT[arch=*]" = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

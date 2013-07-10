@@ -381,6 +381,34 @@ static NSString *errorMessage=@"";
     return ret;
 }
 
++ (Boolean) parseDeleteMessage:(NSMutableData *) webData
+{
+    [self reset];
+    Boolean ret=false;
+    NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
+                                                 length:[webData length]
+                                               encoding:NSUTF8StringEncoding];
+    
+    NSDictionary *result= [[[SBJsonParser alloc] init] objectWithString:strResult];
+    
+    NSDictionary *response = [result objectForKey:@"response"];
+    
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        if([[NSString stringWithFormat:@"%@",[response objectForKey:@"deleted"]] isEqual: @"1"]){
+            ret=true;
+        }
+    }
+    
+    
+    
+    
+    return ret;
+}
+
 + (Boolean) parseSendInvitation:(NSMutableData *) webData
 {
     [self reset];

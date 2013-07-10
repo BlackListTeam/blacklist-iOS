@@ -49,6 +49,8 @@
 
 + (Boolean) parseAddMessage:(NSMutableData *) webData;
 
++ (Boolean) parseDeleteMessage:(NSMutableData *) webData;
+
 + (Boolean) parseSendInvitation:(NSMutableData *) webData;
 
 + (NSString *) parseGetUserQr: (NSMutableData *) webData;

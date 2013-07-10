@@ -178,6 +178,18 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
++ (void) deleteMessage: (int) m_id withSessionId:(NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *queryURL =
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/deleteMessage?message_thread_id=%d&session_id=%@",m_id,sessionId];
+    
+    NSURL *url = [NSURL URLWithString: queryURL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
+
+}
+
 + (void) sendInvitation: (NSString *) email withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
 {
     NSString *postStr = [NSString stringWithFormat:@"email=%@&session_id=%@"
