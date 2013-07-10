@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    nombre.text=[utils retriveUserName];
+    //nombre.text=[utils retriveUserName];
     [self registerForKeyboardNotifications];
 }
 
@@ -128,7 +128,7 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Escribe un mail correcto." delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
             [alert show];
             
-            email.text=@"";
+            //email.text=@"";
         }
 }
 
@@ -139,7 +139,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Escribe un anyo de 4 cifras" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
         [alert show];
         
-        anyoNacimiento.text=@"";
+        //anyoNacimiento.text=@"";
     }
 }
 

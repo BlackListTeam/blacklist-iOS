@@ -15,6 +15,6 @@
 }
 @property (nonatomic, retain) MessageThread * _messageThread;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *viewScroll;
 
-- (IBAction)contestarMessageShowTextArea:(id)sender;
 @end
