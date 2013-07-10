@@ -29,6 +29,9 @@
 @synthesize days;
 @synthesize minutes;
 @synthesize hours;
+@synthesize mapa;
+
+#define METERS_PER_MILE 1609.344
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,27 +54,61 @@
     if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
         //Countdown
         
-        buttonMap.hidden = TRUE;
-        buttonPictures.hidden = TRUE;
-        locationText.hidden = TRUE;
-        
+        [self buttonsOff];
         [self countdownReload];
     }
     else if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
-        //Nomes Icones de mapes
+        //Nomes Icone de mapes
         [self countdownOff];
         buttonPictures.hidden = TRUE;
         locationText.hidden = TRUE;
+        [self.buttonMap addTarget:self
+                           action:@selector(showMap:)
+                 forControlEvents:UIControlEventTouchUpInside];
     }
     else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
         [self countdownOff];
+        [self.buttonMap addTarget:self
+                           action:@selector(showCountdown:)
+                 forControlEvents:UIControlEventTouchUpInside];
         //Dos Icones però al click del location va cap a 
     }
     else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
         //Dos Icones
         [self countdownOff];
+        [self.buttonMap addTarget:self
+                           action:@selector(showMap:)
+                 forControlEvents:UIControlEventTouchUpInside];
     }
+}
+
+- (void)showCountdown:(UIButton *)sender
+{
+    buttonMap.hidden = TRUE;
+    buttonPictures.hidden = TRUE;
+    locationText.hidden = TRUE;
+    countdown.hidden = FALSE;
+    minutes.hidden = FALSE;
+    days.hidden = FALSE;
+    hours.hidden = FALSE;
+}
+
+- (void)showMap:(UIButton *)sender
+{
+    buttonMap.hidden = TRUE;
+    buttonPictures.hidden = TRUE;
+    locationText.hidden = TRUE;
+    countdown.hidden = TRUE;
+    minutes.hidden = TRUE;
+    days.hidden = TRUE;
+    hours.hidden = TRUE;
+    mapa.hidden = FALSE;
     
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = _party.latitude;
+    zoomLocation.longitude= _party.longitude;
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.3*METERS_PER_MILE, 0.3*METERS_PER_MILE);
+    [mapa setRegion:viewRegion animated:YES];
 }
 
 - (void)countdownOff
@@ -80,6 +117,13 @@
     minutes.hidden = TRUE;
     days.hidden = TRUE;
     hours.hidden = TRUE;
+}
+
+- (void)buttonsOff
+{
+    buttonMap.hidden = TRUE;
+    buttonPictures.hidden = TRUE;
+    locationText.hidden = TRUE;
 }
 
 - (void)countdownReload

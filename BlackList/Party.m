@@ -19,6 +19,8 @@
 @synthesize price_info;
 @synthesize place_text;
 @synthesize location_date;
+@synthesize latitude;
+@synthesize longitude;
 @synthesize map;
 @synthesize party_id;
 @synthesize max_escorts;
