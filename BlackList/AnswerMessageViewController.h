@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MessageThread.h"
+#import "Message.h"
 
 @interface AnswerMessageViewController : UIViewController
 {

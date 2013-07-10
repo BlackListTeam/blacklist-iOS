@@ -320,8 +320,8 @@ static NSString *errorMessage=@"";
                 Message *m=[[Message alloc] init];
                 m.m_id=[[msj objectForKey:@"id"] intValue];
                 m.answer=[[msj objectForKey:@"answer"] intValue];
-                m.text=[message_thread objectForKey:@"text"];
-                m.pay_link=[message_thread objectForKey:@"pay_link"];
+                m.text=[msj objectForKey:@"text"];
+                m.pay_link=[msj objectForKey:@"pay_link"];
                 [mt.messages addObject:m];
             }
             
