@@ -24,15 +24,11 @@ NSString *sessionId;
 @synthesize carousel;
 @synthesize imageURLs;
 @synthesize parties;
+@synthesize titleEvent;
 int id_actual;
 
 - (void)awakeFromNib
 {
-    //set up data
-    //your carousel should always be driven by an array of
-    //data of some kind - don't store data in your item views
-    //or the recycling mechanism will destroy your data once
-    //your item views move off-screen
 
     webData = [NSMutableData data];
     [webServiceCaller getPartyCovers: sessionId andDelegateTo:self];
@@ -72,16 +68,15 @@ int id_actual;
      }
     self.imageURLs = URLs;
     [self.carousel reloadData];
-    
-    /*if(){
-     else{
+
+    if([parties count] == 0){
      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-     message:@"Código de promotor incorrecto"
+     message:@"Aún no existe ninguna fiesta. Vuelve pronto para saber cuando será la próxima."
      delegate:self
      cancelButtonTitle:@"Cerrar"
      otherButtonTitles:nil];
      [alert show];
-     }*/ 
+    }
 }
 
 - (void)dealloc
@@ -99,6 +94,8 @@ int id_actual;
 {
     [super viewDidLoad];
     //configure carousel
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.text = @"EVENTOS";
     carousel.type = iCarouselTypeCoverFlow2;
 }
 

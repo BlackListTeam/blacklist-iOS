@@ -25,13 +25,14 @@
 @synthesize buttonReservar;
 @synthesize countdown;
 @synthesize buttonMap;
+@synthesize buttonMapOnly;
 @synthesize buttonPictures;
 @synthesize days;
 @synthesize minutes;
 @synthesize hours;
 @synthesize mapa;
-
-#define METERS_PER_MILE 1609.344
+@synthesize titleEvent;
+@synthesize blackLine;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,25 +49,29 @@
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
     locationText.text = _party.place_text;
+    NSLog(@"Lol %@",_party.location_date);
     if(!_party.es_actual){
         buttonReservar.hidden = TRUE;
     }
     if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
         //Countdown
-        
+        NSLog(@"1 ");
         [self buttonsOff];
         [self countdownReload];
     }
     else if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
-        //Nomes Icone de mapes
+        NSLog(@"2 ");
+        //Nomes Icones de mapes
         [self countdownOff];
-        buttonPictures.hidden = TRUE;
-        locationText.hidden = TRUE;
-        [self.buttonMap addTarget:self
+        [self buttonsOff];
+        blackLine.hidden = YES;
+        buttonMapOnly.hidden = FALSE;
+        [self.buttonMapOnly addTarget:self
                            action:@selector(showMap:)
                  forControlEvents:UIControlEventTouchUpInside];
     }
     else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
+        NSLog(@"3 ");
         [self countdownOff];
         [self.buttonMap addTarget:self
                            action:@selector(showCountdown:)
@@ -75,11 +80,14 @@
     }
     else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
         //Dos Icones
+        NSLog(@"4 ");
         [self countdownOff];
         [self.buttonMap addTarget:self
                            action:@selector(showMap:)
                  forControlEvents:UIControlEventTouchUpInside];
     }
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.text = _party.name;
 }
 
 - (void)showCountdown:(UIButton *)sender
@@ -91,6 +99,7 @@
     minutes.hidden = FALSE;
     days.hidden = FALSE;
     hours.hidden = FALSE;
+    //[self countdownReload];
 }
 
 - (void)showMap:(UIButton *)sender
@@ -107,7 +116,11 @@
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = _party.latitude;
     zoomLocation.longitude= _party.longitude;
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.3*METERS_PER_MILE, 0.3*METERS_PER_MILE);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 2000, 2000);
+    MKPointAnnotation *mark = [[MKPointAnnotation alloc] init];
+    mark.coordinate = zoomLocation;
+    mark.title = _party.name;
+    [mapa addAnnotation:mark];
     [mapa setRegion:viewRegion animated:YES];
 }
 

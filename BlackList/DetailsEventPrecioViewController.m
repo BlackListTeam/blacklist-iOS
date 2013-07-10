@@ -21,6 +21,7 @@
 @synthesize landscapeImage;
 @synthesize textPrice;
 @synthesize buttonReservar;
+@synthesize titleEvent;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.text = _party.name;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
     textPrice.text = _party.price_info;
