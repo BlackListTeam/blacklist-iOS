@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessageThread.h"
 
 @interface AnswerMessageViewController : UIViewController
+{
+    MessageThread * _messageThread;
+}
+@property (nonatomic, retain) MessageThread * _messageThread;
+
 
 - (IBAction)contestarMessageShowTextArea:(id)sender;
 @end
