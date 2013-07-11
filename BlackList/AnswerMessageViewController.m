@@ -18,6 +18,7 @@
 
 @synthesize _messageThread;
 @synthesize viewScroll;
+@synthesize payUrl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -73,7 +74,17 @@
     message.numberOfLines = 0;
     
     
-    CGRect container_frame=CGRectMake(0,0,300,74+message_frame.size.height+7);
+    
+    CGRect date_frame = CGRectMake(172, 10, 123, 14);
+    UILabel *date = [[UILabel alloc] initWithFrame:date_frame];
+    date.text=[utils prettyDate:msj.date];
+    [date setBackgroundColor:[UIColor clearColor]];
+    date.textColor=[UIColor colorWithRed:(34/255.0) green:(34/255.0) blue:(34/255.0) alpha:1];
+    date.font = [UIFont fontWithName:@"Bebas Neue" size:16];
+    date.textAlignment = NSTextAlignmentRight;
+    
+    
+    CGRect container_frame=CGRectMake(7,0,300,74+message_frame.size.height+7);
     UIView *container= [[UIView alloc] initWithFrame:container_frame];
     container.backgroundColor=[UIColor blackColor];
     //container.userInteractionEnabled=true;
@@ -86,19 +97,123 @@
     [container addSubview:from];
     [container addSubview:subject];
     [container addSubview:message];
+    [container addSubview:date];
     [self.viewScroll addSubview:container];
     
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(reply:)];
+    tapGesture.numberOfTapsRequired = 1;
+    CGRect reply_frame = CGRectMake(120, 380, 80, 20);
+    UILabel *reply = [[UILabel alloc] initWithFrame:reply_frame];
+    reply.userInteractionEnabled = YES;
+    reply.text=@"Contestar";
+    [reply addGestureRecognizer:tapGesture];
+    [reply setBackgroundColor:[UIColor clearColor]];
+    reply.textColor=[UIColor colorWithRed:(0/255.0) green:(131/255.0) blue:(88/255.0) alpha:1];
+    reply.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    reply.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:reply];
     
+    int next_y=container_frame.size.height+7;
+    Boolean first_item=true;
+    for(Message *m in _messageThread.messages){
+        if(first_item){
+            first_item=false;
+            continue;
+        }
+        CGRect m_date_frame = CGRectMake(7, 12, 266, 12);
+        UILabel *m_date = [[UILabel alloc] initWithFrame:m_date_frame];
+        m_date.text=[utils prettyDate:m.date];
+        [m_date setBackgroundColor:[UIColor clearColor]];
+        m_date.textColor=[UIColor colorWithRed:(34/255.0) green:(34/255.0) blue:(34/255.0) alpha:1];
+        m_date.font = [UIFont fontWithName:@"Bebas Neue" size:16];
+        
+        
+        
+        CGSize s2;
+        s2.width = 286;
+        s2.height = 10000;
+        CGRect text_frame = CGRectMake(7, 34, 266, [m.text sizeWithFont:[UIFont
+                                                                              fontWithName:@"Bebas Neue"
+                                                                              size:20]
+                                                           constrainedToSize: s2].height);
+        UILabel *m_text = [[UILabel alloc] initWithFrame:text_frame];
+        m_text.text=m.text;
+        [m_text setBackgroundColor:[UIColor clearColor]];
+        m_text.textColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+        m_text.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+        //[m_text sizeToFit];
+        m_text.numberOfLines = 0;
+        
+        CGRect wrapper_frame;
+        if(m.answer){
+            wrapper_frame=CGRectMake(7,next_y,280,34+text_frame.size.height+7);
+        }else{
+            wrapper_frame=CGRectMake(27,next_y,280,34+text_frame.size.height+7);
+        }
+        
+        UILabel *pay;
+        
+        if(![[NSString stringWithFormat:@"%@",m.pay_link] isEqual: @""]){
+            UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                         action:@selector(pay:)];
+            tapGesture2.numberOfTapsRequired = 1;
+            CGRect pay_frame = CGRectMake(0, 34+text_frame.size.height+7, 273, 20);
+            pay = [[UILabel alloc] initWithFrame:pay_frame];
+            pay.userInteractionEnabled = YES;
+            pay.text=@"PAGAR";
+            [pay addGestureRecognizer:tapGesture2];
+            [pay setBackgroundColor:[UIColor clearColor]];
+            pay.textColor=[UIColor colorWithRed:(0/255.0) green:(131/255.0) blue:(88/255.0) alpha:1];
+            pay.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+            pay.textAlignment = NSTextAlignmentRight;
+            if(m.answer){
+                wrapper_frame=CGRectMake(7,next_y,280,34+text_frame.size.height+20+15);
+            }else{
+                wrapper_frame=CGRectMake(27,next_y,280,34+text_frame.size.height+20+15);
+            }
+            payUrl=m.pay_link;
+        }
+        
+        UIView *wrapper= [[UIView alloc] initWithFrame:wrapper_frame];
+        wrapper.backgroundColor=[UIColor blackColor];
+        
+        
+        
+        
+        [wrapper addSubview:m_date];
+        [wrapper addSubview:m_text];
+        if(![[NSString stringWithFormat:@"%@",m.pay_link] isEqual: @""]){
+            [wrapper addSubview:pay];
+        }
+        
+        [self.viewScroll addSubview:wrapper];
+        next_y=next_y+wrapper_frame.size.height+7;
+    }
     
-    
-    self.viewScroll.contentSize = CGSizeMake(320,900);
+    self.viewScroll.contentSize = CGSizeMake(320,next_y+12);
+}
+
+- (void) pay:(UIGestureRecognizer *)sender
+{
+    [[UIApplication sharedApplication]
+     openURL:[NSURL URLWithString:payUrl]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) reply:(UIGestureRecognizer *)sender
+{
+    WriteMessageViewController* writeMessageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WriteMessageViewController"];
+    writeMessageViewController._message_thread_id=_messageThread.mt_id;
+    [self.navigationController pushViewController:writeMessageViewController
+                                         animated:YES];
+    
 }
 
 @end

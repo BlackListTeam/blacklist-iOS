@@ -54,6 +54,12 @@ NSString *sessionId;
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
     NSLog(@"Error in webservice communication");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
+                                                    message:@"No ha sido posible conectarse con los servidores de Blacklist"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cerrar"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
@@ -87,11 +93,9 @@ NSString *sessionId;
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
             [self presentViewController:controller animated:YES completion:nil ];
         }else{
-            NSLog(@"%@",reservation.qr);
             if(reservation.qr!=nil){
                 NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:reservation.qr]];
                 qrImg.image = [UIImage imageWithData:imageData];
-                NSLog(@"RES: %@",reservation.qr);
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso"
                                                                 message:[jsonParser errorMessage]
@@ -109,7 +113,6 @@ NSString *sessionId;
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(deleteReservation){
-        NSLog(@"bi%ld",(long)buttonIndex);
         if(buttonIndex==0){
             webData = [NSMutableData data];
             [webServiceCaller deleteReservation:sessionId andDelegateTo:self];

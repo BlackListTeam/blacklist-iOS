@@ -24,4 +24,6 @@
 
 + (void) saveUserName:(NSString *) name;
 
++ (NSString *) prettyDate:(NSDate *) date;
+
 @end

@@ -73,8 +73,6 @@ static NSString *errorMessage=@"";
         errorMessage=[response objectForKey:@"errorMessage"];
     }
     
-    NSLog(@"Response %@",response);
-    
     return ret;
 }
 
@@ -305,7 +303,8 @@ static NSString *errorMessage=@"";
         authError=true;
     }else{
         authError=false;
-        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy HH:mm:ss"];
         for(id message_thread_index in [response objectForKey:@"messages"]){
             NSDictionary *message_thread = [message_thread_index objectForKey:@"MessageThread"];
             NSDictionary *messages = [message_thread_index objectForKey:@"Message"];
@@ -315,7 +314,7 @@ static NSString *errorMessage=@"";
             mt.mt_id=[[message_thread objectForKey:@"id"] intValue];
             mt.from=[message_thread objectForKey:@"from"];
             mt.subject=[message_thread objectForKey:@"subject"];
-            
+    
             mt.messages=[NSMutableArray array];
             for(id msj in messages){
                 Message *m=[[Message alloc] init];
@@ -323,6 +322,7 @@ static NSString *errorMessage=@"";
                 m.answer=[[msj objectForKey:@"answer"] intValue];
                 m.text=[msj objectForKey:@"text"];
                 m.pay_link=[msj objectForKey:@"pay_link"];
+                m.date = [dateFormatter dateFromString:[msj objectForKey:@"created"]];
                 [mt.messages addObject:m];
             }
             
@@ -330,10 +330,7 @@ static NSString *errorMessage=@"";
             [ret addObject:mt];
         }
         
-    }
-    
-    
-    
+    } 
     
     return ret;
 }
@@ -350,10 +347,15 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     
-    
-    
-    
-    
+    errorMessage=[response objectForKey:@"errorMessage"];
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
+        authError=true;
+    }else{
+        authError=false;
+        if([[NSString stringWithFormat:@"%@",[response objectForKey:@"replied"]] isEqual: @"1"]){
+            ret=true;
+        }
+    }
     
     return ret;
 }
@@ -369,8 +371,6 @@ static NSString *errorMessage=@"";
     NSDictionary *result= [[[SBJsonParser alloc] init] objectWithString:strResult];
     
     NSDictionary *response = [result objectForKey:@"response"];
-    
-    NSLog(@"%@",response);
     
     errorMessage=[response objectForKey:@"errorMessage"];
     if([[NSString stringWithFormat:@"%@",[response objectForKey:@"authError"]] isEqual: @"1"]){
@@ -407,9 +407,6 @@ static NSString *errorMessage=@"";
         }
     }
     
-    
-    
-    
     return ret;
 }
 
@@ -435,7 +432,6 @@ static NSString *errorMessage=@"";
             ret=true;
         }
     }
-    
     
     return ret;
 }
@@ -471,26 +467,5 @@ static NSString *errorMessage=@"";
 
 + (NSString *) errorMessage { return errorMessage; }
 
-
-/* EXEMPLE DE RECORRER EL JSON
- NSString *strResult=[[NSString alloc] initWithBytes:[webData mutableBytes]
- length:[webData length]
- encoding:NSUTF8StringEncoding];
- 
- NSDictionary *result= [[[SBJsonParser alloc] init] objectWithString:strResult];
- for(id theKey in result){
- NSDictionary *detailedItems = [result objectForKey:theKey];
- 
- NSLog(@"Key is %@, Value is %@",theKey, detailedItems);
- 
- //---print out individual keys and their values---
- for (id detailedKey in detailedItems){
- id detailedValue = [detailedItems objectForKey:detailedKey];
- NSLog(@"Key is %@, Value is %@", detailedKey, detailedValue);
- }
- 
- }
- 
- */
 
 @end
