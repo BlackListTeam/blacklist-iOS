@@ -14,8 +14,10 @@
 @interface EventsViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, NSURLConnectionDelegate>
 {
     @private NSMutableData *webData;
+    Boolean carouselLoaded;
 }
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 @property (strong, nonatomic) IBOutlet UILabel *titleEvent;
+@property (nonatomic) Boolean carouselLoaded;
 
 @end

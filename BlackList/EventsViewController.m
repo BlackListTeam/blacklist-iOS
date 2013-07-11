@@ -25,6 +25,7 @@ NSString *sessionId;
 @synthesize imageURLs;
 @synthesize parties;
 @synthesize titleEvent;
+@synthesize carouselLoaded;
 int id_actual;
 
 - (void)awakeFromNib
@@ -51,32 +52,48 @@ int id_actual;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    parties = [jsonParser parseGetPartyCovers:webData];
-    [self actualParty];
-    NSMutableArray *URLs = [NSMutableArray array];
-    for (Party *party in parties)
-    {
-        NSURL *URL = [NSURL URLWithString:party.cover];
-        if (URL)
+    if(!carouselLoaded){
+        parties = [jsonParser parseGetPartyCovers:webData];
+        [self actualParty];
+        NSMutableArray *URLs = [NSMutableArray array];
+        for (Party *party in parties)
         {
-            [URLs addObject:URL];
+            NSURL *URL = [NSURL URLWithString:party.cover];
+            if (URL)
+            {
+                [URLs addObject:URL];
+            }
+            else
+            {
+                NSLog(@"'%@' is not a valid URL", party.cover);
+            }
         }
-        else
-        {
-            NSLog(@"'%@' is not a valid URL", party.cover);
-        } 
-     }
-    self.imageURLs = URLs;
-    [self.carousel reloadData];
-
-    if([parties count] == 0){
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-     message:@"Aún no existe ninguna fiesta. Vuelve pronto para saber cuando será la próxima."
-     delegate:self
-     cancelButtonTitle:@"Cerrar"
-     otherButtonTitles:nil];
-     [alert show];
+        self.imageURLs = URLs;
+        [self.carousel reloadData];
+        
+        if([parties count] == 0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:@"Aún no existe ninguna fiesta. Vuelve pronto para saber cuando será la próxima."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cerrar"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        webData = [NSMutableData data];
+        [webServiceCaller getNewMessages:sessionId andDelegateTo:self];
+    }else{
+        int new_messages=[jsonParser parseGetNewMessages:webData];
+        if([jsonParser authError]){
+            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+            [self presentViewController:controller animated:YES completion:nil ];
+        }else if(new_messages>0){
+            [[[[[self tabBarController] tabBar] items]
+              objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%d", new_messages]];
+        }
+        
     }
+    carouselLoaded=true;
 }
 
 - (void)dealloc
@@ -94,6 +111,7 @@ int id_actual;
 {
     [super viewDidLoad];
     //configure carousel
+    carouselLoaded=false;
     titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
     titleEvent.text = @"EVENTOS";
     carousel.type = iCarouselTypeCoverFlow2;

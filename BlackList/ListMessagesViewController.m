@@ -41,6 +41,10 @@ NSString *sessionId;
     deleteMsg=false;
     webData = [NSMutableData data];
     [webServiceCaller getMessages:sessionId andDelegateTo:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [webServiceCaller readMessages:sessionId andDelegateTo:nil];
+    [[[[[self tabBarController] tabBar] items]
+      objectAtIndex:1] setBadgeValue:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,6 +78,7 @@ NSString *sessionId;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     if(deleteMsg){
         Boolean deleted = [jsonParser parseDeleteMessage:webData];
         if([jsonParser authError]){
@@ -180,6 +185,7 @@ NSString *sessionId;
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex==0){
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         deleteMsg=true;
         webData = [NSMutableData data];
         [webServiceCaller deleteMessage: [[messages objectAtIndex:indexClicked] mt_id]
