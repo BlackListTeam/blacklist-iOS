@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Party.h"
+#import "webServiceCaller.h"
+#import "jsonParser.h"
+#import "Reservation.h"
+#import "utils.h"
 
-@interface DetailsEventInfoViewController : UIViewController{
+@interface DetailsEventInfoViewController : UIViewController<NSURLConnectionDelegate>
+{
+    @private NSMutableData *webData;
     Party * _party;
 }
 @property (nonatomic, retain) Party * party;

@@ -15,6 +15,8 @@
 
 @end
 
+NSString *sessionId;
+
 @implementation DetailsEventInfoViewController
 
 @synthesize party = _party;
@@ -38,9 +40,6 @@
     textInfo.text = _party.info;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
-    if(!_party.es_actual){
-        buttonReservar.hidden = TRUE;
-    }
     titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
     titleEvent.text = _party.name;
 }
@@ -65,5 +64,50 @@
         controller.party=_party;
     }
 }
+
+- (void) viewDidAppear:(BOOL) animated
+{
+    webData = [NSMutableData data];
+	[webServiceCaller getCurrentReservation:sessionId andDelegateTo:self];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
+                                                    message:@"No ha sido posible conectarse con los servidores de Blacklist"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cerrar"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+        Reservation *reservation=[jsonParser parseGetCurrentReservation:webData];
+        if([jsonParser authError]){
+            UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+            [self presentViewController:controller animated:YES completion:nil ];
+        }else{
+            if(reservation.qr!=nil){
+                _party.es_actual=FALSE;
+                buttonReservar.hidden = TRUE;
+            }
+            else if(_party.es_actual){
+                buttonReservar.hidden = FALSE;
+            }
+        }    
+}
+
 
 @end

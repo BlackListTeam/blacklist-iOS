@@ -98,7 +98,7 @@ static NSURLConnection *conn;
 
 + (void) makeReservation: (Reservation *) reservation withSessionId: (NSString *) sessionId andDelegateTo:(id) delegator
 {
-    NSString *postStr = [NSString stringWithFormat:@"escorts=%d&vip=%c&rooms=%d&session_id=%@"
+    NSString *postStr = [NSString stringWithFormat:@"escorts=%d&vip=%d&rooms=%d&session_id=%@"
                          ,reservation.escorts,reservation.vip,reservation.rooms,sessionId];
     NSURL *url = [NSURL URLWithString:@"http://www.blacklistmeetings.com/ws/makeReservation"];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];

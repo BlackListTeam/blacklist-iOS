@@ -7,7 +7,7 @@
 //
 
 #import "ReservationViewController.h"
-#import "Reservation.h"
+#import "CodeEntranceViewController.h"
 
 @interface ReservationViewController ()
 
@@ -18,6 +18,7 @@ NSString *sessionId;
 @implementation ReservationViewController
 
 @synthesize party = _party;
+//@synthesize reservation = _reservation;
 @synthesize landscapeImage;
 @synthesize titleEvent;
 @synthesize espacioVip;
@@ -45,16 +46,40 @@ NSString *sessionId;
         espacioVipLabel.hidden = TRUE;
         espacioVip.hidden = TRUE;
     }
-    if(!_party.max_escorts){
+    if(_party.max_escorts == 0){
         acompanyantesLabel.hidden = TRUE;
         acompanyantesCount.hidden = TRUE;
         acompanyantes.hidden = TRUE;
     }
-    if(!_party.max_rooms){
+    if(_party.max_rooms == 0){
         habitacionesLabel.hidden = TRUE;
         habitacionesCount.hidden = TRUE;
         habitaciones.hidden = TRUE;
     }
+    /*
+     
+     CODI PER EDITAR RESERVA
+     
+     if(_reservation!=nil){
+        
+        habitacionesCount.text = [NSString stringWithFormat:@"%d", _reservation.rooms];
+        acompanyantesCount.text = [NSString stringWithFormat:@"%d", _reservation.rooms];
+        switch (_reservation.vip)
+        {       case 0:
+                espacioVip.selectedSegmentIndex = 1;
+                break;
+            case 1:
+                espacioVip.selectedSegmentIndex = 0;
+                break;
+            default:
+                espacioVip.selectedSegmentIndex = 0;
+                break;
+        }        
+    }
+    else{
+        
+    }*/
+    
     titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
     titleEvent.text = _party.name;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
@@ -67,12 +92,98 @@ NSString *sessionId;
     // Dispose of any resources that can be recreated.
 }
 
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
+{
+    [webData setLength: 0];
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *) data
+{
+    [webData appendData:data];
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
+{
+    NSLog(@"Error in webservice communication");
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *) connection
+{
+    Boolean reservated = [jsonParser parseMakeReservation:webData];
+    if ([jsonParser authError]){
+        UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
+        [self presentViewController:controller animated:YES completion:nil ];
+    }
+    else{
+        if(reservated){
+            
+            CodeEntranceViewController* codeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CodeEntranceViewController"];
+            [self.navigationController pushViewController:codeViewController animated:YES];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[jsonParser errorMessage]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Cerrar"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+
+    }
+    }
+
+- (IBAction)acompanyantesChange:(id)sender {
+    
+    UIStepper *stepper = (UIStepper *) sender;
+    
+    stepper.maximumValue = _party.max_escorts;
+    stepper.minimumValue = 0;
+    
+    double value = stepper.value;
+    
+    [acompanyantesCount setText:[NSString stringWithFormat:@"%d", (int)value]];
+}
+
+- (IBAction)habitacionesChange:(id)sender {
+    UIStepper *stepper = (UIStepper *) sender;
+    
+    stepper.maximumValue = _party.max_rooms;
+    stepper.minimumValue = 0;
+    
+    double value = stepper.value;
+    
+    [habitacionesCount setText:[NSString stringWithFormat:@"%d", (int)value]];
+}
+
 - (IBAction)reservationOK:(UIButton *)sender {
     webData = [NSMutableData data];
-    [webServiceCaller makeReservation: [[Reservation alloc] initWithEscorts:[acompanyantesCount.text intValue]
-                                                 andVip:espacioVip.selected
-                                             andRooms:[habitacionesCount.text intValue]]
-                        withSessionId: sessionId andDelegateTo: self];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Recuerda que las reservas hechas que no sean anuladas 48h antes de la fiestas se tienen en cuenta como válidas.\n Si un miembro no es responsable en el uso de este servicio, puede ser penalizado con la imposibilidad de realizar futuras reservas y/o inactivación completa de su App \n Este servicio es necesario para el buen funcionamiento de las fiestas y se debe usar responsablemente con afán de colaboración"
+                                                    message:[jsonParser errorMessage]
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancelar"
+                                          otherButtonTitles:@"Reservar",nil];
+    [alert show];
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+        if(buttonIndex==1){
+            int vip = 0;
+            switch (espacioVip.selectedSegmentIndex)
+            {case 0:
+                    vip = 1;
+                    break;
+                case 1:
+                    vip = 0;
+                    break;
+                default:
+                    vip = 0;
+                    break;
+            }
+            [webServiceCaller makeReservation: [[Reservation alloc] initWithEscorts:[acompanyantesCount.text intValue]
+                                                                             andVip: vip
+                                                                           andRooms:[habitacionesCount.text intValue]]
+                                withSessionId: sessionId andDelegateTo: self];
+        }
 }
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import "CodeEntranceViewController.h"
+#import "ReservationViewController.h"
 
 @interface CodeEntranceViewController ()
 
 @end
 
 NSString *sessionId;
+Reservation *reservation;
 
 @implementation CodeEntranceViewController
 
@@ -88,7 +90,7 @@ NSString *sessionId;
             }
         }
     }else{
-        Reservation *reservation=[jsonParser parseGetCurrentReservation:webData];
+        reservation=[jsonParser parseGetCurrentReservation:webData];
         if([jsonParser authError]){
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
             [self presentViewController:controller animated:YES completion:nil ];
@@ -132,8 +134,11 @@ NSString *sessionId;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)cambiarReserva:(id)sender {
-}
+/*- (IBAction)cambiarReserva:(id)sender {
+    ReservationViewController* reservationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+    reservationViewController.reservation=reservation;
+    [self.navigationController pushViewController:reservationViewController animated:YES];
+}*/
 
 - (IBAction)anularReserva:(id)sender {
     deleteReservation=true;

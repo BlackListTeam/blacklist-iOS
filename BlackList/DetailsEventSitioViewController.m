@@ -49,18 +49,15 @@
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
     locationText.text = _party.place_text;
-    NSLog(@"Lol %@",_party.location_date);
     if(!_party.es_actual){
         buttonReservar.hidden = TRUE;
     }
     if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
         //Countdown
-        NSLog(@"1 ");
         [self buttonsOff];
         [self countdownReload];
     }
     else if ([_party.gallery count] == 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
-        NSLog(@"2 ");
         //Nomes Icones de mapes
         [self countdownOff];
         [self buttonsOff];
@@ -71,7 +68,6 @@
                  forControlEvents:UIControlEventTouchUpInside];
     }
     else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedDescending)){
-        NSLog(@"3 ");
         [self countdownOff];
         [self.buttonMap addTarget:self
                            action:@selector(showCountdown:)
@@ -80,7 +76,6 @@
     }
     else if ([_party.gallery count] > 0 && ([_party.location_date compare:[NSDate date]] == NSOrderedAscending)){
         //Dos Icones
-        NSLog(@"4 ");
         [self countdownOff];
         [self.buttonMap addTarget:self
                            action:@selector(showMap:)

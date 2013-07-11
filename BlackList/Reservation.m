@@ -19,15 +19,17 @@
     return [self initWithEscorts:e andVip:false];
 }
 
-- (id) initWithEscorts:(int) e andVip:(Boolean) v{
-    return [self initWithEscorts:e andVip:false andRooms:0];
+- (id) initWithEscorts:(int) e andVip:(int) v{
+    return [self initWithEscorts:e andVip:v andRooms:0];
 }
 
-- (id) initWithEscorts:(int) e andVip:(Boolean) v andRooms:(int) r{
-    return [self initWithEscorts:e andVip:false andRooms:0 andQr:@""];
+- (id) initWithEscorts:(int) e andVip:(int) v andRooms:(int) r{
+    NSLog(@"Var1 %d",v);
+    return [self initWithEscorts:e andVip:v andRooms:r andQr:@""];
 }
 
-- (id) initWithEscorts:(int) e andVip:(Boolean) v andRooms:(int) r andQr:(NSString *) q{
+- (id) initWithEscorts:(int) e andVip:(int) v andRooms:(int) r andQr:(NSString *) q{
+    NSLog(@"Var2 %d",v);
     if (self = [super init]) {
         self.escorts = e;
         self.vip = v;

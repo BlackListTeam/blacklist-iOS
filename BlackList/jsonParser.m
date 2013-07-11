@@ -230,10 +230,12 @@ static NSString *errorMessage=@"";
     
     NSDictionary *response = [result objectForKey:@"response"];
     
-    
-    
-    
-    
+    if([[NSString stringWithFormat:@"%@",[response objectForKey:@"reservated"]] isEqual: @"1"]){
+        ret= true;
+    }else{
+        errorMessage=[response objectForKey:@"errorMessage"];
+        ret=false;
+    }
     
     return ret;
 }
@@ -249,11 +251,6 @@ static NSString *errorMessage=@"";
     NSDictionary *result= [[[SBJsonParser alloc] init] objectWithString:strResult];
     
     NSDictionary *response = [result objectForKey:@"response"];
-    
-    
-    
-    
-    
     
     return ret;
 }

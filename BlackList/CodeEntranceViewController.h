@@ -19,7 +19,6 @@
 @private Boolean deleteReservation;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *qrImg;
-- (IBAction)cambiarReserva:(id)sender;
 - (IBAction)anularReserva:(id)sender;
 
 

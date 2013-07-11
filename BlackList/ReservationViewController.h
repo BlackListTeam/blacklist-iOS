@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Party.h"
+#import "jsonParser.h"
 #import "webServiceCaller.h"
 #import "utils.h"
 
-@interface ReservationViewController : UIViewController<NSURLConnectionDelegate>
+@interface ReservationViewController : UIViewController<NSURLConnectionDelegate,UIAlertViewDelegate>
 {
     @private NSMutableData *webData;
     Party * _party;
@@ -27,7 +28,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *habitacionesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *habitacionesCount;
 @property (strong, nonatomic) IBOutlet UILabel *acompanyantesCount;
-
+- (IBAction)acompanyantesChange:(id)sender;
+- (IBAction)habitacionesChange:(id)sender;
 
 - (IBAction)reservationOK:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UIButton *contactoReservaEspecial;
