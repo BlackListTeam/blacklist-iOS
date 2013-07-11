@@ -49,4 +49,8 @@
 
 + (void) getUserQr: (NSString *) sessionId andDelegateTo:(id) delegator;
 
++ (void) getNewMessages: (NSString *) sessionId andDelegateTo:(id) delegator;
+
++ (void) readMessages: (NSString *) sessionId andDelegateTo:(id) delegator;
+
 @end

@@ -55,5 +55,8 @@
 
 + (NSString *) parseGetUserQr: (NSMutableData *) webData;
 
++ (int) parseGetNewMessages: (NSMutableData *) webData;
+
+
 
 @end

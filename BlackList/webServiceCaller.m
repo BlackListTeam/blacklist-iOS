@@ -216,4 +216,26 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
++ (void) getNewMessages: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *queryURL =
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/getNewMessages?session_id=%@",sessionId];
+    
+    NSURL *url = [NSURL URLWithString: queryURL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
+}
+
++ (void) readMessages: (NSString *) sessionId andDelegateTo:(id) delegator
+{
+    NSString *queryURL =
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/readMessages?session_id=%@",sessionId];
+    
+    NSURL *url = [NSURL URLWithString: queryURL];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    conn = [[NSURLConnection alloc] initWithRequest:req
+                                           delegate:delegator];
+}
+
 @end
