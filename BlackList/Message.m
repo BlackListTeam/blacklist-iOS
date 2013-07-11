@@ -14,5 +14,6 @@
 @synthesize answer;
 @synthesize pay_link;
 @synthesize text;
+@synthesize date;
 
 @end

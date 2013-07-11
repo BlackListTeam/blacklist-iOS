@@ -22,6 +22,7 @@ NSString *sessionId;
 @synthesize deleteMsg;
 @synthesize indexClicked;
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -202,7 +203,7 @@ NSString *sessionId;
 
 -(void) labelTapped:(UIGestureRecognizer *)sender
 {
-    UILabel *aux=sender.view;
+    UILabel *aux=(UILabel *)sender.view;
     
     AnswerMessageViewController* answerMessageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AnswerMessageViewController"];
     answerMessageViewController._messageThread=[messages objectAtIndex:aux.tag];

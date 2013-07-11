@@ -14,7 +14,10 @@
 <UITextViewDelegate,NSURLConnectionDelegate,UIAlertViewDelegate>
 {
 @private NSMutableData *webData;
+    int _message_thread_id;
 }
+
+@property (nonatomic) int _message_thread_id;
 @property (strong, nonatomic) IBOutlet UITextView *textMessage;
 
 - (IBAction)descartarText:(id)sender;

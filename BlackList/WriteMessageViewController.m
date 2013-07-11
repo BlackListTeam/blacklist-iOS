@@ -17,6 +17,7 @@ NSString *sessionId;
 @implementation WriteMessageViewController
 
 @synthesize textMessage;
+@synthesize _message_thread_id;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,8 +70,13 @@ NSString *sessionId;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    
-    Boolean added=[jsonParser parseAddMessage:webData];
+    Boolean added;
+    if(_message_thread_id == nil){
+        added=[jsonParser parseAddMessage:webData];
+    }else{
+        added=[jsonParser parseReplyMessage:webData];
+    }
+     
     if([jsonParser authError]){
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
         [self presentViewController:controller animated:YES completion:nil ];
@@ -105,9 +111,17 @@ NSString *sessionId;
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
         [alert show];
+    }else if(_message_thread_id == nil){
+        webData = [NSMutableData data];
+        [webServiceCaller addMessage:textMessage.text
+                       withSessionId:sessionId
+                       andDelegateTo:self];
     }else{
         webData = [NSMutableData data];
-        [webServiceCaller addMessage:textMessage.text withSessionId:sessionId andDelegateTo:self];
+        [webServiceCaller replyMessage:textMessage.text
+                     inMessageStreamId:_message_thread_id
+                         withSessionId:sessionId
+                         andDelegateTo:self];
     }
 }
 

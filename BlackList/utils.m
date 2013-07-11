@@ -97,4 +97,22 @@ static NSString *userDataDocName=@"userData.txt";
     [array writeToFile:fileName atomically:YES];
 }
 
++ (NSString *) prettyDate:(NSDate *) date{
+    NSArray *weekdays = [NSArray arrayWithObjects:@"Domingo", @"Lunes", @"Martes", @"Miércoles", @"Jueves", @"Viernes", @"Sábado", @"Domingo", nil];
+    
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *weekdayComponents =[gregorian components:NSWeekdayCalendarUnit fromDate:date];
+    
+    NSInteger weekday = [weekdayComponents weekday];
+    // weekday 1 = Sunday for Gregorian calendar
+    
+    NSString *ret=[NSString stringWithFormat:@"%@ %@",weekdays[weekday-1],[dateFormatter stringFromDate:date]];
+    return ret;
+}
+
 @end
