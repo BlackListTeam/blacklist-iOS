@@ -41,10 +41,10 @@ static NSURLConnection *conn;
                                            delegate:delegator];
 }
 
-+ (void) login: (NSString *) name withPassword: (NSString *) password andDelegateTo:(id) delegator
++ (void) login: (NSString *) name withPassword: (NSString *) password andToken:(NSString *)token andDelegateTo:(id)delegator
 {
     NSString *queryURL =
-    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/login?name=%@&password=%@",[name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],password];
+    [NSString stringWithFormat:@"http://www.blacklistmeetings.com/ws/login?name=%@&password=%@&token=%@",[name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],password,[token stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     NSURL *url = [NSURL URLWithString: queryURL];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+NSString * device_token=@"";
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -71,6 +73,8 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
+    device_token=[NSString stringWithFormat:@"%@",deviceToken];
+    NSLog(@"Token: %@",device_token);
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

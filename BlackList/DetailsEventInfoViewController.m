@@ -69,6 +69,7 @@ NSString *sessionId;
 {
     webData = [NSMutableData data];
 	[webServiceCaller getCurrentReservation:sessionId andDelegateTo:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
@@ -83,6 +84,7 @@ NSString *sessionId;
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     NSLog(@"Error in webservice communication");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
                                                     message:@"No ha sido posible conectarse con los servidores de Blacklist"
@@ -94,6 +96,7 @@ NSString *sessionId;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         Reservation *reservation=[jsonParser parseGetCurrentReservation:webData];
         if([jsonParser authError]){
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];

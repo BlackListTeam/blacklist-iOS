@@ -121,10 +121,19 @@ NSString *sessionId;
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
     NSLog(@"Error in webservice communication");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
+                                                    message:@"No ha sido posible conectarse con los servidores de Blacklist"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cerrar"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     Boolean reservated = [jsonParser parseMakeReservation:webData];
     if ([jsonParser authError]){
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
@@ -207,10 +216,12 @@ NSString *sessionId;
                     vip = 0;
                     break;
             }
+            webData = [NSMutableData data];
             [webServiceCaller makeReservation: [[Reservation alloc] initWithEscorts:[acompanyantesCount.text intValue]
                                                                              andVip: vip
                                                                            andRooms:[habitacionesCount.text intValue]]
                                 withSessionId: sessionId andDelegateTo: self];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         }
 }
 

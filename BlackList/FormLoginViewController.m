@@ -13,6 +13,8 @@
 @end
 
 NSString *sessionId;
+NSString *device_token;
+
 
 @implementation FormLoginViewController
 
@@ -64,6 +66,7 @@ NSString *sessionId;
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     NSLog(@"Error in webservice communication");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
                                                     message:@"No ha sido posible conectarse con los servidores de Blacklist"
@@ -75,6 +78,7 @@ NSString *sessionId;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     sessionId=[jsonParser parseLogin:webData];
     if([[NSString stringWithFormat:@"%@",sessionId] isEqual: @""]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -98,7 +102,9 @@ NSString *sessionId;
 
 - (IBAction)loginOK:(UIButton *)sender {
     webData = [NSMutableData data];
-	[webServiceCaller login:nombre.text withPassword:password.text andDelegateTo:self];
+    NSLog(@"Tokenlogin: %@",device_token);
+	[webServiceCaller login:nombre.text withPassword:password.text andToken:device_token andDelegateTo:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (IBAction)tengoProblemasParaAcceder:(UIButton *)sender {

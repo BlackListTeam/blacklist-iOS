@@ -14,6 +14,7 @@
 @synthesize vip;
 @synthesize rooms;
 @synthesize qr;
+@synthesize party_name;
 
 - (id) initWithEscorts:(int) e{
     return [self initWithEscorts:e andVip:false];

@@ -30,9 +30,10 @@ int id_actual;
 
 - (void)awakeFromNib
 {
-
+    
     webData = [NSMutableData data];
     [webServiceCaller getPartyCovers: sessionId andDelegateTo:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
@@ -48,38 +49,47 @@ int id_actual;
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
     NSLog(@"Error in webservice communication");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
+                                                    message:@"No ha sido posible conectarse con los servidores de Blacklist"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cerrar"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     if(!carouselLoaded){
         parties = [jsonParser parseGetPartyCovers:webData];
-        [self actualParty];
-        NSMutableArray *URLs = [NSMutableArray array];
-        for (Party *party in parties)
-        {
-            NSURL *URL = [NSURL URLWithString:party.cover];
-            if (URL)
-            {
-                [URLs addObject:URL];
-            }
-            else
-            {
-                NSLog(@"'%@' is not a valid URL", party.cover);
-            }
-        }
-        self.imageURLs = URLs;
-        [self.carousel reloadData];
-        
         if([parties count] == 0){
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Información"
                                                             message:@"Aún no existe ninguna fiesta. Vuelve pronto para saber cuando será la próxima."
-                                                           delegate:self
+                                                           delegate:nil
                                                   cancelButtonTitle:@"Cerrar"
                                                   otherButtonTitles:nil];
             [alert show];
         }
-        
+        else{
+            [self actualParty];
+            NSMutableArray *URLs = [NSMutableArray array];
+            for (Party *party in parties)
+            {
+                NSURL *URL = [NSURL URLWithString:party.cover];
+                if (URL)
+                {
+                    [URLs addObject:URL];
+                }
+                else
+                {
+                    NSLog(@"'%@' is not a valid URL", party.cover);
+                }
+            }
+            self.imageURLs = URLs;
+            [self.carousel reloadData];
+        }
         webData = [NSMutableData data];
         [webServiceCaller getNewMessages:sessionId andDelegateTo:self];
     }else{
@@ -140,6 +150,19 @@ int id_actual;
     return [imageURLs count];
 }
 
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
+    Party *party_aux=[parties objectAtIndex: carousel.currentItemIndex];
+    if (party_aux.party_id==id_actual){
+        titleEvent.text = @"PRÓXIMO EVENTO";
+    }
+    else if([party_aux.date compare:[NSDate date]] == NSOrderedAscending){
+        titleEvent.text = @"EVENTO PASADO";
+    }
+    else if([party_aux.date compare:[NSDate date]] == NSOrderedDescending){
+        titleEvent.text = @"EVENTO FUTURO";
+    }
+}
+
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(AsyncImageView *)view
 {
     if (view == nil) {
@@ -185,7 +208,10 @@ int id_actual;
     DetailsEventInfoViewController* detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsEventInfoViewController"];
     detailViewController.party=[parties objectAtIndex:button.tag];
     [self.navigationController pushViewController:detailViewController animated:YES];
-
+    
 }
 
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

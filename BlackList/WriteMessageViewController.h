@@ -23,4 +23,6 @@
 - (IBAction)descartarText:(id)sender;
 - (IBAction)enviarMessage:(UIButton *)sender;
 - (IBAction)bgTouched:(id)sender;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *back;
+- (IBAction)back:(id)sender;
 @end

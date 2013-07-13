@@ -53,6 +53,7 @@ NSString *sessionId;
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     NSLog(@"Error in webservice communication");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
                                                     message:@"No ha sido posible conectarse con los servidores de Blacklist"
@@ -70,6 +71,7 @@ NSString *sessionId;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     Boolean added;
     if(_message_thread_id == nil){
         added=[jsonParser parseAddMessage:webData];
@@ -116,12 +118,14 @@ NSString *sessionId;
         [webServiceCaller addMessage:textMessage.text
                        withSessionId:sessionId
                        andDelegateTo:self];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }else{
         webData = [NSMutableData data];
         [webServiceCaller replyMessage:textMessage.text
                      inMessageStreamId:_message_thread_id
                          withSessionId:sessionId
                          andDelegateTo:self];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
 }
 
@@ -139,5 +143,8 @@ NSString *sessionId;
 
 - (IBAction)bgTouched:(id)sender {
     [textMessage resignFirstResponder];
+}
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

@@ -24,5 +24,6 @@
 @property (nonatomic) int indexClicked;
 
 
+- (IBAction)back:(id)sender;
 
 @end

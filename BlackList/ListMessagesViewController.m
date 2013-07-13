@@ -43,6 +43,7 @@ NSString *sessionId;
     [webServiceCaller getMessages:sessionId andDelegateTo:self];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [webServiceCaller readMessages:sessionId andDelegateTo:nil];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [[[[[self tabBarController] tabBar] items]
       objectAtIndex:1] setBadgeValue:nil];
 }
@@ -66,6 +67,7 @@ NSString *sessionId;
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
     NSLog(@"Error in webservice communication");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
                                                     message:@"No ha sido posible conectarse con los servidores de Blacklist"
                                                    delegate:nil
@@ -108,7 +110,14 @@ NSString *sessionId;
 
     }else{
         messages = [jsonParser parseGetMessages:webData];
-        
+        if([messages count] == 0){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Información"
+                                                            message:@"No tienes ningún mensaje."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Cerrar"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
         if([jsonParser authError]){
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"FormLoginViewController"];
             [self presentViewController:controller animated:YES completion:nil ];
@@ -220,4 +229,7 @@ NSString *sessionId;
 
 
 
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

@@ -21,7 +21,7 @@
 
 + (void) addUser: (User *) user withPromoterCode: (NSString *) promoterCode andDelegateTo:(id) delegator;
 
-+ (void) login: (NSString *) name withPassword: (NSString *) password andDelegateTo:(id) delegator;
++ (void) login: (NSString *) name withPassword: (NSString *) password andToken: (NSString *) token andDelegateTo:(id) delegator;
 
 + (void) getPartyCovers: (NSString *) sessionId andDelegateTo:(id) delegator;
 /*

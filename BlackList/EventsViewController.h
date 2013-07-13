@@ -20,4 +20,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleEvent;
 @property (nonatomic) Boolean carouselLoaded;
 
+- (IBAction)back:(id)sender;
 @end

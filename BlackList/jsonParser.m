@@ -203,10 +203,11 @@ static NSString *errorMessage=@"";
         NSDictionary *reservation=[response objectForKey:@"reservation"];
         
         if(reservation != [NSNull null]){
-            ret=[ret initWithEscorts:[reservation[@"max_escorts"] intValue]
-                              andVip:[reservation[@"vip_allowed"] intValue]
-                            andRooms:[reservation[@"max_rooms"] intValue]
+            ret=[ret initWithEscorts:[[[reservation objectForKey:@"Reservation"] objectForKey:@"escorts" ] intValue]
+                              andVip:[[[reservation objectForKey:@"Reservation"] objectForKey:@"vip" ] intValue]
+                            andRooms:[[[reservation objectForKey:@"Reservation"] objectForKey:@"rooms" ] intValue]
                                andQr:[[reservation objectForKey:@"Reservation"] objectForKey:@"qr"]];
+            ret.party_name= [[reservation objectForKey:@"Reservation"] objectForKey:@"party_name"];
         }
         //NSLog(@"asd %@",[[response objectForKey:@"reservation"] objectForKey:@"Reservation"]);
         

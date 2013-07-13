@@ -65,11 +65,19 @@ NSString *sessionId;
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
     NSLog(@"Error in webservice communication");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
+                                                    message:@"No ha sido posible conectarse con los servidores de Blacklist"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cerrar"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     if(!qrLoaded){
         NSString *qr=[jsonParser parseGetUserQr:webData];
         if([[NSString stringWithFormat:@"%@",qr] isEqual: @""]){
@@ -112,6 +120,8 @@ NSString *sessionId;
     NSLog(@"Input text %@",inputEmail.text);
     webData = [NSMutableData data];
 	[webServiceCaller sendInvitation:inputEmail.text withSessionId:sessionId andDelegateTo:self];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (IBAction)editDone:(id)sender {

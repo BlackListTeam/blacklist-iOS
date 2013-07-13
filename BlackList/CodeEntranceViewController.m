@@ -38,13 +38,13 @@ Reservation *reservation;
     deleteReservation=false;
     infoReservation.font = [UIFont fontWithName:@"Bebas Neue" size:17];
     infoParty.font = [UIFont fontWithName:@"Bebas Neue" size:20];
-    infoParty.text = @"Hola que ase";
 }
 
 - (void) viewDidAppear:(BOOL) animated
 {
     webData = [NSMutableData data];
 	[webServiceCaller getCurrentReservation:sessionId andDelegateTo:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *) response
@@ -59,6 +59,7 @@ Reservation *reservation;
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     NSLog(@"Error in webservice communication");
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
                                                     message:@"No ha sido posible conectarse con los servidores de Blacklist"
@@ -70,6 +71,7 @@ Reservation *reservation;
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     if(deleteReservation){
         Boolean deleted=[jsonParser parseDeleteReservation:webData];
         if([jsonParser authError]){
@@ -102,21 +104,24 @@ Reservation *reservation;
             if(reservation.qr!=nil){
                 NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:reservation.qr]];
                 qrImg.image = [UIImage imageWithData:imageData];
+                NSLog(@"Image QR %@",reservation.qr);
+                
                 infoReservation.text = @"";
+                infoParty.text = reservation.party_name;
                 NSLog(@"VIP %d",reservation.vip);
                 NSLog(@"Rooms %d",reservation.rooms);
                 NSLog(@"Escorts %d",reservation.escorts);
-                if(reservation.vip==0){
-                    infoReservation.text = [infoReservation.text stringByAppendingString: @"HABITACIÓN VIP"];
+                if(reservation.vip>0){
+                    infoReservation.text = [infoReservation.text stringByAppendingString: @"VIP"];
                 }
-                if(reservation.rooms==0){
+                if(reservation.rooms>0){
                     if(![infoReservation.text isEqualToString:@""]){
                         infoReservation.text = [infoReservation.text stringByAppendingString: @" | "];
                     }
                         infoReservation.text = [infoReservation.text stringByAppendingString: @"HABITACIONES: "];
                         infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.rooms]];
                 }
-                if(reservation.escorts==0){
+                if(reservation.escorts>0){
                     if(![infoReservation.text isEqualToString:@""]){
                         infoReservation.text = [infoReservation.text stringByAppendingString: @" | "];
                     }
@@ -143,6 +148,7 @@ Reservation *reservation;
         if(buttonIndex==0){
             webData = [NSMutableData data];
             [webServiceCaller deleteReservation:sessionId andDelegateTo:self];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         }else{
             deleteReservation=false;
         }
@@ -173,5 +179,9 @@ Reservation *reservation;
                                           cancelButtonTitle:@"Si"
                                           otherButtonTitles:@"No",nil];
     [alert show];
+}
+
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

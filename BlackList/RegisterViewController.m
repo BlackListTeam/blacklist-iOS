@@ -65,10 +65,19 @@
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *) error
 {
     NSLog(@"Error in webservice communication");
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error de conexión"
+                                                    message:@"No ha sido posible conectarse con los servidores de Blacklist"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cerrar"
+                                          otherButtonTitles:nil];
+    [alert show];
+
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     if([jsonParser parseAddUser:webData]){
         [utils saveUserName:nombre.text];
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"PromoterCodeOKViewController"];
@@ -92,6 +101,7 @@
              withPromoterCode: [utils retrivePromoterCode]
                 andDelegateTo: self];
     
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (IBAction)doneEditing:(id)sender {

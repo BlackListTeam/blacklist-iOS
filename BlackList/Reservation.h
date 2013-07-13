@@ -20,6 +20,7 @@
 @property (nonatomic) int vip;
 @property (nonatomic) int rooms;
 @property (nonatomic, retain) NSString *qr;
+@property (nonatomic, retain) NSString *party_name;
 
 - (id) initWithEscorts:(int) e;
 
