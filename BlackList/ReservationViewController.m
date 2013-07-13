@@ -39,23 +39,39 @@ NSString *sessionId;
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if(_party.max_escorts == 0){
+        [habitacionesLabel setFrame:CGRectMake(12,195,habitaciones.frame.size.width,habitaciones.frame.size.height)];
+        habitaciones.frame= CGRectMake(174,195,habitaciones.frame.size.width,habitaciones.frame.size.height);
+        habitacionesCount.frame= CGRectMake(266,197,habitacionesCount.frame.size.width,habitacionesCount.frame.size.height);
+        espacioVipLabel.frame= CGRectMake(-34,238,espacioVipLabel.frame.size.width,espacioVipLabel.frame.size.height);
+        espacioVip.frame= CGRectMake(174,237,espacioVip.frame.size.width,espacioVip.frame.size.height);
+    }
+    else{
+        acompanyantesLabel.hidden = FALSE;
+        acompanyantesCount.hidden = FALSE;
+        acompanyantes.hidden = FALSE;
+    }
+    if(_party.max_rooms == 0){
+        espacioVipLabel.frame= CGRectMake(-34,238,espacioVipLabel.frame.size.width,espacioVipLabel.frame.size.height);
+        espacioVip.frame= CGRectMake(174,237,espacioVip.frame.size.width,espacioVip.frame.size.height);
+    }
+    else{
+        habitacionesLabel.hidden = FALSE;
+        habitacionesCount.hidden = FALSE;
+        habitaciones.hidden = FALSE;
+    }
+    if(_party.vip_allowed){
+        espacioVipLabel.hidden = FALSE;
+        espacioVip.hidden = FALSE;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if(!_party.vip_allowed){
-        espacioVipLabel.hidden = TRUE;
-        espacioVip.hidden = TRUE;
-    }
-    if(_party.max_escorts == 0){
-        acompanyantesLabel.hidden = TRUE;
-        acompanyantesCount.hidden = TRUE;
-        acompanyantes.hidden = TRUE;
-    }
-    if(_party.max_rooms == 0){
-        habitacionesLabel.hidden = TRUE;
-        habitacionesCount.hidden = TRUE;
-        habitaciones.hidden = TRUE;
-    }
+    
     /*
      
      CODI PER EDITAR RESERVA
@@ -154,14 +170,26 @@ NSString *sessionId;
     [habitacionesCount setText:[NSString stringWithFormat:@"%d", (int)value]];
 }
 
+- (IBAction)contactoReservaEspecial:(id)sender {
+    NSString *emailString =[[NSString alloc] initWithFormat:@"mailto:?to=%@&subject=%@&body=%@",
+                            [@"info@blacklistmeetings.com" stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding],
+                            [@"Contacto Para Reserva Especial" stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+                            [@"" stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:emailString]];
+}
+
 - (IBAction)reservationOK:(UIButton *)sender {
     webData = [NSMutableData data];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Recuerda que las reservas hechas que no sean anuladas 48h antes de la fiestas se tienen en cuenta como válidas.\n Si un miembro no es responsable en el uso de este servicio, puede ser penalizado con la imposibilidad de realizar futuras reservas y/o inactivación completa de su App \n Este servicio es necesario para el buen funcionamiento de las fiestas y se debe usar responsablemente con afán de colaboración"
-                                                    message:[jsonParser errorMessage]
+                                                    message:@""
                                                    delegate:self
                                           cancelButtonTitle:@"Cancelar"
                                           otherButtonTitles:@"Reservar",nil];
     [alert show];
+}
+
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -185,5 +213,13 @@ NSString *sessionId;
                                 withSessionId: sessionId andDelegateTo: self];
         }
 }
+
+-(void)willPresentAlertView:(UIAlertView *)alertView{
+    
+    UILabel *title = [alertView valueForKey:@"_titleLabel"];
+    title.font = [UIFont fontWithName:@"Arial" size:15];
+    [title setTextColor:[UIColor whiteColor]];
+
+      }
 
 @end

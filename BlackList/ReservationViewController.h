@@ -28,9 +28,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *habitacionesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *habitacionesCount;
 @property (strong, nonatomic) IBOutlet UILabel *acompanyantesCount;
+
 - (IBAction)acompanyantesChange:(id)sender;
 - (IBAction)habitacionesChange:(id)sender;
+- (IBAction)contactoReservaEspecial:(id)sender;
 
 - (IBAction)reservationOK:(UIButton *)sender;
-@property (strong, nonatomic) IBOutlet UIButton *contactoReservaEspecial;
+- (IBAction)back:(id)sender;
 @end

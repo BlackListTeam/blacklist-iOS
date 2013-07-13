@@ -17,4 +17,5 @@
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
+- (IBAction)back:(id)sender;
 @end

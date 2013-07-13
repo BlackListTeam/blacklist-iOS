@@ -203,9 +203,9 @@ static NSString *errorMessage=@"";
         NSDictionary *reservation=[response objectForKey:@"reservation"];
         
         if(reservation != [NSNull null]){
-            ret=[ret initWithEscorts:0
-                              andVip:false
-                            andRooms:1
+            ret=[ret initWithEscorts:[reservation[@"max_escorts"] intValue]
+                              andVip:[reservation[@"vip_allowed"] intValue]
+                            andRooms:[reservation[@"max_rooms"] intValue]
                                andQr:[[reservation objectForKey:@"Reservation"] objectForKey:@"qr"]];
         }
         //NSLog(@"asd %@",[[response objectForKey:@"reservation"] objectForKey:@"Reservation"]);
