@@ -24,4 +24,5 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonReservar;
 @property (strong, nonatomic) IBOutlet UILabel *titleEvent;
 
+- (IBAction)back:(id)sender;
 @end

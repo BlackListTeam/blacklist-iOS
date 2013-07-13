@@ -28,4 +28,5 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonMapOnly;
 @property (strong, nonatomic) IBOutlet UIView *blackLine;
 
+- (IBAction)back:(id)sender;
 @end

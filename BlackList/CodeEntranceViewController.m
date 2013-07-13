@@ -19,6 +19,8 @@ Reservation *reservation;
 @implementation CodeEntranceViewController
 
 @synthesize qrImg;
+@synthesize infoReservation;
+@synthesize infoParty;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +36,9 @@ Reservation *reservation;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     deleteReservation=false;
-    
+    infoReservation.font = [UIFont fontWithName:@"Bebas Neue" size:17];
+    infoParty.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    infoParty.text = @"Hola que ase";
 }
 
 - (void) viewDidAppear:(BOOL) animated
@@ -98,6 +102,27 @@ Reservation *reservation;
             if(reservation.qr!=nil){
                 NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:reservation.qr]];
                 qrImg.image = [UIImage imageWithData:imageData];
+                infoReservation.text = @"";
+                NSLog(@"VIP %d",reservation.vip);
+                NSLog(@"Rooms %d",reservation.rooms);
+                NSLog(@"Escorts %d",reservation.escorts);
+                if(reservation.vip==0){
+                    infoReservation.text = [infoReservation.text stringByAppendingString: @"HABITACIÓN VIP"];
+                }
+                if(reservation.rooms==0){
+                    if(![infoReservation.text isEqualToString:@""]){
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @" | "];
+                    }
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @"HABITACIONES: "];
+                        infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.rooms]];
+                }
+                if(reservation.escorts==0){
+                    if(![infoReservation.text isEqualToString:@""]){
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @" | "];
+                    }
+                    infoReservation.text = [infoReservation.text stringByAppendingString: @"ACOMPAÑANTES: "];
+                    infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.escorts]];
+                }
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso"
                                                                 message:[jsonParser errorMessage]

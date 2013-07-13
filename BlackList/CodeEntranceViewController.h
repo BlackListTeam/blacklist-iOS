@@ -18,7 +18,10 @@
 @private NSMutableData *webData;
 @private Boolean deleteReservation;
 }
+
 @property (strong, nonatomic) IBOutlet UIImageView *qrImg;
+@property (strong, nonatomic) IBOutlet UILabel *infoReservation;
+@property (strong, nonatomic) IBOutlet UILabel *infoParty;
 - (IBAction)anularReserva:(id)sender;
 
 

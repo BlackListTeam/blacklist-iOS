@@ -99,6 +99,10 @@
 
 - (void)showMap:(UIButton *)sender
 {
+    CGRect frame = CGRectMake(0, 197, 320, 214);
+    mapa =[[MKMapView alloc]initWithFrame:frame];
+    [self.view insertSubview:mapa atIndex:20 ];
+    
     buttonMap.hidden = TRUE;
     buttonPictures.hidden = TRUE;
     locationText.hidden = TRUE;
@@ -170,4 +174,7 @@
     }
 }
 
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
