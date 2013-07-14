@@ -84,7 +84,32 @@
     date.textAlignment = NSTextAlignmentRight;
     
     
+    UILabel *pay1;
     CGRect container_frame=CGRectMake(7,0,300,74+message_frame.size.height+7);
+    
+    if(![[NSString stringWithFormat:@"%@",msj.pay_link] isEqual: @""]){
+        UITapGestureRecognizer *tapGesture3 = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(pay:)];
+        tapGesture3.numberOfTapsRequired = 1;
+        CGRect pay1_frame = CGRectMake(0, 74+message_frame.size.height+7, 286, 20);
+        pay1 = [[UILabel alloc] initWithFrame:pay1_frame];
+        pay1.userInteractionEnabled = YES;
+        pay1.text=@"PAGAR";
+        [pay1 addGestureRecognizer:tapGesture3];
+        [pay1 setBackgroundColor:[UIColor clearColor]];
+        pay1.textColor=[UIColor colorWithRed:(0/255.0) green:(131/255.0) blue:(88/255.0) alpha:1];
+        pay1.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+        pay1.textAlignment = NSTextAlignmentRight;
+        payUrl=msj.pay_link;
+        
+        container_frame=CGRectMake(7,0,300,74+message_frame.size.height+7+20+7);
+    }
+
+    
+    
+    
+    
+    
     UIView *container= [[UIView alloc] initWithFrame:container_frame];
     container.backgroundColor=[UIColor blackColor];
     //container.userInteractionEnabled=true;
@@ -98,6 +123,10 @@
     [container addSubview:subject];
     [container addSubview:message];
     [container addSubview:date];
+    if(![[NSString stringWithFormat:@"%@",msj.pay_link] isEqual: @""]){
+        [container addSubview:pay1];
+    }
+    
     [self.viewScroll addSubview:container];
     
     
@@ -148,9 +177,9 @@
         
         CGRect wrapper_frame;
         if(m.answer){
-            wrapper_frame=CGRectMake(7,next_y,280,34+text_frame.size.height+7);
-        }else{
             wrapper_frame=CGRectMake(27,next_y,280,34+text_frame.size.height+7);
+        }else{
+            wrapper_frame=CGRectMake(7,next_y,280,34+text_frame.size.height+7);
         }
         
         UILabel *pay;
