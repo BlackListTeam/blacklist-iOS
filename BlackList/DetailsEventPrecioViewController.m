@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:18];
     titleEvent.text = _party.name;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];

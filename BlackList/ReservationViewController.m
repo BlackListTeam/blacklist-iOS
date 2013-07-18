@@ -96,7 +96,7 @@ NSString *sessionId;
         
     }*/
     
-    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:18];
     titleEvent.text = _party.name;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];
@@ -141,7 +141,7 @@ NSString *sessionId;
     }
     else{
         if(reservated){
-            
+            [self.tabBarController setSelectedIndex:2];
             CodeEntranceViewController* codeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CodeEntranceViewController"];
             [self.navigationController pushViewController:codeViewController animated:YES];
         }else{

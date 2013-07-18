@@ -81,12 +81,16 @@
                            action:@selector(showMap:)
                  forControlEvents:UIControlEventTouchUpInside];
     }
-    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:18];
     titleEvent.text = _party.name;
+    minutes.font = [UIFont fontWithName:@"Bebas Neue" size:55];
+    hours.font = [UIFont fontWithName:@"Bebas Neue" size:55];
+    days.font = [UIFont fontWithName:@"Bebas Neue" size:55];
 }
 
 - (void)showCountdown:(UIButton *)sender
 {
+    
     buttonMap.hidden = TRUE;
     buttonPictures.hidden = TRUE;
     locationText.hidden = TRUE;
@@ -94,7 +98,8 @@
     minutes.hidden = FALSE;
     days.hidden = FALSE;
     hours.hidden = FALSE;
-    //[self countdownReload];
+    
+    [self countdownReload];
 }
 
 - (void)showMap:(UIButton *)sender
