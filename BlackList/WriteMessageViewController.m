@@ -32,6 +32,7 @@ NSString *sessionId;
 {
     [super viewDidLoad];
     textMessage.delegate=self;
+    textMessage.text=@"Escribe aquí tu mensaje.\nTe contestaremos tan rápido como sea posible";
 	// Do any additional setup after loading the view.
 }
 
@@ -89,7 +90,7 @@ NSString *sessionId;
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil];
         [alert show];
-        textMessage.text=@"Escribe un mensaje...";
+        textMessage.text=@"Escribe aquí tu mensaje.\nTe contestaremos tan rápido como sea posible";
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:[jsonParser errorMessage]
@@ -102,7 +103,7 @@ NSString *sessionId;
 
 
 - (IBAction)enviarMessage:(UIButton *)sender {
-    if([textMessage.text isEqual: @"Escribe un mensaje..."] || [textMessage.text isEqual: @""]){
+    if([textMessage.text isEqual: @"Escribe aquí tu mensaje.\nTe contestaremos tan rápido como sea posible"] || [textMessage.text isEqual: @""]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso"
                                                         message:@"Escribe un mensaje"
                                                        delegate:nil
@@ -126,14 +127,15 @@ NSString *sessionId;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    if([textView.text isEqual: @"Escribe un mensaje..."]){
+    NSLog(@"text: %@",textView.text);
+    if([textView.text isEqual: @"Escribe aquí tu mensaje.\nTe contestaremos tan rápido como sea posible"]){
         textView.text=@"";
     }
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{
     if([textView.text isEqual: @""]){
-        textView.text=@"Escribe un mensaje...";
+        textView.text=@"Escribe aquí tu mensaje.\nTe contestaremos tan rápido como sea posible";
     }
 }
 
