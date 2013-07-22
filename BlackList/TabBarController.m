@@ -36,6 +36,7 @@
     [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"0.codeS.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"0.code.png"]];
     UITabBarItem *tabBarItem3 = [[self.tabBar items] objectAtIndex:3];
     [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"0.inviteS.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"0.invite.png"]];
+    //self.tabBar.tintColor = [UIColor blueColor];
 }
 
 - (void)didReceiveMemoryWarning
