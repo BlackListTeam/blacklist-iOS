@@ -163,7 +163,7 @@
         CGSize s2;
         s2.width = 286;
         s2.height = 10000;
-        CGRect text_frame = CGRectMake(7, 34, 266, [m.text sizeWithFont:[UIFont
+        CGRect text_frame = CGRectMake(7, 34, 236, [m.text sizeWithFont:[UIFont
                                                                               fontWithName:@"Bebas Neue"
                                                                               size:20]
                                                            constrainedToSize: s2].height);
@@ -177,9 +177,9 @@
         
         CGRect wrapper_frame;
         if(m.answer){
-            wrapper_frame=CGRectMake(27,next_y,280,34+text_frame.size.height+7);
+            wrapper_frame=CGRectMake(57,next_y,250,34+text_frame.size.height+7);
         }else{
-            wrapper_frame=CGRectMake(7,next_y,280,34+text_frame.size.height+7);
+            wrapper_frame=CGRectMake(7,next_y,250,34+text_frame.size.height+7);
         }
         
         UILabel *pay;
@@ -188,7 +188,7 @@
             UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                          action:@selector(pay:)];
             tapGesture2.numberOfTapsRequired = 1;
-            CGRect pay_frame = CGRectMake(0, 34+text_frame.size.height+7, 273, 20);
+            CGRect pay_frame = CGRectMake(0, 34+text_frame.size.height+7, 243, 20);
             pay = [[UILabel alloc] initWithFrame:pay_frame];
             pay.userInteractionEnabled = YES;
             pay.text=@"PAGAR";
@@ -198,9 +198,9 @@
             pay.font = [UIFont fontWithName:@"Bebas Neue" size:20];
             pay.textAlignment = NSTextAlignmentRight;
             if(m.answer){
-                wrapper_frame=CGRectMake(7,next_y,280,34+text_frame.size.height+20+15);
+                wrapper_frame=CGRectMake(57,next_y,250,34+text_frame.size.height+20+15);
             }else{
-                wrapper_frame=CGRectMake(27,next_y,280,34+text_frame.size.height+20+15);
+                wrapper_frame=CGRectMake(7,next_y,250,34+text_frame.size.height+20+15);
             }
             payUrl=m.pay_link;
         }
@@ -222,6 +222,8 @@
     }
     
     self.viewScroll.contentSize = CGSizeMake(320,next_y+12);
+    
+    [self.viewScroll scrollRectToVisible:CGRectMake(0, 0, 320, next_y+12) animated:YES];
 }
 
 - (void) pay:(UIGestureRecognizer *)sender

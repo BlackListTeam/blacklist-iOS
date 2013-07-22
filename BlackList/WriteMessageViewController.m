@@ -100,10 +100,6 @@ NSString *sessionId;
     }
 }
 
-- (IBAction)descartarText:(id)sender
-{
-    textMessage.text=@"Escribe un mensaje...";
-}
 
 - (IBAction)enviarMessage:(UIButton *)sender {
     if([textMessage.text isEqual: @"Escribe un mensaje..."] || [textMessage.text isEqual: @""]){
