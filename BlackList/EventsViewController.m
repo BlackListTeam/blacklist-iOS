@@ -122,7 +122,7 @@ int id_actual;
     [super viewDidLoad];
     //configure carousel
     carouselLoaded=false;
-    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:13];
     titleEvent.text = @"EVENTOS";
     carousel.type = iCarouselTypeCoverFlow2;
 }

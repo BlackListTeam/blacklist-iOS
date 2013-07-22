@@ -196,6 +196,8 @@
 		A8EBF4FD179082D300F4D0B3 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8EBF4FC179082D300F4D0B3 /* TabBarController.m */; };
 		A8EBF5001790A11C00F4D0B3 /* 0.messageS.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EBF4FE1790A11C00F4D0B3 /* 0.messageS.png */; };
 		A8EBF5011790A11C00F4D0B3 /* 0.messageS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EBF4FF1790A11C00F4D0B3 /* 0.messageS@2x.png */; };
+		EE75697C179874B500478EFA /* 0.titol.png in Resources */ = {isa = PBXBuildFile; fileRef = EE75697A179874B500478EFA /* 0.titol.png */; };
+		EE75697D179874B500478EFA /* 0.titol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE75697B179874B500478EFA /* 0.titol@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -431,6 +433,8 @@
 		A8EBF4FC179082D300F4D0B3 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		A8EBF4FE1790A11C00F4D0B3 /* 0.messageS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.messageS.png; sourceTree = "<group>"; };
 		A8EBF4FF1790A11C00F4D0B3 /* 0.messageS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0.messageS@2x.png"; sourceTree = "<group>"; };
+		EE75697A179874B500478EFA /* 0.titol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.titol.png; sourceTree = "<group>"; };
+		EE75697B179874B500478EFA /* 0.titol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0.titol@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -637,6 +641,8 @@
 			isa = PBXGroup;
 			children = (
 				A8A2B034177DFBC000B72A54 /* info.png */,
+				EE75697A179874B500478EFA /* 0.titol.png */,
+				EE75697B179874B500478EFA /* 0.titol@2x.png */,
 				A89E6E88178C632E00E5B992 /* 7.countdown.png */,
 				A89E6E89178C632E00E5B992 /* 7.countdown@2X.png */,
 				A8A2B035177DFBC000B72A54 /* info@2x.png */,
@@ -1093,6 +1099,8 @@
 				4587E0681791AF9600B323F5 /* icon@2x.png in Resources */,
 				4587E06A1791AFAC00B323F5 /* icon.png in Resources */,
 				4587E06C1791AFB400B323F5 /* icon@2x.png in Resources */,
+				EE75697C179874B500478EFA /* 0.titol.png in Resources */,
+				EE75697D179874B500478EFA /* 0.titol@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

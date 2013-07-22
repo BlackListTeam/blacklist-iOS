@@ -34,6 +34,7 @@ Reservation *reservation;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
     deleteReservation=false;
     infoReservation.font = [UIFont fontWithName:@"Bebas Neue" size:17];
