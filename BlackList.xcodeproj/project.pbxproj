@@ -198,6 +198,8 @@
 		A8EBF5011790A11C00F4D0B3 /* 0.messageS@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8EBF4FF1790A11C00F4D0B3 /* 0.messageS@2x.png */; };
 		EE75697C179874B500478EFA /* 0.titol.png in Resources */ = {isa = PBXBuildFile; fileRef = EE75697A179874B500478EFA /* 0.titol.png */; };
 		EE75697D179874B500478EFA /* 0.titol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE75697B179874B500478EFA /* 0.titol@2x.png */; };
+		EEADE8AE179D97E500662938 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = EEADE8AC179D97E500662938 /* menu.png */; };
+		EEADE8AF179D97E500662938 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EEADE8AD179D97E500662938 /* menu@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -435,6 +437,8 @@
 		A8EBF4FF1790A11C00F4D0B3 /* 0.messageS@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0.messageS@2x.png"; sourceTree = "<group>"; };
 		EE75697A179874B500478EFA /* 0.titol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.titol.png; sourceTree = "<group>"; };
 		EE75697B179874B500478EFA /* 0.titol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0.titol@2x.png"; sourceTree = "<group>"; };
+		EEADE8AC179D97E500662938 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		EEADE8AD179D97E500662938 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -803,6 +807,8 @@
 		A8CAB859177C725C00F3B802 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				EEADE8AC179D97E500662938 /* menu.png */,
+				EEADE8AD179D97E500662938 /* menu@2x.png */,
 				4587E0651791AF9600B323F5 /* icon.png */,
 				4587E0661791AF9600B323F5 /* icon@2x.png */,
 				A89E6E7C178C5FB200E5B992 /* 0.titol.png */,
@@ -1101,6 +1107,8 @@
 				4587E06C1791AFB400B323F5 /* icon@2x.png in Resources */,
 				EE75697C179874B500478EFA /* 0.titol.png in Resources */,
 				EE75697D179874B500478EFA /* 0.titol@2x.png in Resources */,
+				EEADE8AE179D97E500662938 /* menu.png in Resources */,
+				EEADE8AF179D97E500662938 /* menu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
