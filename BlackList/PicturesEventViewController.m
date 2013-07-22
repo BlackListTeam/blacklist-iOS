@@ -76,6 +76,7 @@
     {
         [[AsyncImageLoader sharedLoader]cancelLoadingImagesForTarget:view];
     }
+    [self.carousel scrollToItemAtIndex: 0 animated: YES];
     return view;
     
 }

@@ -27,6 +27,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleEvent;
 @property (strong, nonatomic) IBOutlet UIButton *buttonMapOnly;
 @property (strong, nonatomic) IBOutlet UIView *blackLine;
+@property (weak, nonatomic) IBOutlet UILabel *dias;
+@property (weak, nonatomic) IBOutlet UILabel *horas;
+@property (weak, nonatomic) IBOutlet UILabel *minutos;
 
 - (IBAction)back:(id)sender;
 @end

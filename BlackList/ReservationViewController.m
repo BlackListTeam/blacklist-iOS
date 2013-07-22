@@ -96,7 +96,7 @@ NSString *sessionId;
         
     }*/
     
-    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:18];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:17];
     titleEvent.text = _party.name;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_party.image]];
     landscapeImage.image = [UIImage imageWithData:imageData];

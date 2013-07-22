@@ -33,6 +33,9 @@
 @synthesize mapa;
 @synthesize titleEvent;
 @synthesize blackLine;
+@synthesize dias;
+@synthesize horas;
+@synthesize minutos;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,7 +84,7 @@
                            action:@selector(showMap:)
                  forControlEvents:UIControlEventTouchUpInside];
     }
-    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:18];
+    titleEvent.font = [UIFont fontWithName:@"Bebas Neue" size:17];
     titleEvent.text = _party.name;
     minutes.font = [UIFont fontWithName:@"Bebas Neue" size:55];
     hours.font = [UIFont fontWithName:@"Bebas Neue" size:55];
@@ -98,6 +101,9 @@
     minutes.hidden = FALSE;
     days.hidden = FALSE;
     hours.hidden = FALSE;
+    dias.hidden = FALSE;
+    horas.hidden = FALSE;
+    minutos.hidden = FALSE;
     
     [self countdownReload];
 }
@@ -116,6 +122,9 @@
     days.hidden = TRUE;
     hours.hidden = TRUE;
     mapa.hidden = FALSE;
+    dias.hidden = TRUE;
+    horas.hidden = TRUE;
+    minutos.hidden = TRUE;
     
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = _party.latitude;
@@ -134,6 +143,9 @@
     minutes.hidden = TRUE;
     days.hidden = TRUE;
     hours.hidden = TRUE;
+    dias.hidden = TRUE;
+    horas.hidden = TRUE;
+    minutos.hidden = TRUE;
 }
 
 - (void)buttonsOff
