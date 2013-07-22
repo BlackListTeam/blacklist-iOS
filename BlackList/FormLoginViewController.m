@@ -35,12 +35,22 @@ NSString *device_token;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
+    nombre.leftView = paddingView;
+    nombre.leftViewMode = UITextFieldViewModeAlways;
+    nombre.rightView = paddingView;
+    nombre.rightViewMode = UITextFieldViewModeAlways;
+    password.leftView = paddingView;
+    password.leftViewMode = UITextFieldViewModeAlways;
+    password.rightView = paddingView;
+    password.rightViewMode = UITextFieldViewModeAlways;
     if(![utils userAllowedToUseApp]){
         UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"promoterCodeViewController"];
         [self presentViewController:controller animated:YES completion:nil ];
     }
     nombre.text=[utils retriveUserName];
     [self registerForKeyboardNotifications];
+    
     
 }
 
