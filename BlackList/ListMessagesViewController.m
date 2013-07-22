@@ -141,7 +141,7 @@ NSString *sessionId;
                 
                 
                 UIImage *tras_img = [UIImage imageNamed:@"15.buttonTras.png"];
-                CGRect trash_frame = CGRectMake(280, 16, 31, 32);
+                CGRect trash_frame = CGRectMake(280, 2, 31, 32);
                 UIButton *trash = [UIButton buttonWithType:UIButtonTypeCustom];
                 trash.frame = trash_frame;
                 trash.userInteractionEnabled=YES;
