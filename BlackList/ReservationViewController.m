@@ -8,6 +8,7 @@
 
 #import "ReservationViewController.h"
 #import "CodeEntranceViewController.h"
+#import "EventsViewController.h"
 
 @interface ReservationViewController ()
 
@@ -143,7 +144,11 @@ NSString *sessionId;
         if(reservated){
             [self.tabBarController setSelectedIndex:2];
             CodeEntranceViewController* codeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CodeEntranceViewController"];
+            //EventsViewController* eventsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EventsViewController"];
+            //Fem un pop primer per a que al tornar no vagi a la reserva un altre cop
+            [self.navigationController popToRootViewControllerAnimated:NO];
             [self.navigationController pushViewController:codeViewController animated:YES];
+            //[self.navigationController pushViewController:codeViewController animated:YES];
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                             message:[jsonParser errorMessage]
