@@ -37,7 +37,7 @@ Reservation *reservation;
     
 	// Do any additional setup after loading the view.
     deleteReservation=false;
-    infoReservation.font = [UIFont fontWithName:@"Bebas Neue" size:17];
+    infoReservation.font = [UIFont fontWithName:@"Bebas Neue" size:14];
     infoParty.font = [UIFont fontWithName:@"Bebas Neue" size:20];
 }
 
