@@ -15,10 +15,8 @@
 <NSURLConnectionDelegate>
 {
     @private NSMutableData *webData;
-    @private Boolean qrLoaded;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *qrImg;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollField;
 @property (strong, nonatomic) IBOutlet UITextField *inputEmail;
 - (IBAction)inviteOK:(UIButton *)sender;

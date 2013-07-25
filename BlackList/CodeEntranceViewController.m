@@ -38,7 +38,7 @@ Reservation *reservation;
 	// Do any additional setup after loading the view.
     deleteReservation=false;
     infoReservation.font = [UIFont fontWithName:@"Bebas Neue" size:14];
-    infoParty.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    infoParty.font = [UIFont fontWithName:@"Bebas Neue" size:16];
 }
 
 - (void) viewDidAppear:(BOOL) animated
@@ -112,23 +112,34 @@ Reservation *reservation;
                 NSLog(@"VIP %d",reservation.vip);
                 NSLog(@"Rooms %d",reservation.rooms);
                 NSLog(@"Escorts %d",reservation.escorts);
+                
+                infoReservation.text = [infoReservation.text stringByAppendingString:@"TÚ"];
+                if(reservation.escorts>0){
+                    infoReservation.text = [infoReservation.text stringByAppendingString:@" + "];
+                    infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.escorts]];
+                    if(reservation.escorts==1){
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @" ACOMPAÑANTE"];
+                    }else{
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @" ACOMPAÑANTES"];
+                    }
+                    
+                    
+                }
                 if(reservation.vip>0){
-                    infoReservation.text = [infoReservation.text stringByAppendingString: @"VIP"];
+                    infoReservation.text = [infoReservation.text stringByAppendingString: @" + ESPACIO V.I.P."];
                 }
                 if(reservation.rooms>0){
-                    if(![infoReservation.text isEqualToString:@""]){
-                        infoReservation.text = [infoReservation.text stringByAppendingString: @" | "];
+                    infoReservation.text = [infoReservation.text stringByAppendingString:@" + "];
+                    infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.rooms]];
+                    if(reservation.rooms==1){
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @" HABITACIÓN"];
+                    }else{
+                        infoReservation.text = [infoReservation.text stringByAppendingString: @" HABITACIONES"];
                     }
-                        infoReservation.text = [infoReservation.text stringByAppendingString: @"HABITACIONES: "];
-                        infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.rooms]];
+                    
+                        
                 }
-                if(reservation.escorts>0){
-                    if(![infoReservation.text isEqualToString:@""]){
-                        infoReservation.text = [infoReservation.text stringByAppendingString: @" | "];
-                    }
-                    infoReservation.text = [infoReservation.text stringByAppendingString: @"ACOMPAÑANTES: "];
-                    infoReservation.text = [infoReservation.text stringByAppendingString: [NSString stringWithFormat:@"%d", reservation.escorts]];
-                }
+                
             }else{
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Aviso"
                                                                 message:[jsonParser errorMessage]

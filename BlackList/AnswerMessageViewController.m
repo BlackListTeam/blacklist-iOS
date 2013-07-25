@@ -62,14 +62,13 @@
     s.width = 300;
     s.height = 10000;
     CGRect message_frame = CGRectMake(7, 74, 286, [msj.text sizeWithFont:[UIFont
-                                                                          fontWithName:@"Bebas Neue"
-                                                                          size:20]
+                                                                          boldSystemFontOfSize:12]
                                                        constrainedToSize: s].height);
     UILabel *message = [[UILabel alloc] initWithFrame:message_frame];
     message.text=msj.text;
     [message setBackgroundColor:[UIColor clearColor]];
     message.textColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
-    message.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+    message.font = [UIFont boldSystemFontOfSize:12];
     //[message sizeToFit];
     message.numberOfLines = 0;
     
@@ -164,14 +163,13 @@
         s2.width = 286;
         s2.height = 10000;
         CGRect text_frame = CGRectMake(7, 34, 236, [m.text sizeWithFont:[UIFont
-                                                                              fontWithName:@"Bebas Neue"
-                                                                              size:20]
+                                                                              boldSystemFontOfSize:16]
                                                            constrainedToSize: s2].height);
         UILabel *m_text = [[UILabel alloc] initWithFrame:text_frame];
         m_text.text=m.text;
         [m_text setBackgroundColor:[UIColor clearColor]];
         m_text.textColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
-        m_text.font = [UIFont fontWithName:@"Bebas Neue" size:20];
+        m_text.font = [UIFont boldSystemFontOfSize:12];
         //[m_text sizeToFit];
         m_text.numberOfLines = 0;
         
