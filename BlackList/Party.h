@@ -26,6 +26,7 @@
     int max_rooms;
     Boolean vip_allowed;
     Boolean es_actual;
+    NSString *address;
 }
 
 @property (nonatomic, retain) NSString *name;
@@ -45,6 +46,7 @@
 @property (nonatomic) Boolean es_actual;
 @property (nonatomic) CLLocationDegrees longitude;
 @property (nonatomic) CLLocationDegrees latitude;
+@property (nonatomic, retain) NSString *address;
 
 
 

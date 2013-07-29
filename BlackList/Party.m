@@ -27,5 +27,6 @@
 @synthesize max_rooms;
 @synthesize vip_allowed;
 @synthesize es_actual;
+@synthesize address;
 
 @end

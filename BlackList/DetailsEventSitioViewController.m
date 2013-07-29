@@ -132,7 +132,7 @@
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 2000, 2000);
     MKPointAnnotation *mark = [[MKPointAnnotation alloc] init];
     mark.coordinate = zoomLocation;
-    mark.title = _party.name;
+    mark.title = _party.address;
     [mapa addAnnotation:mark];
     [mapa setRegion:viewRegion animated:YES];
 }

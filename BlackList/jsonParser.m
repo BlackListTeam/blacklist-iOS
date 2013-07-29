@@ -119,6 +119,7 @@ static NSString *errorMessage=@"";
             p.max_escorts =[[party_json objectForKey:@"max_escorts"] intValue];
             p.max_rooms =[[party_json objectForKey:@"max_rooms"] intValue];
             p.vip_allowed =[[party_json objectForKey:@"vip_allowed"] boolValue];
+            p.address = [party_json objectForKey:@"address"];
             p.gallery = [NSMutableArray array];
             for(id party_image in gallery_json){
                 NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.blacklistmeetings.com/files/image/img/%@/iphone_%@",

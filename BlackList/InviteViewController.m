@@ -32,6 +32,12 @@ NSString *sessionId;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 0)];
+    inputEmail.leftView = paddingView;
+    inputEmail.leftViewMode = UITextFieldViewModeAlways;
+    inputEmail.rightView = paddingView;
+    inputEmail.rightViewMode = UITextFieldViewModeAlways;
+    
     [self registerForKeyboardNotifications];
 }
 
