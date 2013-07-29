@@ -1711,7 +1711,7 @@
                                     <constraint firstAttribute="height" constant="82" id="wGb-TL-jPB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="6.Map.png">
+                                <state key="normal" image="6.Pictures.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1725,10 +1725,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFW-Uc-tSG">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="108" id="4du-fa-HYr"/>
-                                    <constraint firstAttribute="height" constant="74" id="PSz-I3-5rH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="6.Pictures.png">
+                                <state key="normal" image="6.Map.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1770,9 +1769,9 @@
                             <constraint firstItem="1lX-6I-ZY4" firstAttribute="top" secondItem="hMQ-hC-jQw" secondAttribute="top" type="default" id="3xU-tm-YAt"/>
                             <constraint firstAttribute="trailing" secondItem="1lX-6I-ZY4" secondAttribute="trailing" constant="18" id="4R4-Yc-ey6"/>
                             <constraint firstItem="mII-db-80u" firstAttribute="top" secondItem="wEe-jX-jHT" secondAttribute="top" type="default" id="5XD-3W-T2x"/>
+                            <constraint firstItem="QFW-Uc-tSG" firstAttribute="trailing" secondItem="wEe-jX-jHT" secondAttribute="trailing" type="default" id="5sB-oD-AsS"/>
                             <constraint firstItem="Yl5-yA-ajI" firstAttribute="baseline" secondItem="QFW-Uc-tSG" secondAttribute="baseline" type="default" id="82d-pG-67s"/>
                             <constraint firstItem="Yl5-yA-ajI" firstAttribute="leading" secondItem="R4V-Ul-9py" secondAttribute="leading" type="default" id="8P9-xk-ps3"/>
-                            <constraint firstAttribute="trailing" secondItem="QFW-Uc-tSG" secondAttribute="trailing" constant="45" id="8RQ-ok-oEm"/>
                             <constraint firstItem="qh0-F9-q3y" firstAttribute="top" secondItem="dVE-ge-5Cb" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8pB-9m-OSQ"/>
                             <constraint firstItem="Rna-KC-dUj" firstAttribute="baseline" secondItem="I7z-3A-GcA" secondAttribute="baseline" type="default" id="8tn-3G-bXP"/>
                             <constraint firstItem="qh0-F9-q3y" firstAttribute="top" secondItem="R4V-Ul-9py" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="97o-Qb-R8C"/>
@@ -1782,7 +1781,6 @@
                             <constraint firstItem="S4o-fA-riQ" firstAttribute="centerX" secondItem="Py2-C0-aeq" secondAttribute="centerX" type="default" id="BO0-2x-EPQ"/>
                             <constraint firstItem="ARp-yB-Hnl" firstAttribute="leading" secondItem="6HG-0I-aYB" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="BoK-80-R9O"/>
                             <constraint firstAttribute="bottom" secondItem="qh0-F9-q3y" secondAttribute="bottom" constant="53" id="Ceo-rU-Sh1"/>
-                            <constraint firstAttribute="trailing" secondItem="wEe-jX-jHT" secondAttribute="trailing" constant="44" id="EST-ps-OD4"/>
                             <constraint firstItem="I7z-3A-GcA" firstAttribute="centerX" secondItem="spc-Tk-3A0" secondAttribute="centerX" type="default" id="FHR-xK-cA4"/>
                             <constraint firstItem="S4o-fA-riQ" firstAttribute="top" secondItem="6HG-0I-aYB" secondAttribute="top" constant="2" id="HFl-9t-oio"/>
                             <constraint firstItem="I7z-3A-GcA" firstAttribute="centerX" secondItem="86s-0V-hIJ" secondAttribute="centerX" type="default" id="Iia-sa-NAF"/>
@@ -1823,6 +1821,7 @@
                             <constraint firstItem="hMQ-hC-jQw" firstAttribute="top" secondItem="ARp-yB-Hnl" secondAttribute="top" type="default" id="vPd-nZ-hD3"/>
                             <constraint firstItem="ARp-yB-Hnl" firstAttribute="top" secondItem="6HG-0I-aYB" secondAttribute="top" constant="156" id="wPj-G6-ITf"/>
                             <constraint firstItem="nRE-ZD-dmh" firstAttribute="trailing" secondItem="TPv-Px-GRX" secondAttribute="trailing" type="default" id="xXc-qc-5PB"/>
+                            <constraint firstAttribute="trailing" secondItem="QFW-Uc-tSG" secondAttribute="trailing" constant="44" id="xo0-w0-8BY"/>
                             <constraint firstItem="qh0-F9-q3y" firstAttribute="top" secondItem="86s-0V-hIJ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xu7-2l-HE6"/>
                             <constraint firstItem="R4V-Ul-9py" firstAttribute="top" secondItem="6HG-0I-aYB" secondAttribute="top" constant="270" id="z6d-Jt-CEe"/>
                         </constraints>
@@ -2190,6 +2189,7 @@
                 <relationship kind="action" name="bgTouched:"/>
                 <relationship kind="action" name="doneEditing:"/>
                 <relationship kind="action" name="loginOK:" candidateClass="UIButton"/>
+                <relationship kind="action" name="passwordDidBeginEditing:" candidateClass="UITextField"/>
                 <relationship kind="action" name="tengoProblemasParaAcceder:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nombre" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
